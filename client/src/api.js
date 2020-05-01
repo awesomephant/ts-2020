@@ -1,5 +1,6 @@
-import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:4000');
+import io from  'socket.io-client';
+
+const socket = io();
 
 function subscribeToUsers(cb) {
     socket.on('users', (data) => {

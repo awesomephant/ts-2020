@@ -15,7 +15,6 @@ class App extends React.Component {
 
     let me = this;
     subscribeToUsers(function (err, users) {
-      console.log(users)
       me.setState({ users: users })
     });
   }
@@ -23,7 +22,6 @@ class App extends React.Component {
   render() {
     let userItems = Object.keys(this.state.users).map((key, i) => {
       let user = this.state.users[key]
-      console.log(user)
       const userStyle = {
         transform: `translateX(${user.position.x}px) translateY(${user.position.y}px)`
       }

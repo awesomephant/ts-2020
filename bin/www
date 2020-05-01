@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug');
+var http = require('http');
+var server = http.createServer(app);
+var io = require('socket.io')(server);
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '4000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+let users = { 'max': { 'id': 'max', position: { x: 0, y: 0 } } }
+
+io.on('connection', (socket) => {
+  console.log(`User ${socket.id} connected.`);
+  users[socket.id] = { id: socket.id, position: { x: 0, y: 0 } }
+  io.emit('users', users)
+
+  socket.on('mouse position', (pos) => {
+    users[socket.id].position = pos;
+    io.emit('users', users)
+  })
+  socket.on('disconnect', () => {
+    delete users[socket.id]
+    io.emit('users', users)
+    console.log(`User ${socket.id} disconnected`);
+  });
+});
+
+server.listen(port, () => {
+  console.log(`Listening on ${port}`)
+});
+server.on('error', onError);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}

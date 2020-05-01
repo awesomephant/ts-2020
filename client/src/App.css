@@ -1,0 +1,16 @@
+body {
+  padding: 5%;
+  cursor: none;
+}
+.cursor {
+  cursor: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: red;
+  border-radius: 100%;
+  display: block;
+  font-size: 0;
+  width: 1rem;
+  height: 1rem;
+}

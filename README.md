@@ -12,19 +12,10 @@ Then ```cd``` into the folder and install dependencies by running:
 
 ```bash
 npm install
-cd client
-npm install
 ```
 
 To start the development server, run
 
 ```bash
-npm run start
-```
-
-and *in a second terminal window*:
-
-```bash
-cd client
 npm run start
 ```

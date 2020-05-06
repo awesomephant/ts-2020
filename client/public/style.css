@@ -7,12 +7,38 @@
 
 :root {
     --sans: Helvetica;
+    --green: #007c3e;
 }
 
 body {
     padding: 1rem;
+    font-family: var(--sans);
+}
+
+a {
+    color: inherit;
 }
 
 h1 {
-    font-family: var(--sans);
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-auth {
+    color: var(--green)
+}
+
+.auth-signout, .user-profile {
+    display: none;
+}
+
+.signed-in .auth-signout, .signed-in .user-profile {
+    display: inline-block;
+}
+
+.signed-in .auth-signin {
+    display: none;
 }

@@ -6,12 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Typographic Singularity 2020" />
   <link rel="stylesheet" href="./style.css">
+  <script src="https://apis.google.com/js/api:client.js"></script>
+  <meta name="google-signin-client_id"
+    content="431294902057-8pcjs5j7qb6ija5a2680djplnp6ied7f.apps.googleusercontent.com">
   <title>TS 2020</title>
 </head>
 
 <body>
-  <h1>TS 2020</h1>
+  <header class="site-header">
+    <h1>Typographic Singularity 2020</h1>
+    <nav class="site-auth">
+      <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">Sign in with Google</a>
+      <span class="auth-user"></span>
+      <a class='auth-signout' href="#" onclick="signOut();">(Sign out)</a>
+    </nav>
+    
+
+  </header>
+
   <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/site.js"></script>
   <script>
     var socket = io();
   </script>

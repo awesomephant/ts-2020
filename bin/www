@@ -28,7 +28,7 @@ app.set('port', port);
  */
 
 
-var socketApi = require('../socketApi');
+var socketApi = require('../socketApi.js');
 var io = socketApi.io;
 io.attach(server);
 

@@ -9,6 +9,7 @@ var debug = require('debug');
 var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
+global.users = {}
 
 /**
  * Get port from environment and store in Express.
@@ -26,23 +27,10 @@ app.set('port', port);
  * Listen on provided port, on all network interfaces.
  */
 
-let users = { 'max': { 'id': 'max', position: { x: 0, y: 0 } } }
 
-io.on('connection', (socket) => {
-  console.log(`User ${socket.id} connected.`);
-  users[socket.id] = { id: socket.id, position: { x: 0, y: 0 } }
-  io.emit('users', users)
-
-  socket.on('mouse position', (pos) => {
-    users[socket.id].position = pos;
-    io.emit('users', users)
-  })
-  socket.on('disconnect', () => {
-    delete users[socket.id]
-    io.emit('users', users)
-    console.log(`User ${socket.id} disconnected`);
-  });
-});
+var socketApi = require('../socketApi');
+var io = socketApi.io;
+io.attach(server);
 
 server.listen(port, () => {
   console.log(`Listening on ${port}`)

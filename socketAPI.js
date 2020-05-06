@@ -6,13 +6,20 @@ socketApi.io = io;
 
 io.on('connection', (socket) => {
     console.log(`User ${socket.id} connected.`);
-    global.users[socket.id] = { id: socket.id, position: { x: 0, y: 0 } }
+    global.users[socket.id] = { id: socket.id, auth: false }
     io.emit('users', global.users)
 
     socket.on('mouse position', (pos) => {
         global.users[socket.id].position = pos;
         io.emit('users', global.users)
     })
+
+    socket.on('signout', (id) => {
+        global.users[id].auth = false;
+        global.users[id].given_name = "";
+        io.emit('users', global.users)
+    })
+
     socket.on('disconnect', () => {
         delete global.users[socket.id]
         io.emit('users', global.users)

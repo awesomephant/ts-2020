@@ -34,6 +34,7 @@ app.post('/api/authenticate/', function (req, res) {
         global.users[data.socketID].auth = true;
         global.users[data.socketID].given_name = payload.given_name;
         socketApi.io.emit('users', global.users)
+        res.send({status: "success"})
     });
 
 })

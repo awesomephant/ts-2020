@@ -55,6 +55,7 @@ function signOut() {
     auth2.signOut().then(function () {
         document.body.classList.remove('signed-in')
         userProfile.innerText = ''
+        socket.emit('signout', socket.id)
     });
 }
 

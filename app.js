@@ -5,7 +5,7 @@ const logger = require('morgan');
 const CLIENT_ID = "431294902057-8pcjs5j7qb6ija5a2680djplnp6ied7f.apps.googleusercontent.com"
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(CLIENT_ID);
-const socketApi = require('./socketApi.js');
+const socketApi = require('./socketAPI.js');
 
 async function verify(token) {
     const ticket = await client.verifyIdToken({

@@ -91,19 +91,28 @@ function CommentList(comments) {
         li.classList.add('comment')
         content.classList.add('comment-content')
         content.innerText = c.text;
-        
+
         li.appendChild(meta)
         li.appendChild(content)
 
         fragment.appendChild(li)
     })
-    return fragment;
+    if (fragment.childElementCount > 1) {
+        return fragment;
+    } else {
+        return fragment.children[0];
+    }
 }
 
 function handleCommentSubmit(e) {
     let text = e.target.parentElement.querySelector('input').value;
-    socket.emit('comment', { text: text, user: me })
-    console.log(text)
+    
+    // We have to set the date here so we can send it out
+    // to sockets without hitting the database, which will
+    // have the canonical date.
+
+    let now = new Date()
+    socket.emit('comment', { text: text, author: me, created: now.toISOString() })
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -122,6 +131,12 @@ window.addEventListener('DOMContentLoaded', () => {
         const lis = UserList(users);
         userList.innerHTML = ''
         userList.appendChild(lis)
+    });
+
+    socket.on('comment', (comment) => {
+        console.log(comment)
+        const li = CommentList([comment]);
+        commentList.insertAdjacentElement('afterbegin', li)
     });
 
     commentSubmit.addEventListener('click', handleCommentSubmit)

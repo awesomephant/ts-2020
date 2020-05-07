@@ -42,3 +42,41 @@ h1 {
 .signed-in .auth-signin {
     display: none;
 }
+
+input {
+    border: 0;
+    background: rgb(233, 232, 232);
+    border-radius: 4px;
+    padding: .5em;
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.test-comments {
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 2px;
+    max-width: 30rem;
+}
+
+.comment-form {
+    display: none;
+}
+
+.signed-in .comment-form {
+    display: block;
+}
+
+.comment {
+    list-style: none;
+    border-bottom: 1px solid black;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+}
+
+.comment-meta {
+    font-size: .8rem;
+}

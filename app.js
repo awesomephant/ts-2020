@@ -6,6 +6,7 @@ const CLIENT_ID = "431294902057-8pcjs5j7qb6ija5a2680djplnp6ied7f.apps.googleuser
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(CLIENT_ID);
 const socketApi = require('./socketAPI.js');
+const db = require('./db')
 
 async function verify(token) {
     const ticket = await client.verifyIdToken({
@@ -34,8 +35,25 @@ app.post('/api/authenticate/', function (req, res) {
         global.users[data.socketID].auth = true;
         global.users[data.socketID].given_name = payload.given_name;
         socketApi.io.emit('users', global.users)
-        res.send({status: "success"})
+        res.send({ status: "success" })
     });
+
+})
+
+app.get('/api/comments/', function (req, res) {
+    let q;
+    let p = req.query.project || "0";
+    q = `SELECT * FROM comments
+         WHERE project=$1
+         ORDER BY created DESC`
+    db.query(q, [p], (err, data) => {
+        if (err) {
+            console.log(err)
+            res.send({ status: "failed" })
+        } else {
+            res.send({ status: "sucess", data: data.rows })
+        }
+    })
 
 })
 

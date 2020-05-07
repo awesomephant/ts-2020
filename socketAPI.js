@@ -1,6 +1,7 @@
-var socket_io = require('socket.io');
-var io = socket_io();
-var socketApi = {};
+const socket_io = require('socket.io');
+const io = socket_io();
+const socketApi = {};
+const db = require('./db')
 
 socketApi.io = io;
 
@@ -18,6 +19,21 @@ io.on('connection', (socket) => {
         global.users[id].auth = false;
         global.users[id].given_name = "";
         io.emit('users', global.users)
+    })
+
+    socket.on('comment', (comment) => {
+        if (global.users[comment.user.id].auth === true) {
+            console.log('comment accepted')
+            // emit event (for real time)
+            // write to database
+            const q = "INSERT INTO comments(text, author, project) VALUES($1, $2, $3)"
+            db.query(q, [comment.text, comment.user, 0], (err, res) => {
+                if (err) { return next(err) }
+                console.log('Saved comment.')
+            })
+        } else {
+            console.log('comment rejected')
+        };
     })
 
     socket.on('disconnect', () => {

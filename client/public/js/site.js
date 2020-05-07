@@ -1,19 +1,26 @@
 let userProfile;
+let me = {
+    name: ''
+}
 // Via: https://developers.google.com/identity/sign-in/web/build-button
 
-// Example POST method implementation:
 async function postData(url = '', data = {}) {
-    // Default options are marked with *
     const response = await fetch(url, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
+        method: 'POST',
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
+        body: JSON.stringify(data)
     });
-    return response.json(); // parses JSON response into native JavaScript objects
+    return response.json();
+}
+
+async function getData(url = '', data = {}) {
+    const response = await fetch(url, {
+        method: 'GET',
+    });
+    return response.json();
 }
 
 function init() {
@@ -45,6 +52,7 @@ function onSignIn(googleUser) {
     postData('/api/authenticate/', { token: id_token, socketID: socket.id })
         .then(data => {
             userProfile.innerText = profile.getName();
+            me.name = profile.getName()
             document.body.classList.add('signed-in')
         });
 
@@ -72,11 +80,42 @@ function UserList(users) {
     return fragment;
 }
 
+function CommentList(comments) {
+    let fragment = new DocumentFragment();
+    comments.forEach((c) => {
+        const li = document.createElement('li')
+        const meta = document.createElement('aside')
+        meta.classList.add('comment-meta')
+        const content = document.createElement('span')
+        meta.innerHTML = `<span class='comment-author'>${c.author.name} – ${c.created}</span>`
+        li.classList.add('comment')
+        content.classList.add('comment-content')
+        content.innerText = c.text;
+        
+        li.appendChild(meta)
+        li.appendChild(content)
+
+        fragment.appendChild(li)
+    })
+    return fragment;
+}
+
+function handleCommentSubmit(e) {
+    let text = e.target.parentElement.querySelector('input').value;
+    socket.emit('comment', { text: text, user: me })
+    console.log(text)
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     init();
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
+    let commentList = document.querySelector('#comment-list')
+    let commentSubmit = document.querySelector('#comment-submit')
+
     socket.on('connect', () => {
+        me.name = socket.id;
+        me.id = socket.id;
     });
 
     socket.on('users', (users) => {
@@ -84,4 +123,10 @@ window.addEventListener('DOMContentLoaded', () => {
         userList.innerHTML = ''
         userList.appendChild(lis)
     });
+
+    commentSubmit.addEventListener('click', handleCommentSubmit)
+    getData('/api/comments?project=0').then(res => {
+        const lis = CommentList(res.data)
+        commentList.appendChild(lis)
+    })
 })

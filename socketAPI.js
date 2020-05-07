@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
     socket.on('comment', (comment) => {
         if (global.users[comment.author.id].auth === true) {
             // emit event (for real time)
-            socket.emit('comment', comment)
+            io.emit('comment', comment)
 
             // write to database
             const q = "INSERT INTO comments(text, author, project) VALUES($1, $2, $3)"

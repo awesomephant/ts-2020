@@ -13,17 +13,19 @@
 body {
     padding: 1rem;
     font-family: var(--sans);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 1rem;
 }
 
 a {
     color: inherit;
 }
 
-h1 {
-}
-
 .site-header {
+    grid-column: 1 / 13;
     display: flex;
+    margin-bottom: 2rem;
     justify-content: space-between;
 }
 
@@ -31,11 +33,17 @@ h1 {
     color: var(--green)
 }
 
-.auth-signout, .user-profile {
+.site-users {
     display: none;
 }
 
-.signed-in .auth-signout, .signed-in .user-profile {
+.auth-signout,
+.user-profile {
+    display: none;
+}
+
+.signed-in .auth-signout,
+.signed-in .user-profile {
     display: inline-block;
 }
 
@@ -56,10 +64,7 @@ h2 {
 }
 
 .test-comments {
-    border: 1px solid black;
-    padding: 1rem;
-    border-radius: 2px;
-    max-width: 30rem;
+    width: 100%;
 }
 
 .comment-form {
@@ -79,4 +84,44 @@ h2 {
 
 .comment-meta {
     font-size: .8rem;
+}
+
+.works {
+    display: contents;
+}
+.work {
+    display: contents;
+}
+
+.work-section:not(.work-open) {
+    display: none;
+}
+
+.work-section.open+.work-section {
+    display: flex;
+}
+.work-section {
+    grid-column: span 1;
+    grid-row: auto;
+    display: flex;
+    align-items: flex-start;
+}
+.section-content {
+    flex-grow: 1;
+}
+.work-section.work-description {
+    grid-column: span 2;
+}
+.work-section p {
+    margin-bottom: .6em;
+}
+
+.work-section.work-images {
+    grid-column: span 4;
+}
+.work-section.work-comments {
+    grid-column: span 2;
+}
+.work-section.work-images img {
+    width: 100%;
 }

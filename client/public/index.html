@@ -21,15 +21,55 @@
   </header>
 
   <ul class="site-users"></ul>
-
-  <div class="test-comments">
-    <h2>Test comment section</h2>
-    <ul id="comment-list"></ul>
-    <div class="comment-form">
-      <input type="text" id='comment-text'>
-      <button id='comment-submit'>Send</button>
-    </div>
-  </div>
+  <main class="works">
+    <article class="work">
+      <section class="work-section work-open">
+        <button class='section-expand'>Expand</button>
+      </section>
+      <section class="work-section work-title">
+        <div class="section-content">
+          <h2>Grid System</h2>
+        </div>
+        <button class='section-expand'>Expand</button>
+      </section>
+      <section class="work-section work-description">
+        <div class="section-content">
+          <p> A speculative font editor/design tool for modular letterforms.</p>
+          <p>Letterforms are created by placing markers on a predefined grid. The system then replaces these markers
+            with geometric shapes to make up the letterform, and exposes controls to transform the shapes and the
+            underlying grid.</p>
+          <p>This was done as part of and ongoing personal project experimenting with home-made design tools.</p>
+          <p>See the (work in progress) live app here: https://awesomephant.github.io/grid-system/</p>
+        </div>
+        <button class='section-expand'>Expand</button>
+      </section>
+      <section class="work-section work-author">
+        <div class="section-content">
+          <h2>Max Kohler</h2>
+          <a href="#1">maxkoehler.com</a>
+        </div>
+        <button class='section-expand'>Expand</button>
+      </section>
+      <section class="work-section work-images">
+        <div class="section-content">
+          <figure>
+            <img src="https://rca-yoa-platflorm.s3.eu-west-2.amazonaws.com/1587376384.jpg" alt="n">
+          </figure>
+        </div>
+        <button class='section-expand'>Expand</button>
+      </section>
+      <section class="work-section work-comments">
+        <div class="test-comments">
+          <h2>Test comment section</h2>
+          <ul id="comment-list"></ul>
+          <div class="comment-form">
+            <input type="text" id='comment-text'>
+            <button id='comment-submit'>Send</button>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/site.js"></script>

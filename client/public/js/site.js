@@ -104,9 +104,25 @@ function CommentList(comments) {
     }
 }
 
+function initWorks() {
+    const works = document.querySelectorAll('.work')
+    works.forEach((w) => {
+        let sections = w.querySelectorAll('.work-section')
+        sections.forEach((s) => {
+            let expand = s.querySelector('.section-expand')
+            if (expand) {
+                expand.innerText = '+'
+                expand.addEventListener('click', (e) => {
+                    e.target.parentElement.classList.toggle('open')
+                })
+            }
+        })
+    })
+}
+
 function handleCommentSubmit(e) {
     let text = e.target.parentElement.querySelector('input').value;
-    
+
     // We have to set the date here so we can send it out
     // to sockets without hitting the database, which will
     // have the canonical date.
@@ -138,6 +154,8 @@ window.addEventListener('DOMContentLoaded', () => {
         const li = CommentList([comment]);
         commentList.insertAdjacentElement('afterbegin', li)
     });
+
+    initWorks();
 
     commentSubmit.addEventListener('click', handleCommentSubmit)
     getData('/api/comments?project=0').then(res => {

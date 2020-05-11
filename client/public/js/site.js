@@ -67,6 +67,69 @@ function signOut() {
     });
 }
 
+
+function shuffle() {
+  var container = document.getElementById("shuffle");
+  var elementsArray = Array.prototype.slice.call(container.getElementsByClassName('work'));
+    elementsArray.forEach(function(element){
+    container.removeChild(element);
+  })
+  shuffleArray(elementsArray);
+  elementsArray.forEach(function(element){
+  container.appendChild(element);
+})
+}
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+shuffle();
+
+document.querySelector(".title-control").onclick = function() {ControlsEvent()};
+document.querySelector(".description-control").onclick = function() {ControlsDescription()};
+document.querySelector(".author-control").onclick = function() {ControlsAuthor()};
+document.querySelector(".images-control").onclick = function() {ControlsImage()};
+document.querySelector(".comments-control").onclick = function() {ControlsComments()};
+
+function ControlsEvent() {
+  const toggle = document.querySelectorAll('.work-open')
+ for (var i = 0; i < toggle.length; ++i) {
+   console.log(toggle);
+   toggle[i].classList.toggle('open');
+}
+}
+function ControlsDescription() {
+  const toggle = document.querySelectorAll('.work-title');
+  for (var i = 0; i < toggle.length; ++i) {
+   toggle[i].classList.toggle('open');
+}
+}
+function ControlsAuthor() {
+  const toggle = document.querySelectorAll('.work-description');
+  for (var i = 0; i < toggle.length; ++i) {
+   toggle[i].classList.toggle('open');
+}
+}
+function ControlsImage() {
+  const toggle = document.querySelectorAll('.work-author');
+  for (var i = 0; i < toggle.length; ++i) {
+   toggle[i].classList.toggle('open');
+}
+}
+function ControlsComments() {
+  const toggle = document.querySelectorAll('.work-images');
+  for (var i = 0; i < toggle.length; ++i) {
+   toggle[i].classList.toggle('open');
+}
+}
+
+
 function UserList(users) {
     let fragment = new DocumentFragment();
     for (const key in users) {
@@ -119,6 +182,7 @@ function initWorks() {
         })
     })
 }
+
 
 function handleCommentSubmit(e) {
     let text = e.target.parentElement.querySelector('input').value;

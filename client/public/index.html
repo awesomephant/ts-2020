@@ -13,22 +13,34 @@
 <body>
   <header class="site-header">
     <h1>Typographic Singularity 2020</h1>
+    <nav class="controls">
+      <ul>
+        <li><p class="title-control control">Title</p></li>
+        <li><p class="description-control control">Description</p></li>
+        <li><p class="author-control control">Author</p></li>
+        <li><p class="images-control control">Images</p></li>
+        <li><p class="comments-control control">Comments</p></li>
+      </ul>
+    </nav>
+
     <nav class="site-auth">
       <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">Sign in with Google</a>
       <span class="auth-user"></span>
       <a class='auth-signout' href="#" onclick="signOut();">(Sign out)</a>
     </nav>
+
   </header>
 
   <ul class="site-users"></ul>
   <main class="works">
-    <article class="work">
+    <div id="shuffle">
+    <div class="work">
       <section class="work-section work-open">
         <button class='section-expand'>Expand</button>
       </section>
       <section class="work-section work-title">
         <div class="section-content">
-          <h2>Grid System</h2>
+          <h2>Work A</h2>
         </div>
         <button class='section-expand'>Expand</button>
       </section>
@@ -68,14 +80,14 @@
           </div>
         </div>
       </section>
-    </article>
-    <article class="work">
+    </div>
+    <div class="work">
       <section class="work-section work-open">
         <button class='section-expand'>Expand</button>
       </section>
       <section class="work-section work-title">
         <div class="section-content">
-          <h2>Grid System</h2>
+          <h2>Work B</h2>
         </div>
         <button class='section-expand'>Expand</button>
       </section>
@@ -110,14 +122,14 @@
           <h2>Test comment section</h2>
         </div>
       </section>
-    </article>
-    <article class="work">
+    </div>
+    <div class="work">
       <section class="work-section work-open">
         <button class='section-expand'>Expand</button>
       </section>
       <section class="work-section work-title">
         <div class="section-content">
-          <h2>Grid System</h2>
+          <h2>Work C</h2>
         </div>
         <button class='section-expand'>Expand</button>
       </section>
@@ -152,11 +164,13 @@
           <h2>Test comment section</h2>
         </div>
       </section>
-    </article>
+    </div>
+   </div> 
   </main>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/site.js"></script>
+
   <script>
     var socket = io();
   </script>

@@ -32,6 +32,10 @@ nav ul{
     list-style: none;
 }
 
+.icon{
+    display:none;
+}
+
 nav ul li {
   display: inline-block;
   margin-right: 1rem;
@@ -148,4 +152,29 @@ h2 {
 
 .work-section.work-images img {
     height: 35vh;
+}
+
+@media only screen and (max-width: 600px) {
+        .icon {
+            display: block;
+            right: 1rem;
+            position: fixed;
+        }
+
+        .controls #myLinks {
+            display: none;
+        }
+
+        .site-auth{
+            display: none;
+        }
+
+        .controls {
+        overflow: hidden;
+        position: relative;
+        }
+
+        nav ul li{
+            display: block;
+        }
 }

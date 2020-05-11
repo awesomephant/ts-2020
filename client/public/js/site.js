@@ -79,7 +79,6 @@ function shuffle() {
   container.appendChild(element);
 })
 }
-
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -99,11 +98,11 @@ document.querySelector(".comments-control").onclick = function() {ControlsCommen
 
 function ControlsEvent() {
   const toggle = document.querySelectorAll('.work-open')
- for (var i = 0; i < toggle.length; ++i) {
-   console.log(toggle);
+  for (var i = 0; i < toggle.length; ++i) {
    toggle[i].classList.toggle('open');
 }
 }
+
 function ControlsDescription() {
   const toggle = document.querySelectorAll('.work-title');
   for (var i = 0; i < toggle.length; ++i) {
@@ -127,6 +126,15 @@ function ControlsComments() {
   for (var i = 0; i < toggle.length; ++i) {
    toggle[i].classList.toggle('open');
 }
+}
+
+function ControlsPhone() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
 }
 
 
@@ -168,8 +176,9 @@ function CommentList(comments) {
 }
 
 function initWorks() {
-    const works = document.querySelectorAll('.work')
-    works.forEach((w) => {
+
+        const works = document.querySelectorAll('.work')
+        works.forEach((w) => {
         let sections = w.querySelectorAll('.work-section')
         sections.forEach((s) => {
             let expand = s.querySelector('.section-expand')
@@ -182,7 +191,6 @@ function initWorks() {
         })
     })
 }
-
 
 function handleCommentSubmit(e) {
     let text = e.target.parentElement.querySelector('input').value;

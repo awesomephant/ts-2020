@@ -39,26 +39,26 @@ layout: base
 <ul class="site-users"></ul>
 <main class="works">
   {% for p in projects %}
-  <div class="work">
+  <div class="work" data-project="{{p.id}}">
     <section class="work-section work-open">
       <button class='section-expand'>Expand</button>
     </section>
     <section class="work-section work-title">
       <div class="section-content">
-        <h2>Title: {{p.title}}</h2>
+        <h2>{{p.title}}</h2>
       </div>
       <button class='section-expand'>Expand</button>
     </section>
     <section class="work-section work-description">
       <div class="section-content">
-        {{p.Description}}
+        {{p.description}}
       </div>
       <button class='section-expand'>Expand</button>
     </section>
     <section class="work-section work-author">
       <div class="section-content">
-        <h2>{{p.Name}}</h2>
-        <a href="#1">maxkoehler.com</a>
+        <h2>{{p.name}}</h2>
+        <a href="{{p.website}}">{{p.website}}</a>
       </div>
       <button class='section-expand'>Expand</button>
     </section>
@@ -73,7 +73,11 @@ layout: base
     <section class="work-section work-comments">
       <div class="test-comments">
         <h2>Test comment section</h2>
-        <button id="comment-submit"></button>
+        <ul class="comments" id='comment-list'></ul>
+        <div class="comment-form" data-project="{{p.id}}">
+          <input type="text" name="" id="comment-input-{{p.id}}" />
+          <button class="comment-submit">Send</button>
+        </div>
       </div>
     </section>
   </div>

@@ -22,14 +22,14 @@ io.on('connection', (socket) => {
     })
 
     socket.on('comment', (comment) => {
-        if (global.users[comment.author.id].auth === true) {
+        if (global.users[comment.author.id].auth === true && comment.text.length > 2) {
             // emit event (for real time)
             io.emit('comment', comment)
 
             // write to database
             const q = "INSERT INTO comments(text, author, project) VALUES($1, $2, $3)"
-            db.query(q, [comment.text, comment.author, 0], (err, res) => {
-                if (err) { return err }
+            db.query(q, [comment.text, comment.author, parseInt(comment.project)], (err, res) => {
+                if (err) { console.warn(err) }
                 console.log('Saved comment.')
             })
         } else {

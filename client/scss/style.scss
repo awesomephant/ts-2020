@@ -30,18 +30,18 @@ a {
     justify-content: space-between;
 }
 
-nav ul{
+nav ul {
     list-style: none;
 }
 
-.icon{
-    display:none;
+.icon {
+    display: none;
 }
 
 nav ul li {
-  display: inline-block;
-  margin-right: 1rem;
-}  
+    display: inline-block;
+    margin-right: 1rem;
+}
 
 .site-auth {
     color: var(--green)
@@ -94,9 +94,11 @@ h2 {
     display: inline;
     margin-right: .5em;
 }
+
 .comment:before {
     content: "(";
 }
+
 .comment:after {
     content: ")";
 }
@@ -105,6 +107,7 @@ h2 {
     display: none;
     font-size: .8rem;
 }
+
 .comment-date {
     display: none;
 }
@@ -116,7 +119,11 @@ h2 {
     font-size: 1.5rem;
 }
 
-.work h2, .work button, .section-content, .section-content p, .section-content figure{
+.work h2,
+.work button,
+.section-content,
+.section-content p,
+.section-content figure {
     display: inline;
 }
 
@@ -157,26 +164,26 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
-        .icon {
-            display: block;
-            right: 1rem;
-            position: fixed;
-        }
+    .icon {
+        display: block;
+        right: 1rem;
+        position: fixed;
+    }
 
-        .controls #myLinks {
-            display: none;
-        }
+    .controls #myLinks {
+        display: none;
+    }
 
-        .site-auth{
-            display: none;
-        }
+    .site-auth {
+        display: none;
+    }
 
-        .controls {
+    .controls {
         overflow: hidden;
         position: relative;
-        }
+    }
 
-        nav ul li{
-            display: block;
-        }
+    nav ul li {
+        display: block;
+    }
 }

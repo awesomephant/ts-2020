@@ -42,11 +42,9 @@ app.post('/api/authenticate/', function (req, res) {
 
 app.get('/api/comments/', function (req, res) {
     let q;
-    let p = req.query.project || "0";
     q = `SELECT * FROM comments
-         WHERE project=$1
          ORDER BY created DESC`
-    db.query(q, [p], (err, data) => {
+    db.query(q, [], (err, data) => {
         if (err) {
             console.log(err)
             res.send({ status: "failed" })

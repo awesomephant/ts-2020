@@ -2,6 +2,8 @@ let userProfile;
 let me = {
     name: ''
 }
+let comments = [];
+
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
         method: 'POST',
@@ -53,7 +55,7 @@ function attachSignin(element) {
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var id_token = googleUser.getAuthResponse().id_token;
-    
+
     postData('/api/authenticate/', { token: id_token, socketID: socket.id })
         .then(data => {
             userProfile.innerText = profile.getName();
@@ -175,7 +177,7 @@ function CommentList(comments) {
     })
     if (fragment.childElementCount > 1) {
         return fragment;
-    } else {
+    } else if (fragment.childElementCount === 1) {
         return fragment.children[0];
     }
 }
@@ -183,6 +185,26 @@ function CommentList(comments) {
 function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
+        const id = w.getAttribute('data-project')
+        const commentContainer = w.querySelector('.comments')
+        let localComments = []
+        // Render existing comments
+        comments.forEach((c) => {
+            if (c.project === id) {
+                localComments.push(c)
+            }
+        })
+
+        let frag = CommentList(localComments);
+        if (frag) {
+            commentContainer.appendChild(frag)
+        }
+
+        // Bind comment form 
+        const commentSubmit = w.querySelector('.comment-submit')
+        commentSubmit.addEventListener('click', handleCommentSubmit)
+
+        // Bind section events
         let sections = w.querySelectorAll('.work-section')
         sections.forEach((s) => {
             let expand = s.querySelector('.section-expand')
@@ -197,25 +219,22 @@ function initWorks() {
 }
 
 function handleCommentSubmit(e) {
-    let text = e.target.parentElement.querySelector('input').value;
-
+    const text = e.target.parentElement.querySelector('input').value;
+    const id = e.target.parentElement.getAttribute('data-project');
+    console.log('hi')
     // We have to set the date here so we can send it out
     // to sockets without hitting the database, which will
     // have the canonical date.
-
     let now = new Date()
-    socket.emit('comment', { text: text, author: me, created: now.toISOString() })
+    const data = { project: id, text: text, author: me, created: now.toISOString() }
+    socket.emit('comment', data)
 }
 
 window.addEventListener('DOMContentLoaded', () => {
     init();
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
-    let commentList = document.querySelector('#comment-list')
-    let commentSubmit = document.querySelector('#comment-submit')
-
     if (socket) {
-
         socket.on('connect', () => {
             me.name = socket.id;
             me.id = socket.id;
@@ -230,15 +249,13 @@ window.addEventListener('DOMContentLoaded', () => {
         socket.on('comment', (comment) => {
             console.log(comment)
             const li = CommentList([comment]);
-            commentList.insertAdjacentElement('afterbegin', li)
+            const commentContainer = document.querySelector(`[data-project="${comment.project}"] .comments`)
+            commentContainer.insertAdjacentElement('afterbegin', li)
         });
     }
 
-    initWorks();
-
-    commentSubmit.addEventListener('click', handleCommentSubmit)
-    getData('/api/comments?project=0').then(res => {
-        const lis = CommentList(res.data)
-        commentList.appendChild(lis)
+    getData('/api/comments/').then(res => {
+        comments = res.data;
+        initWorks();
     })
 })

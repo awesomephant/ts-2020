@@ -1,0 +1,42 @@
+.site-header {
+    grid-column: 1 / 13;
+    display: flex;
+    margin-bottom: 2rem;
+    font-size: var(--ms-0);
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+}
+
+.icon {
+    display: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.site-auth {
+    color: var(--green)
+}
+
+.site-users {
+    display: none;
+}
+
+.auth-signout,
+.user-profile {
+    display: none;
+}
+
+.signed-in .auth-signout,
+.signed-in .user-profile {
+    display: inline-block;
+}
+
+.signed-in .auth-signin {
+    display: none;
+}

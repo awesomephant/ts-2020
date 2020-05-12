@@ -1,0 +1,44 @@
+.work {
+    display: inline;
+    font-size: var(--ms-5);
+
+    h2,
+    button,
+    .work-section,
+    .section-content,
+    p,
+    figure {
+        display: inline;
+    }
+}
+
+.work-section:not(.work-open) {
+    display: none;
+}
+
+.work-section.open+.work-section {
+    display: inline;
+}
+
+.work-images {
+    img {
+        height: 25vh;
+    }
+}
+
+.section-content {
+    flex-grow: 1;
+}
+
+.section-expand {
+    background: black;
+    border: 0;
+    width: 1.5em;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    &:hover, &:focus {
+        background: var(--black-hover);
+    }
+}

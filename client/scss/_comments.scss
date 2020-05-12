@@ -1,0 +1,32 @@
+.comment-form {
+    display: none;
+
+
+    .signed-in & {
+        display: block;
+    }
+
+}
+
+.comment {
+    list-style: none;
+    display: inline;
+    margin-right: .5em;
+}
+
+.comment:before {
+    content: "(";
+}
+
+.comment:after {
+    content: ")";
+}
+
+.comment-meta {
+    display: none;
+    font-size: .8rem;
+}
+
+.comment-date {
+    display: none;
+}

@@ -12,8 +12,6 @@
 
 body {
     padding: 1rem;
-
-    color: green !important;
     font-family: var(--sans);
     display: grid;
 }
@@ -114,9 +112,7 @@ h2 {
 
 .work {
     display: inline;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 1rem;
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, calc(3vw + 1vh), 5rem);
 }
 
 .work h2,
@@ -143,6 +139,16 @@ h2 {
     flex-grow: 1;
 }
 
+.section-expand {
+    background: black;
+    border: 0;
+    width: 1.5em;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+}
+
 .work-section.work-description {
     grid-column: span 2;
 }
@@ -151,16 +157,8 @@ h2 {
     margin-bottom: .6em;
 }
 
-.work-section.work-images {
-    grid-column: span 4;
-}
-
-.work-section.work-comments {
-    grid-column: span 2;
-}
-
 .work-section.work-images img {
-    height: 35vh;
+    height: 25vh;
 }
 
 @media only screen and (max-width: 600px) {

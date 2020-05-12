@@ -211,6 +211,7 @@ function initWorks() {
             if (expand) {
                 expand.innerText = '+'
                 expand.addEventListener('click', (e) => {
+                    expand.innerText = '+'
                     e.target.parentElement.classList.toggle('open')
                 })
             }

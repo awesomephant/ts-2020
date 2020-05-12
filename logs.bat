@@ -1,1 +1,1 @@
-heroku logs -a ts-2020 --tail
+heroku logs -a ts-2020 --source app --tail

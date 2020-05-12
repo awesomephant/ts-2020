@@ -1,6 +1,13 @@
+.works {
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
 .work {
-    display: inline;
     font-size: var(--ms-5);
+    margin-right: .1em;
+    margin-bottom: .1em;
 
     h2,
     button,
@@ -33,10 +40,9 @@
 .section-expand {
     background: black;
     border: 0;
-    width: 1.5em;
-    vertical-align: middle;
     cursor: pointer;
-    border-radius: 4px;
+    padding: .25em .5em;
+    border-radius: var(--border-radius);
     color: white;
     &:hover, &:focus {
         background: var(--black-hover);

@@ -6,6 +6,16 @@
     justify-content: space-between;
 }
 
+.site-title {
+    font-size: var(--ms-5);
+    background: black;
+    color: white;
+    padding: .1em .5em;
+    margin-right: .1em;
+    display: inline-block;
+    border-radius: var(--border-radius);
+}
+
 nav ul {
     list-style: none;
 }
@@ -17,10 +27,6 @@ nav ul {
 nav ul li {
     display: inline-block;
     margin-right: 1rem;
-}
-
-.site-auth {
-    color: var(--green)
 }
 
 .site-users {

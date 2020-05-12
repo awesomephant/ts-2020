@@ -77,7 +77,7 @@ function signOut() {
 
 function shuffle() {
     var container = document.querySelector(".works");
-    var elementsArray = Array.prototype.slice.call(container.getElementsByClassName('work'));
+    var elementsArray = Array.prototype.slice.call(container.querySelectorAll('.work'));
     elementsArray.forEach(function (element) {
         container.removeChild(element);
     })

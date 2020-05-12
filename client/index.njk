@@ -3,7 +3,6 @@ layout: base
 ---
 
 <header class="site-header">
-  <h1>Typographic Singularity 2020</h1>
   <nav class="controls">
     <a class="icon" onclick="ControlsPhone()">
       <i class="fa fa-bars"></i>
@@ -38,6 +37,9 @@ layout: base
 
 <ul class="site-users"></ul>
 <main class="works">
+  <div class="site-title">
+  <h1>Typographic Singularity 20</h1>
+  </div>
   {% for p in projects %}
   <div class="work" data-project="{{p.id}}">
     <section class="work-section work-open">
@@ -72,7 +74,6 @@ layout: base
     </section>
     <section class="work-section work-comments">
       <div class="test-comments">
-        <h2>Test comment section</h2>
         <ul class="comments" id='comment-list'></ul>
         <div class="comment-form" data-project="{{p.id}}">
           <input type="text" name="" id="comment-input-{{p.id}}" />

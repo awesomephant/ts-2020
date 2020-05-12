@@ -1,9 +1,23 @@
 .comment-form {
-    display: none;
-
-
+    //display: none;
     .signed-in & {
-        display: block;
+        display: inline-block;
+    }
+
+    input {
+        border: 0;
+        appearance: none;
+        border-bottom: 2px solid var(--black);
+    }
+    button {
+        background: var(--black);
+        color: white;
+        font-size: var(--ms-2);
+        border: 0;
+        padding: .2em;
+        appearance: none;
+        cursor: pointer;
+        font-family: var(--sans);
     }
 
 }

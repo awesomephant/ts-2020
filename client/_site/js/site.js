@@ -90,51 +90,83 @@ function shuffleArray(array) {
 }
 shuffle();
 
-document.querySelector(".title-control").onclick = function () { ControlsEvent() };
-document.querySelector(".description-control").onclick = function () { ControlsDescription() };
-document.querySelector(".author-control").onclick = function () { ControlsAuthor() };
-document.querySelector(".images-control").onclick = function () { ControlsImage() };
-document.querySelector(".comments-control").onclick = function () { ControlsComments() };
-
-function ControlsEvent() {
-    const toggle = document.querySelectorAll('.work-open')
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
+function ControlsEventOpen() {
+    if ($(".work-open").hasClass("open")){
+        $(".work-open").removeClass("open");
+    }else {
+ $(".work-open").addClass("open");
     }
+}
+function ControlsEventClose() {
+ $(".work-section").toggleClass("open");
+ if (!$(".work-open").hasClass("open")){
+  $(".work-open").addClass("open");
+ }
 }
 
-function ControlsDescription() {
-    const toggle = document.querySelectorAll('.work-title');
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
+function ControlsDescriptionOpen() {
+    if ($(".work-title").hasClass("open")){
+        $(".work-title").removeClass("open");
+    }else {
+ $(".work-title").addClass("open");
     }
 }
-function ControlsAuthor() {
-    const toggle = document.querySelectorAll('.work-description');
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
+function ControlsDescriptionClose() {
+    $(".work-section").toggleClass("open");
+    if (!$(".work-title").hasClass("open")){
+    $(".work-title").addClass("open");
     }
 }
-function ControlsImage() {
-    const toggle = document.querySelectorAll('.work-author');
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
+
+function ControlsAuthorOpen() {
+    if ($(".work-description").hasClass("open")){
+        $(".work-description").removeClass("open");
+    }else {
+ $(".work-description").addClass("open");
     }
 }
-function ControlsComments() {
-    const toggle = document.querySelectorAll('.work-images');
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
+function ControlsAuthorClose() {
+    $(".work-section").toggleClass("open");
+        if (!$(".work-description").hasClass("open")){
+        $(".work-description").addClass("open");
+    }
+}
+
+function ControlsImageOpen() {
+    if ($(".work-author").hasClass("open")){
+        $(".work-author").removeClass("open");
+    }else {
+ $(".work-author").addClass("open");
+    }
+}
+function ControlsImageClose() {
+    $(".work-section").toggleClass("open");
+        if (!$(".work-author").hasClass("open")){
+        $(".work-author").addClass("open");
+    }
+}
+
+function ControlsCommentsOpen() {
+    if ($(".work-images").hasClass("open")){
+        $(".work-images").removeClass("open");
+    }else {
+ $(".work-images").addClass("open");
+    }
+}
+function ControlsCommentsClose() {
+    $(".work-section").toggleClass("open");
+        if (!$(".work-images").hasClass("open")){
+        $(".work-images").addClass("open");
     }
 }
 
 function ControlsPhone() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
 }
 
 
@@ -192,6 +224,29 @@ function initWorks() {
     })
 }
 
+function SmallScreen(x) {
+  if (x.matches) {
+    $('.section-expand').html('+');
+    $(".work-section").addClass("open");
+    $(".title-control").click(ControlsEventClose);
+    $(".description-control").click(ControlsDescriptionClose);
+    $(".author-control").click(ControlsAuthorClose);
+    $(".images-control").click(ControlsImageClose);
+    $(".comments-control").click(ControlsCommentsClose);
+  } else {
+    $(".work-section").removeClass("open");
+    initWorks();
+    $(".title-control").click(ControlsEventOpen);
+    $(".description-control").click(ControlsDescriptionOpen);
+    $(".author-control").click(ControlsAuthorOpen);
+    $(".images-control").click(ControlsImageOpen);
+    $(".comments-control").click(ControlsCommentsOpen);
+  }
+}
+var x = window.matchMedia("(max-width: 600px)")
+SmallScreen(x) 
+x.addListener(SmallScreen)
+
 function handleCommentSubmit(e) {
     let text = e.target.parentElement.querySelector('input').value;
 
@@ -227,7 +282,7 @@ window.addEventListener('DOMContentLoaded', () => {
         commentList.insertAdjacentElement('afterbegin', li)
     });
 
-    initWorks();
+   // initWorks();
 
     commentSubmit.addEventListener('click', handleCommentSubmit)
     getData('/api/comments?project=0').then(res => {

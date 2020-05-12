@@ -1,0 +1,80 @@
+---
+layout: base
+---
+
+<header class="site-header">
+  <h1>Typographic Singularity 2020</h1>
+  <nav class="controls">
+    <a class="icon" onclick="ControlsPhone()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <div id="myLinks">
+      <ul>
+        <li>
+          <p class="title-control control">Title</p>
+        </li>
+        <li>
+          <p class="description-control control">Description</p>
+        </li>
+        <li>
+          <p class="author-control control">Author</p>
+        </li>
+        <li>
+          <p class="images-control control">Images</p>
+        </li>
+        <li>
+          <p class="comments-control control">Comments</p>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav class="site-auth">
+    <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">Sign in with Google</a>
+    <span class="auth-user"></span>
+    <a class='auth-signout' href="#" onclick="signOut();">(Sign out)</a>
+  </nav>
+</header>
+
+<ul class="site-users"></ul>
+<main class="works">
+  {% for p in projects %}
+  <div class="work">
+    <section class="work-section work-open">
+      <button class='section-expand'>Expand</button>
+    </section>
+    <section class="work-section work-title">
+      <div class="section-content">
+        <h2>Title: {{p.title}}</h2>
+      </div>
+      <button class='section-expand'>Expand</button>
+    </section>
+    <section class="work-section work-description">
+      <div class="section-content">
+        {{p.Description}}
+      </div>
+      <button class='section-expand'>Expand</button>
+    </section>
+    <section class="work-section work-author">
+      <div class="section-content">
+        <h2>Max Kohler</h2>
+        <a href="#1">maxkoehler.com</a>
+      </div>
+      <button class='section-expand'>Expand</button>
+    </section>
+    <section class="work-section work-images">
+      <div class="section-content">
+        <figure>
+          <img src="https://picsum.photos/500/300" alt="n">
+        </figure>
+      </div>
+      <button class='section-expand'>Expand</button>
+    </section>
+    <section class="work-section work-comments">
+      <div class="test-comments">
+        <h2>Test comment section</h2>
+      </div>
+    </section>
+  </div>
+  {% endfor %}
+</main>

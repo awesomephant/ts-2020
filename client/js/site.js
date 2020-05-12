@@ -69,15 +69,15 @@ function signOut() {
 
 
 function shuffle() {
-  var container = document.getElementById("shuffle");
-  var elementsArray = Array.prototype.slice.call(container.getElementsByClassName('work'));
-    elementsArray.forEach(function(element){
-    container.removeChild(element);
-  })
-  shuffleArray(elementsArray);
-  elementsArray.forEach(function(element){
-  container.appendChild(element);
-})
+    var container = document.querySelector(".works");
+    var elementsArray = Array.prototype.slice.call(container.getElementsByClassName('work'));
+    elementsArray.forEach(function (element) {
+        container.removeChild(element);
+    })
+    shuffleArray(elementsArray);
+    elementsArray.forEach(function (element) {
+        container.appendChild(element);
+    })
 }
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -90,51 +90,51 @@ function shuffleArray(array) {
 }
 shuffle();
 
-document.querySelector(".title-control").onclick = function() {ControlsEvent()};
-document.querySelector(".description-control").onclick = function() {ControlsDescription()};
-document.querySelector(".author-control").onclick = function() {ControlsAuthor()};
-document.querySelector(".images-control").onclick = function() {ControlsImage()};
-document.querySelector(".comments-control").onclick = function() {ControlsComments()};
+document.querySelector(".title-control").onclick = function () { ControlsEvent() };
+document.querySelector(".description-control").onclick = function () { ControlsDescription() };
+document.querySelector(".author-control").onclick = function () { ControlsAuthor() };
+document.querySelector(".images-control").onclick = function () { ControlsImage() };
+document.querySelector(".comments-control").onclick = function () { ControlsComments() };
 
 function ControlsEvent() {
-  const toggle = document.querySelectorAll('.work-open')
-  for (var i = 0; i < toggle.length; ++i) {
-   toggle[i].classList.toggle('open');
-}
+    const toggle = document.querySelectorAll('.work-open')
+    for (var i = 0; i < toggle.length; ++i) {
+        toggle[i].classList.toggle('open');
+    }
 }
 
 function ControlsDescription() {
-  const toggle = document.querySelectorAll('.work-title');
-  for (var i = 0; i < toggle.length; ++i) {
-   toggle[i].classList.toggle('open');
-}
+    const toggle = document.querySelectorAll('.work-title');
+    for (var i = 0; i < toggle.length; ++i) {
+        toggle[i].classList.toggle('open');
+    }
 }
 function ControlsAuthor() {
-  const toggle = document.querySelectorAll('.work-description');
-  for (var i = 0; i < toggle.length; ++i) {
-   toggle[i].classList.toggle('open');
-}
+    const toggle = document.querySelectorAll('.work-description');
+    for (var i = 0; i < toggle.length; ++i) {
+        toggle[i].classList.toggle('open');
+    }
 }
 function ControlsImage() {
-  const toggle = document.querySelectorAll('.work-author');
-  for (var i = 0; i < toggle.length; ++i) {
-   toggle[i].classList.toggle('open');
-}
+    const toggle = document.querySelectorAll('.work-author');
+    for (var i = 0; i < toggle.length; ++i) {
+        toggle[i].classList.toggle('open');
+    }
 }
 function ControlsComments() {
-  const toggle = document.querySelectorAll('.work-images');
-  for (var i = 0; i < toggle.length; ++i) {
-   toggle[i].classList.toggle('open');
-}
+    const toggle = document.querySelectorAll('.work-images');
+    for (var i = 0; i < toggle.length; ++i) {
+        toggle[i].classList.toggle('open');
+    }
 }
 
 function ControlsPhone() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
 }
 
 
@@ -177,8 +177,8 @@ function CommentList(comments) {
 
 function initWorks() {
 
-        const works = document.querySelectorAll('.work')
-        works.forEach((w) => {
+    const works = document.querySelectorAll('.work')
+    works.forEach((w) => {
         let sections = w.querySelectorAll('.work-section')
         sections.forEach((s) => {
             let expand = s.querySelector('.section-expand')

@@ -2,8 +2,6 @@ let userProfile;
 let me = {
     name: ''
 }
-// Via: https://developers.google.com/identity/sign-in/web/build-button
-
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
         method: 'POST',
@@ -24,31 +22,38 @@ async function getData(url = '', data = {}) {
 }
 
 function init() {
-    gapi.load('auth2', function () {
-        // Retrieve the singleton for the GoogleAuth library and set up the client.
-        auth2 = gapi.auth2.init({
-            client_id: '431294902057-8pcjs5j7qb6ija5a2680djplnp6ied7f.apps.googleusercontent.com',
-            cookiepolicy: 'single_host_origin',
+    try {
+        gapi.load('auth2', function () {
+            // Retrieve the singleton for the GoogleAuth library and set up the client.
+            auth2 = gapi.auth2.init({
+                client_id: '431294902057-8pcjs5j7qb6ija5a2680djplnp6ied7f.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin',
+            });
+            attachSignin(document.getElementById('js-signin'));
         });
-        attachSignin(document.getElementById('js-signin'));
-    });
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 function attachSignin(element) {
-    console.log(element.id);
-    auth2.attachClickHandler(element, {},
-        function (googleUser) {
-            onSignIn(googleUser)
-        }, function (error) {
-            alert(JSON.stringify(error, undefined, 2));
-        });
+    try {
+
+        auth2.attachClickHandler(element, {},
+            function (googleUser) {
+                onSignIn(googleUser)
+            }, function (error) {
+            });
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var id_token = googleUser.getAuthResponse().id_token;
-
+    
     postData('/api/authenticate/', { token: id_token, socketID: socket.id })
         .then(data => {
             userProfile.innerText = profile.getName();
@@ -176,7 +181,6 @@ function CommentList(comments) {
 }
 
 function initWorks() {
-
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
         let sections = w.querySelectorAll('.work-section')
@@ -210,22 +214,25 @@ window.addEventListener('DOMContentLoaded', () => {
     let commentList = document.querySelector('#comment-list')
     let commentSubmit = document.querySelector('#comment-submit')
 
-    socket.on('connect', () => {
-        me.name = socket.id;
-        me.id = socket.id;
-    });
+    if (socket) {
 
-    socket.on('users', (users) => {
-        const lis = UserList(users);
-        userList.innerHTML = ''
-        userList.appendChild(lis)
-    });
+        socket.on('connect', () => {
+            me.name = socket.id;
+            me.id = socket.id;
+        });
 
-    socket.on('comment', (comment) => {
-        console.log(comment)
-        const li = CommentList([comment]);
-        commentList.insertAdjacentElement('afterbegin', li)
-    });
+        socket.on('users', (users) => {
+            const lis = UserList(users);
+            userList.innerHTML = ''
+            userList.appendChild(lis)
+        });
+
+        socket.on('comment', (comment) => {
+            console.log(comment)
+            const li = CommentList([comment]);
+            commentList.insertAdjacentElement('afterbegin', li)
+        });
+    }
 
     initWorks();
 

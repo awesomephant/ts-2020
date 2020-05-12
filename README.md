@@ -14,8 +14,20 @@ Then ```cd``` into the folder and install dependencies by running:
 npm install
 ```
 
-To start the development server, run
+To start the express server, run
 
 ```bash
-npm run start
+npm start
+```
+
+You can run the client independently by running
+
+```bash
+cd client
+```
+
+and 
+
+```bash
+npx @11ty/eleventy --serve
 ```

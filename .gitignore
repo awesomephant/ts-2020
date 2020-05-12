@@ -8,6 +8,6 @@ package-lock.json
 node_modules/
 documentation/
 .env
-client/_site/
+/client/_site/
 # This comes from a google spreadsheet during build
-client/_data/projects.json
+/client/_data/projects.json

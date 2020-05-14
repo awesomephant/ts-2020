@@ -189,9 +189,9 @@ function initWorks() {
         sections.forEach((s) => {
             let expand = s.querySelector('.section-expand')
             if (expand) {
-                expand.innerText = '+'
+                expand.innerText = ''
                 expand.addEventListener('click', (e) => {
-                    expand.innerText = '+'
+                    expand.classList.toggle('active')
                     e.target.parentNode.nextElementSibling.classList.toggle('open')
                 })
             }

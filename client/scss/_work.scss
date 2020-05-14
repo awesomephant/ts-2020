@@ -11,12 +11,12 @@
     margin-bottom: .1em;
 
     h2,
-    button,
     .work-section,
     .section-content,
     p,
     figure {
-        display: inline;
+        display: inline-flex;
+        align-items: center;
     }
 }
 
@@ -25,7 +25,7 @@
 }
 
 .work-section.open {
-    display: inline;
+    display: inline-flex;
 }
 
 .work-images {
@@ -39,24 +39,22 @@
 }
 
 .section-expand {
-    background: black;
-    border: 0;
-    font-size: 2rem;
+    background: white;
+    border: 1px solid black;
+    font-size: 1rem;
     cursor: pointer;
     padding: .25em .5em;
-    border-radius: var(--border-radius);
-    color: white;
-
+    color: var(--black);
+    display: none;
+    &:after {
+        content: '+'
+    }
+    &.active:after {
+        content: 'x'
+    }
     &:hover,
     &:focus {
         background: var(--black-hover);
-    }
-}
-
-.controls {}
-
-.control {
-    &.active {
-        font-weight: bold;
+        color: white;
     }
 }

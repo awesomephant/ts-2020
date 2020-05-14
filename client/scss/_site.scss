@@ -8,12 +8,8 @@
 
 .site-title {
     font-size: var(--ms-5);
-    background: black;
-    color: white;
-    padding: .1em .5em;
     margin-right: .1em;
     display: inline-block;
-    border-radius: var(--border-radius);
 }
 
 nav ul {
@@ -45,4 +41,20 @@ nav ul li {
 
 .signed-in .auth-signin {
     display: none;
+}
+
+.controls {
+    position: fixed;
+    left: 50%;
+    top: 2rem;
+    background: white;
+    border: 1px solid black;
+    padding: .5em;
+    border-radius: 1em;
+}
+
+.control {
+    &.active {
+        font-weight: bold;
+    }
 }

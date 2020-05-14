@@ -100,7 +100,6 @@ shuffle();
 
 function initControls() {
     const controls = document.querySelectorAll('.controls .control');
-    console.log(controls)
     controls.forEach((c) => {
         c.addEventListener('click', e => {
             e.target.classList.toggle('active');
@@ -114,9 +113,11 @@ function toggleSections(section) {
     targetSections.forEach(s => {
         if (s.classList.contains('open')) {
             s.classList.remove('open')
+            s.style.width = `${0}px`
 
         } else {
             s.classList.add('open')
+            s.style.width = `${s.getAttribute('data-width')}px`
         }
 
     })
@@ -213,6 +214,8 @@ function initWorks() {
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
         sections.forEach((s) => {
+            s.setAttribute('data-width', s.clientWidth)
+            s.classList.add('loaded')
             s.addEventListener('click', (e) => {
                 s.nextElementSibling.classList.toggle('open')
             })

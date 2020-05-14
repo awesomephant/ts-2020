@@ -15,20 +15,17 @@
     div,
     figure {
         display: inline;
-        align-items: center;
         cursor: zoom-in;
     }
 }
 
 .work-section {
     display: none;
-    opacity: 0;
+    transition: 400ms;
 }
 
 .work-section.open {
-    transition: 400ms;
     display: inline;
-    opacity: 1;
 }
 
 .work-title h2 {

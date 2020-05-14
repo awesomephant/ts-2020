@@ -14,9 +14,14 @@
     .section-content,
     p,
     div,
-    figure {
+    figure, nav {
         display: inline;
         cursor: zoom-in;
+    }
+
+    figure {
+        margin-right: .2em;
+        vertical-align: middle;
     }
 }
 
@@ -31,7 +36,7 @@
 
 .work-images {
     img {
-        height: 1em;
+        height: .8em;
         filter: grayscale(1);
     }
 }

@@ -48,6 +48,12 @@ layout: base
     </section>
     <section data-brackets='{}' class="work-section work-images">
       <div class="section-content">
+        {% assign images = p.images | split: "," %}
+        {% for img in images %}
+        <figure>
+          <img src="https://ts-2020.s3.eu-west-2.amazonaws.com/{{img}}" alt="n">
+        </figure>
+        {% endfor %}
         <figure>
           <img src="https://picsum.photos/500/300" alt="n">
         </figure>

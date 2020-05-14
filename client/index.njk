@@ -4,28 +4,12 @@ layout: base
 
 <header class="site-header">
   <nav class="controls">
-    <a class="icon" onclick="ControlsPhone()">
-      <i class="fa fa-bars"></i>
-    </a>
-    <div id="myLinks">
-      <ul>
-        <li>
-          <p class="title-control control">Title</p>
-        </li>
-        <li>
-          <p class="description-control control">Description</p>
-        </li>
-        <li>
-          <p class="author-control control">Author</p>
-        </li>
-        <li>
-          <p class="images-control control">Images</p>
-        </li>
-        <li>
-          <p class="comments-control control">Comments</p>
-        </li>
-      </ul>
-    </div>
+    <a href='#1' data-section='title' class="control">Title</a>
+    <a href='#1' data-section='description' class="control">Description</a>
+    <a href='#1' data-section='author' class="control">Author</a>
+    <a href='#1' data-section='images' class="control">Images</a>
+    <a href='#1' data-section='comments' class="control">Comments</a>
+  </nav>
   </nav>
 
   <nav class="site-auth">
@@ -38,7 +22,7 @@ layout: base
 <ul class="site-users"></ul>
 <main class="works">
   <div class="site-title">
-  <h1>Typographic Singularity 20</h1>
+    <h1>Typographic Singularity 20</h1>
   </div>
   {% for p in projects %}
   <div class="work" data-project="{{p.id}}">

@@ -23,7 +23,7 @@ async function getData(url = '', data = {}) {
     return response.json();
 }
 
-function init() {
+function initAuth() {
     try {
         gapi.load('auth2', function () {
             // Retrieve the singleton for the GoogleAuth library and set up the client.
@@ -97,42 +97,23 @@ function shuffleArray(array) {
 }
 shuffle();
 
-document.querySelector(".title-control").onclick = function () { ControlsEvent() };
-document.querySelector(".description-control").onclick = function () { ControlsDescription() };
-document.querySelector(".author-control").onclick = function () { ControlsAuthor() };
-document.querySelector(".images-control").onclick = function () { ControlsImage() };
-document.querySelector(".comments-control").onclick = function () { ControlsComments() };
 
-function ControlsEvent() {
-    const toggle = document.querySelectorAll('.work-open')
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
-    }
+function initControls() {
+    const controls = document.querySelectorAll('.controls .control');
+    console.log(controls)
+    controls.forEach((c) => {
+        c.addEventListener('click', e => {
+            e.target.classList.toggle('active');
+            toggleSections(e.target.getAttribute('data-section'));
+        })
+    })
 }
 
-function ControlsDescription() {
-    const toggle = document.querySelectorAll('.work-title');
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
-    }
-}
-function ControlsAuthor() {
-    const toggle = document.querySelectorAll('.work-description');
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
-    }
-}
-function ControlsImage() {
-    const toggle = document.querySelectorAll('.work-author');
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
-    }
-}
-function ControlsComments() {
-    const toggle = document.querySelectorAll('.work-images');
-    for (var i = 0; i < toggle.length; ++i) {
-        toggle[i].classList.toggle('open');
-    }
+function toggleSections(section) {
+    const targetSections = document.querySelectorAll(`.work-${section}`)
+    targetSections.forEach(s => {
+        s.classList.toggle('open')
+    })
 }
 
 function ControlsPhone() {
@@ -143,7 +124,6 @@ function ControlsPhone() {
         x.style.display = "block";
     }
 }
-
 
 function UserList(users) {
     let fragment = new DocumentFragment();
@@ -212,7 +192,7 @@ function initWorks() {
                 expand.innerText = '+'
                 expand.addEventListener('click', (e) => {
                     expand.innerText = '+'
-                    e.target.parentElement.classList.toggle('open')
+                    e.target.parentNode.nextElementSibling.classList.toggle('open')
                 })
             }
         })
@@ -220,21 +200,23 @@ function initWorks() {
 }
 
 function handleCommentSubmit(e) {
-    const text = e.target.parentElement.querySelector('input').value;
+    const text = e.target.parentElement.querySelector('input');
     const id = e.target.parentElement.getAttribute('data-project');
-    console.log('hi')
     // We have to set the date here so we can send it out
     // to sockets without hitting the database, which will
     // have the canonical date.
     let now = new Date()
-    const data = { project: id, text: text, author: me, created: now.toISOString() }
+    const data = { project: id, text: text.value, author: me, created: now.toISOString() }
     socket.emit('comment', data)
+    text.value = '';
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    init();
+    initAuth();
+    initControls();
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
+
     if (socket) {
         socket.on('connect', () => {
             me.name = socket.id;
@@ -248,7 +230,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         socket.on('comment', (comment) => {
-            console.log(comment)
             const li = CommentList([comment]);
             const commentContainer = document.querySelector(`[data-project="${comment.project}"] .comments`)
             commentContainer.insertAdjacentElement('afterbegin', li)

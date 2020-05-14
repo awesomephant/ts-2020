@@ -213,14 +213,9 @@ function initWorks() {
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
         sections.forEach((s) => {
-            let expand = s.querySelector('.section-expand')
-            if (expand) {
-                expand.innerText = ''
-                expand.addEventListener('click', (e) => {
-                    expand.classList.toggle('active')
-                    e.target.parentNode.nextElementSibling.classList.toggle('open')
-                })
-            }
+            s.addEventListener('click', (e) => {
+                s.nextElementSibling.classList.toggle('open')
+            })
         })
     })
 }

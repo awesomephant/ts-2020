@@ -162,6 +162,24 @@ function CommentList(comments) {
     }
 }
 
+function handleImageClick(e) {
+    const lb = document.querySelector('.lightbox')
+    const lbImage = lb.querySelector('img')
+    lb.classList.add('active')
+    lbImage.setAttribute('src', e.target.getAttribute('src'))
+}
+
+function initLightbox() {
+    const lb = document.querySelector('.lightbox')
+    const images = document.querySelectorAll('img')
+    images.forEach(img => {
+        img.addEventListener('click', handleImageClick)
+    })
+    lb.addEventListener('click', () => {
+        lb.classList.remove('active')
+    })
+}
+
 function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
@@ -214,6 +232,7 @@ function handleCommentSubmit(e) {
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
     initControls();
+    initLightbox()
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
 

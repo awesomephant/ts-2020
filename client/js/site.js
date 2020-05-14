@@ -112,7 +112,13 @@ function initControls() {
 function toggleSections(section) {
     const targetSections = document.querySelectorAll(`.work-${section}`)
     targetSections.forEach(s => {
-        s.classList.toggle('open')
+        if (s.classList.contains('open')) {
+            s.classList.remove('open')
+
+        } else {
+            s.classList.add('open')
+        }
+
     })
 }
 
@@ -187,11 +193,13 @@ function initWorks() {
         const commentContainer = w.querySelector('.comments')
         let localComments = []
         // Render existing comments
-        comments.forEach((c) => {
-            if (c.project === id) {
-                localComments.push(c)
-            }
-        })
+        if (comments) {
+            comments.forEach((c) => {
+                if (c.project === id) {
+                    localComments.push(c)
+                }
+            })
+        }
 
         let frag = CommentList(localComments);
         if (frag) {

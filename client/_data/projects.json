@@ -1,1 +1,184 @@
-[{"id":"1","name":"Aakriti Khurana","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"2","name":"Adrian Shaughnessy","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"3","name":"Anastasia Arjalies","description":"Description goes here","title":"Happysad","website":"maxkoehler.com"},{"id":"4","name":"Bakhtawer Haider","description":"Description goes here","title":"NASTA‘LĪQ","website":"maxkoehler.com"},{"id":"5","name":"Betty Brunfaut","description":"Description goes here","title":"BentonSustain","website":"maxkoehler.com"},{"id":"6","name":"Camille Le Flem","description":"Description goes here","title":"Mihi Nili","website":"maxkoehler.com"},{"id":"7","name":"Costas Kalogeropoulos","description":"Description goes here","title":"Seymour","website":"maxkoehler.com"},{"id":"8","name":"Inès Iragui (type Family)","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"9","name":"Inès Iragui (pattern)","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"10","name":"Jin-Hoo Park","description":"Description goes here","title":"ShinShin Women","website":"maxkoehler.com"},{"id":"11","name":"Jose Garcia Oliva","description":"Description goes here","title":"Greed","website":"maxkoehler.com"},{"id":"12","name":"Josh Trees et al.","description":"Description goes here","title":"Public Foundry: (Towards a) manifesto for a (new) typography\nwithout typographers (v1.0)","website":"maxkoehler.com"},{"id":"13","name":"Konstantina Benaki Chatzispasou","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"14","name":"Magda Tritto","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"15","name":"Max Albert Kohler","description":"Description goes here","title":"Grid System","website":"maxkoehler.com"},{"id":"16","name":"Maya Gulieva (andromeda)","description":"Description goes here","title":"Andromeda","website":"maxkoehler.com"},{"id":"17","name":"Maya Gulieva (Neue Venera)","description":"Description goes here","title":"Neue Venera","website":"maxkoehler.com"},{"id":"18","name":"Melissa Berney","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"19","name":"Minjeong Kim","description":"Description goes here","title":"Frankenstein unit","website":"maxkoehler.com"},{"id":"20","name":"Richard Bevan","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"21","name":"Roland Ross","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"22","name":"Sean Steed ","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"23","name":"Siddhi Gupta","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"24","name":"William Jacobson","description":"Description goes here","title":"Shiznit","website":"maxkoehler.com"},{"id":"25","name":"Yangyang Zhang","description":"Description goes here","title":"Title goes here","website":"maxkoehler.com"},{"id":"26","name":"Yehonatan Cohen","description":"Description goes here","title":"Results Confidence","website":"maxkoehler.com"}]
+[
+    {
+        "id": "1",
+        "name": "Aakriti Khurana",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo ut erat vitae sollicitudin. Vivamus ligula orci, bibendum at orci sit amet, mollis porta est. Mauris fermentum libero risus, eu dignissim felis ullamcorper eu. Etiam ullamcorper porta ex, et sodales dui mattis nec. Integer eget mauris blandit tellus congue tincidunt quis eu lectus. Nulla vitae ligula dui. Mauris imperdiet, ipsum a imperdiet cursus, lacus lacus vehicula sapien, a auctor nibh erat eu enim. Suspendisse facilisis justo a urna vulputate, eget.",
+        "title": "Edible Plastic",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "2",
+        "name": "Adrian Shaughnessy",
+        "description": "Lorem ipsum dolor sit amet, consectetur.",
+        "title": "Cutter",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "3",
+        "name": "Anastasia Arjalies",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare dolor vel dui pretium faucibus.",
+        "title": "Happysad",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "4",
+        "name": "Bakhtawer Haider",
+        "description": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut sapien metus. Sed mauris tellus, varius nec nulla nec, scelerisque ullamcorper est. Nullam diam turpis, tristique ut varius ut, facilisis sed sapien. Proin efficitur fringilla urna vel ultrices. Phasellus molestie, nibh efficitur laoreet facilisis, nisi mauris malesuada metus, eu posuere justo ex.",
+        "title": "NASTA‘LĪQ",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "5",
+        "name": "Betty Brunfaut",
+        "description": "Description goes here",
+        "title": "BentonSustain",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "6",
+        "name": "Camille Le Flem",
+        "description": "Description goes here",
+        "title": "Mihi Nili",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "7",
+        "name": "Costas Kalogeropoulos",
+        "description": "Description goes here",
+        "title": "Seymour",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "8",
+        "name": "Inès Iragui (type Family)",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "9",
+        "name": "Inès Iragui (pattern)",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "10",
+        "name": "Jin-Hoo Park",
+        "description": "Description goes here",
+        "title": "ShinShin Women",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "11",
+        "name": "Jose Garcia Oliva",
+        "description": "Description goes here",
+        "title": "Greed",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "12",
+        "name": "Josh Trees et al.",
+        "description": "Description goes here",
+        "title": "Public Foundry: (Towards a) manifesto for a (new) typography without typographers (v1.0)",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "13",
+        "name": "Konstantina Benaki Chatzispasou",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "14",
+        "name": "Magda Tritto",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "15",
+        "name": "Max Albert Kohler",
+        "description": "Description goes here",
+        "title": "Grid System",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "16",
+        "name": "Maya Gulieva (andromeda)",
+        "description": "Description goes here",
+        "title": "Andromeda",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "17",
+        "name": "Maya Gulieva (Neue Venera)",
+        "description": "Description goes here",
+        "title": "Neue Venera",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "18",
+        "name": "Melissa Berney",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "19",
+        "name": "Minjeong Kim",
+        "description": "Description goes here",
+        "title": "Frankenstein unit",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "20",
+        "name": "Richard Bevan",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "21",
+        "name": "Roland Ross",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "22",
+        "name": "Sean Steed ",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "23",
+        "name": "Siddhi Gupta",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "24",
+        "name": "William Jacobson",
+        "description": "Description goes here",
+        "title": "Shiznit",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "25",
+        "name": "Yangyang Zhang",
+        "description": "Description goes here",
+        "title": "Title goes here",
+        "website": "maxkoehler.com"
+    },
+    {
+        "id": "26",
+        "name": "Yehonatan Cohen",
+        "description": "Description goes here",
+        "title": "Results Confidence",
+        "website": "maxkoehler.com"
+    }
+]

@@ -1,32 +1,36 @@
 .works {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    display: block;
+    width: 95vw;
 }
 
 .work {
     font-size: var(--ms-5);
     margin-right: .2em;
     hyphens: auto;
+    display: inline;
+
     h2,
-    .work-section,
     .section-content,
     p,
+    div,
     figure {
-        display: inline-flex;
+        display: inline;
         align-items: center;
     }
 }
 
-.work-section:not(.work-open) {
+.work-section {
     display: none;
+    opacity: 0;
 }
 
 .work-section.open {
-    display: inline-flex;
+    transition: 400ms;
+    display: inline;
+    opacity: 1;
 }
 
-.work-title h2{
+.work-title h2 {
     font-weight: bold;
 }
 
@@ -48,12 +52,15 @@
     padding: .25em .5em;
     color: var(--black);
     display: none;
+
     &:after {
         content: '+'
     }
+
     &.active:after {
         content: 'x'
     }
+
     &:hover,
     &:focus {
         background: var(--black-hover);

@@ -10,7 +10,6 @@ layout: base
     <a href='#1' data-section='images' class="control">Images</a>
     <a href='#1' data-section='comments' class="control">Comments</a>
   </nav>
-  </nav>
 
   <nav class="site-auth">
     <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">Sign in with Google</a>
@@ -34,9 +33,6 @@ layout: base
   </div>
   {% for p in projects %}
   <div class="work" data-project="{{p.id}}">
-    <section class="work-section work-open">
-      <button class='section-expand'>Expand</button>
-    </section>
     <section class="work-section work-title">
       <div class="section-content">
         <h2>{{p.title}}</h2>

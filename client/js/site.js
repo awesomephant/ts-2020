@@ -190,6 +190,18 @@ function initLightbox() {
 function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
+        let openBracket = document.createElement('button')
+        openBracket.classList.add('bracket')
+        openBracket.innerText = '{'
+        
+        let closeBracket = document.createElement('button')
+        closeBracket.innerText = '}'
+        closeBracket.classList.add('bracket')
+
+        
+        w.insertAdjacentElement('beforebegin', openBracket)
+        w.insertAdjacentElement('afterend', closeBracket)
+
         const id = w.getAttribute('data-project')
         const commentContainer = w.querySelector('.comments')
         let localComments = []
@@ -214,11 +226,26 @@ function initWorks() {
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
         sections.forEach((s) => {
-            s.setAttribute('data-width', s.clientWidth)
-            s.classList.add('loaded')
+            let openBracket = document.createElement('button')
+            openBracket.classList.add('bracket')
+            openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
+            openBracket.addEventListener('click', () => {
+                s.classList.toggle('open')
+            })
+            
+            let closeBracket = document.createElement('button')
+            closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
+            closeBracket.classList.add('bracket')
+            closeBracket.addEventListener('click', () => {
+                s.classList.toggle('open')
+            })
+
             s.addEventListener('click', (e) => {
                 s.nextElementSibling.classList.toggle('open')
             })
+
+            s.insertAdjacentElement('beforebegin', openBracket)
+            s.insertAdjacentElement('afterend', closeBracket)
         })
     })
 }

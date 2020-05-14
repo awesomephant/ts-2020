@@ -1,10 +1,11 @@
 .works {
     display: block;
     width: 95vw;
+    text-align: justify;
+    font-size: var(--ms-5);
 }
 
 .work {
-    font-size: var(--ms-5);
     margin-right: .2em;
     hyphens: auto;
     display: inline;
@@ -28,40 +29,16 @@
     display: inline;
 }
 
-.work-title h2 {
-    font-weight: bold;
-}
-
 .work-images {
     img {
         height: 1em;
+        filter: grayscale(1);
     }
 }
 
-.section-content {
-    flex-grow: 1;
-}
-
-.section-expand {
-    background: white;
-    border: 1px solid black;
-    font-size: 1rem;
+.bracket {
     cursor: pointer;
-    padding: .25em .5em;
-    color: var(--black);
-    display: none;
-
-    &:after {
-        content: '+'
-    }
-
-    &.active:after {
-        content: 'x'
-    }
-
-    &:hover,
-    &:focus {
-        background: var(--black-hover);
-        color: white;
-    }
+    appearance: none;
+    background: none;
+    border: 0;
 }

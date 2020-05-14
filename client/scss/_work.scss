@@ -1,5 +1,4 @@
 .works {
-    line-height: 1.5;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -7,9 +6,8 @@
 
 .work {
     font-size: var(--ms-5);
-    margin-right: .1em;
-    margin-bottom: .1em;
-
+    margin-right: .2em;
+    hyphens: auto;
     h2,
     .work-section,
     .section-content,
@@ -26,6 +24,10 @@
 
 .work-section.open {
     display: inline-flex;
+}
+
+.work-title h2{
+    font-weight: bold;
 }
 
 .work-images {

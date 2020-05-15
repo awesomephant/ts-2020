@@ -2,20 +2,6 @@
 layout: base
 ---
 
-<nav class="controls">
-  <a href='#1' data-section='title' class="control">Titles</a>
-  <a href='#1' data-section='description' class="control">Texts</a>
-  <a href='#1' data-section='author' class="control">People</a>
-  <a href='#1' data-section='images' class="control">Images</a>
-  <a href='#1' data-section='comments' class="control">Comments</a>
-</nav>
-
-<nav class="site-auth">
-  <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">Sign in with Google</a>
-  <span class="auth-user"></span>
-  <a class='auth-signout' href="#" onclick="signOut();">(Sign out)</a>
-</nav>
-
 <div class="lightbox">
   <figure>
     <img src="https://i.picsum.photos/id/365/500/300.jpg" alt="" class="lightbox-image">
@@ -27,11 +13,23 @@ layout: base
 <ul class="site-users"></ul>
 <main class="works">
   <div class="site-title">
-    <h1>Typographic Singularity 20</h1>
+    <h1>[[[[[[[[[[Typographic Singularity 2020]]]]]]]]]]</h1>
   </div>
+  <nav class="controls">
+    <a href='#1' data-section='title' class="control">{Titles}</a>
+    <a href='#1' data-section='description' class="control">{Texts}</a>
+    <a href='#1' data-section='author' class="control">{People}</a>
+    <a href='#1' data-section='images' class="control">{Images}</a>
+    <a href='#1' data-section='comments' class="control">{Comments}</a>
+  </nav>
+  <nav class="site-auth">
+    <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">{Sign in with Google}</a>
+    <span class="auth-user"></span>
+    <a class='auth-signout' href="#" onclick="signOut();">{Sign out}</a>
+  </nav>
   {% for p in projects %}
   <div class="work" data-project="{{p.id}}">
-    <section data-brackets='{}' class="work-section work-title">
+    <section data-brackets='{}' class="work-section work-title open">
       <div class="section-content">
         <h2>{{p.title}}</h2>
       </div>
@@ -66,6 +64,7 @@ layout: base
           <input type="text" name="" id="comment-input-{{p.id}}" />
           <button class="comment-submit">Send</button>
         </div>
+
       </div>
     </section>
   </div>

@@ -1,8 +1,10 @@
 .works {
     display: block;
     width: 95vw;
-    text-align: justify;
-    font-size: var(--ms-5);
+    text-align: left;
+    font-size: var(--ms-6);
+    letter-spacing: .03em;
+    line-height: .96;
 }
 
 .work {
@@ -46,4 +48,6 @@
     appearance: none;
     background: none;
     border: 0;
+    font-family: var(--sans);
+    font-weight: 100;
 }

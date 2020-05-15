@@ -1,6 +1,12 @@
+@font-face {
+    font-family: haas;
+    src: url(/assets/NeueHaasGrotDisp-25XThin.otf) format('opentype');
+    font-weight: 100;
+}
+
 :root {
-    --sans: Helvetica;
-    --green: #007c3e;
+    --sans: haas;
+    --highlight: #cb02ee;
     --black: black;
     --border-radius: 6px;
     --black-hover: rgb(41, 41, 41);

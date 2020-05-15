@@ -28,15 +28,14 @@
 }
 
 .work-section {
-    display: none;
-    transition: 400ms;
-}
-
-.work-section.open {
     display: inline;
 }
 
-.work-images {
+.work-images, .work-comments {
+    display: none;
+    &.open {
+        display: inline;
+    }
     img {
         height: .8em;
         filter: grayscale(1);

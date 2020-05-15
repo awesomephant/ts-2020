@@ -4,6 +4,43 @@ let me = {
 }
 let comments = [];
 
+const delay = 5;
+function animateIn(el) {
+    el.textContent = ''
+    const chars = el.getAttribute('data-text').split('');
+    let currentChar = 0;
+    const timer = window.setInterval(function () {
+        if (currentChar < chars.length) {
+            let c = chars[currentChar];
+            if (c === ' ') { c = ' ' }
+            el.textContent += c
+            currentChar++;
+        } else {
+            window.clearInterval(timer)
+        }
+    }, delay)
+}
+function animateOut(el) {
+    const chars = el.getAttribute('data-text').split('');
+    let currentChar = chars.length;
+    const timer = window.setInterval(function () {
+        if (currentChar > 0) {
+            el.textContent = el.textContent.substring(0, el.textContent.length - 1)
+            currentChar--;
+        } else {
+            window.clearInterval(timer)
+        }
+    }, delay)
+}
+
+function initAnimation() {
+    const els = document.querySelectorAll('.animate')
+    els.forEach(el => {
+        el.setAttribute('data-text', el.textContent)
+        el.textContent = '';
+    })
+}
+
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
         method: 'POST',
@@ -110,14 +147,19 @@ function initControls() {
 
 function toggleSections(section) {
     const targetSections = document.querySelectorAll(`.work-${section}`)
+    console.log(targetSections)
     targetSections.forEach(s => {
+        const content = s.querySelector('.animate')
         if (s.classList.contains('open')) {
             s.classList.remove('open')
-            s.style.width = `${0}px`
-
+            if (content) {
+                animateOut(content)
+            }
         } else {
             s.classList.add('open')
-            s.style.width = `${s.getAttribute('data-width')}px`
+            if (content) {
+                animateIn(content)
+            }
         }
 
     })
@@ -193,12 +235,11 @@ function initWorks() {
         let openBracket = document.createElement('button')
         openBracket.classList.add('bracket')
         openBracket.innerText = '{'
-        
+
         let closeBracket = document.createElement('button')
         closeBracket.innerText = '}'
         closeBracket.classList.add('bracket')
 
-        
         w.insertAdjacentElement('beforebegin', openBracket)
         w.insertAdjacentElement('afterend', closeBracket)
 
@@ -229,14 +270,25 @@ function initWorks() {
             let openBracket = document.createElement('button')
             openBracket.classList.add('bracket')
             openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
+            const content = s.querySelector('.animate')
             openBracket.addEventListener('click', () => {
+                if (s.classList.contains('open')) {
+                    animateOut(content)
+                } else {
+                    animateIn(content)
+                }
                 s.classList.toggle('open')
             })
-            
+
             let closeBracket = document.createElement('button')
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
             closeBracket.addEventListener('click', () => {
+                if (s.classList.contains('open')) {
+                    animateOut(content)
+                } else {
+                    animateIn(content)
+                }
                 s.classList.toggle('open')
             })
 
@@ -266,6 +318,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initAuth();
     initControls();
     initLightbox()
+    initAnimation()
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
 

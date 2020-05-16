@@ -6,31 +6,36 @@ let comments = [];
 
 const delay = 5;
 function animateIn(el) {
-    el.textContent = ''
-    const chars = el.getAttribute('data-text').split('');
-    let currentChar = 0;
-    const timer = window.setInterval(function () {
-        if (currentChar < chars.length) {
-            let c = chars[currentChar];
-            if (c === ' ') { c = ' ' }
-            el.textContent += c
-            currentChar++;
-        } else {
-            window.clearInterval(timer)
-        }
-    }, delay)
+    if (el) {
+        el.textContent = ''
+        const chars = el.getAttribute('data-text').split('');
+        let currentChar = 0;
+        const timer = window.setInterval(function () {
+            if (currentChar < chars.length) {
+                let c = chars[currentChar];
+                if (c === ' ') { c = ' ' }
+                el.textContent += c
+                currentChar++;
+            } else {
+                window.clearInterval(timer)
+            }
+        }, delay)
+    }
 }
 function animateOut(el) {
-    const chars = el.getAttribute('data-text').split('');
-    let currentChar = chars.length;
-    const timer = window.setInterval(function () {
-        if (currentChar > 0) {
-            el.textContent = el.textContent.substring(0, el.textContent.length - 1)
-            currentChar--;
-        } else {
-            window.clearInterval(timer)
-        }
-    }, delay)
+    if (el) {
+
+        const chars = el.getAttribute('data-text').split('');
+        let currentChar = chars.length;
+        const timer = window.setInterval(function () {
+            if (currentChar > 0) {
+                el.textContent = el.textContent.substring(0, el.textContent.length - 1)
+                currentChar--;
+            } else {
+                window.clearInterval(timer)
+            }
+        }, delay)
+    }
 }
 
 function initAnimation() {

@@ -57,6 +57,10 @@ layout: base
         <figure>
           <img src="https://picsum.photos/500/300" alt="n">
         </figure>
+        {{p.id}}
+        {% if p.id == "7" %}
+          <button class="toggleTypeface" data-typeface='quintain'>{Activate Typeface}</button>
+        {% endif %}
       </div>
     </section>
     <section data-brackets='[]' class="work-section work-comments">

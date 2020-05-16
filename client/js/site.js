@@ -139,6 +139,20 @@ function shuffleArray(array) {
 }
 shuffle();
 
+function initFontToggles() {
+    const toggles = document.querySelectorAll('.toggleTypeface')
+    toggles.forEach(t => {
+        t.addEventListener('click', () => {
+            if (t.classList.contains('active')){
+                document.body.style.fontFamily = "";
+                t.classList.remove('active')
+            } else {
+                t.classList.add('active')
+                document.body.style.fontFamily = t.getAttribute('data-typeface')
+            }
+        })
+    })
+}
 
 function initControls() {
     const controls = document.querySelectorAll('.controls .control');
@@ -322,8 +336,9 @@ function handleCommentSubmit(e) {
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
     initControls();
-    initLightbox()
-    initAnimation()
+    initLightbox();
+    initAnimation();
+    initFontToggles();
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
 

@@ -25,6 +25,17 @@
         margin-right: .2em;
         vertical-align: middle;
     }
+    .toggleTypeface {
+        appearance: none;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        color: var(--highlight);
+        font-family: inherit;
+        &.active, &:hover {
+            text-decoration: line-through;
+        }
+    }
 }
 
 .work-section {
@@ -47,6 +58,9 @@
     appearance: none;
     background: none;
     border: 0;
-    font-family: var(--sans);
+    font-family: inherit;
     font-weight: 100;
+    &:hover, &:focus {
+        color: var(--black-hover)
+    }
 }

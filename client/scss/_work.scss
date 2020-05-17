@@ -49,7 +49,11 @@
     }
     img {
         height: .8em;
+        transition: 200ms;
         filter: grayscale(1);
+        &:hover {
+            filter: grayscale(0);
+        }
     }
 }
 

@@ -157,7 +157,7 @@ function initFontToggles() {
                 t.classList.remove('active')
             } else {
                 t.classList.add('active')
-                document.body.style.fontFamily = t.getAttribute('data-typeface')
+                document.body.style.fontFamily = `${t.getAttribute('data-typeface')}, haas`
             }
         })
     })

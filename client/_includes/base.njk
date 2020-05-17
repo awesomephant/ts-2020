@@ -16,7 +16,11 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/site.js"></script>
     <script>
-        var socket = io();
+        try{
+            var socket = io();
+        } catch {
+            console.log('no socket')
+        }
     </script>
 </body>
 

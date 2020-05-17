@@ -5,18 +5,20 @@
         display: inline;
     }
 
-    input {
-        border: 0;
-        appearance: none;
-        width: 4em;
-        border-bottom: 2px solid var(--black);
+    .input {
+        cursor: text;
+        &:before {
+            content: '(';
+        }
+        &:after {
+            content: ')';
+        }
     }
     button {
-        color: var(--black);
+        color: var(--highlight);
         background: white;
-        border: 1px solid var(--black);
-        font-size: var(--ms-1);
-        padding: .2em;
+        padding: 0;
+        border: 0;
         appearance: none;
         cursor: pointer;
         font-family: var(--sans);

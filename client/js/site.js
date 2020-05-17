@@ -334,15 +334,16 @@ function initWorks() {
 }
 
 function handleCommentSubmit(e) {
-    const text = e.target.parentElement.querySelector('input');
+    const text = e.target.parentElement.querySelector('.input');
     const id = e.target.parentElement.getAttribute('data-project');
+    console.log(text.textContent)
     // We have to set the date here so we can send it out
     // to sockets without hitting the database, which will
     // have the canonical date.
     let now = new Date()
-    const data = { project: id, text: text.value, author: me, created: now.toISOString() }
+    const data = { project: id, text: text.textContent, author: me, created: now.toISOString() }
     socket.emit('comment', data)
-    text.value = '';
+    text.innerText = '';
 }
 
 window.addEventListener('DOMContentLoaded', () => {

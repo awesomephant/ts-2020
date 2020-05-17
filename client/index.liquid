@@ -65,8 +65,8 @@ layout: base
       <div class="test-comments">
         <ul class="comments" id='comment-list'></ul>
         <div class="comment-form" data-project="{{p.id}}">
-          <input type="text" name="" id="comment-input-{{p.id}}" />
-          <button class="comment-submit">Send</button>
+          <span class="input" id="comment-input-{{p.id}}" contenteditable>Say something nice</span>
+          <button class="comment-submit">{%raw%}{{{Send}}}{%endraw%}</button>
         </div>
       </div>
     </section>

@@ -50,6 +50,7 @@
     img {
         height: .8em;
         transition: 200ms;
+        border-radius: 100px;
         filter: grayscale(1);
         &:hover {
             filter: grayscale(0);

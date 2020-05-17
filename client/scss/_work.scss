@@ -68,7 +68,7 @@
     font-weight: 100;
     line-height: 1;
     display: inline;
-    color: gray;
+    color: inherit;
     &:hover, &:focus {
         color: var(--black-hover)
     }

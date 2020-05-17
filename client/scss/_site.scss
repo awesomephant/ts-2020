@@ -43,7 +43,7 @@ nav ul li {
 .controls {
     a {
         color: var(--highlight);
-        &:hover, &:focus {
+        &:hover {
             text-decoration: line-through;
         }
     }

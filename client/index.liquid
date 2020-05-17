@@ -56,8 +56,8 @@ layout: base
         <figure>
           <img src="https://picsum.photos/500/300" alt="n">
         </figure>
-        {% if p.id == "7" %}
-        <button class="toggleTypeface" data-typeface='quintain'>{%raw%}{{{Activate Typeface}}}{%endraw%}</button>
+        {% if p.typeface != "" %}
+        <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{%raw%}{{{Activate Typeface}}}{%endraw%}</button>
         {% endif %}
       </div>
     </section>

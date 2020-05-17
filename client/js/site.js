@@ -19,7 +19,7 @@ function animateIn(el) {
             } else {
                 window.clearInterval(timer)
             }
-        }, 0)
+        }, 1)
     }
 }
 function animateOut(el) {

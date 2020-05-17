@@ -60,6 +60,8 @@
     border: 0;
     font-family: inherit;
     font-weight: 100;
+    line-height: 1;
+    display: inline;
     &:hover, &:focus {
         color: var(--black-hover)
     }

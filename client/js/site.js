@@ -286,6 +286,7 @@ function initWorks() {
         let closeBracket = document.createElement('button')
         closeBracket.innerText = '}'
         closeBracket.classList.add('bracket')
+        closeBracket.classList.add('close-bracket')
 
         w.insertAdjacentElement('beforebegin', openBracket)
         w.insertAdjacentElement('afterend', closeBracket)

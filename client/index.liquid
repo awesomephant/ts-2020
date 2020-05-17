@@ -20,11 +20,11 @@ layout: base
     <a href='#1' data-section='author' class="control">(((People)))</a>
     <a href='#1' data-section='images' class="control">{%raw%}{{{Images}}}{%endraw%}</a>
     <a href='#1' data-section='comments' class="control">[[[Comments]]]</a>
-  </nav>
-  <nav class="site-auth">
-    <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">{Sign in with Google}</a>
-    <span class="auth-user"></span>
-    <a class='auth-signout' href="#" onclick="signOut();">{Sign out}</a>
+    <nav class="site-auth">
+      <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">{Sign in with Google}</a>
+      <span class="auth-user"></span>
+      <a class='auth-signout' href="#" onclick="signOut();">{Sign out}</a>
+    </nav>
   </nav>
   {% for p in projects %}
   <div class="work" data-project="{{p.id}}">

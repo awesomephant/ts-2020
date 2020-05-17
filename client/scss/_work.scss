@@ -8,7 +8,6 @@
 }
 
 .work {
-    margin-right: 4em;
     hyphens: auto;
     display: inline;
     object {
@@ -73,4 +72,8 @@
     &:hover, &:focus {
         color: var(--black-hover)
     }
+}
+
+.close-bracket {
+    margin-right: 4em;
 }

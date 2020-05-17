@@ -353,6 +353,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initLightbox();
     initAnimation();
     initFontToggles();
+    toggleSections('title')
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
 

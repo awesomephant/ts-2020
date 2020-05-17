@@ -179,10 +179,10 @@
   0% {
     stroke-dashoffset: -6000;
   }
-  20%{
+  10%{
   	stroke-dashoffset: 0;
   }
-  80%{
+  90%{
   	stroke-dashoffset: 0;
   }
   100%{
@@ -347,7 +347,7 @@ function FMinutesTwo (){
             elem = (item);
             elem.show();
             console.log(elem);
-            elem.css("animation", "DirectionOneMiddle 60s linear alternate");
+            elem.css("animation", "DirectionOneMiddle 600s linear alternate");
       } 
 
 });
@@ -380,7 +380,7 @@ function FHoursOne (){
       if (item.id == currentHoursOne) {
             elem = (item);
             elem.show();
-            elem.css("animation", "DirectionOneSpeed 600s linear alternate");
+            elem.css("animation", "DirectionOneSpeed 3600s linear alternate");
       } 
 
 });
@@ -413,7 +413,7 @@ function FHoursTwo (){
       if (item.id == currentHoursTwo) {
             elem = (item);
             elem.show();
-            elem.css("animation", "DirectionOneSpeed 600s linear alternate");
+            elem.css("animation", "DirectionOneSpeed 3600s linear alternate");
       } 
 
 });
@@ -424,9 +424,9 @@ $(document).ready(function()
   // setInterval('updateClock()', 1000);
    setInterval('FSecondsOne()', 1000);
    setInterval('FSecondsTwo()', 10000);
-   setInterval('FMinutesOne()', 20000);
-   setInterval('FMinutesTwo()', 20000);
-   setInterval('FHoursOne()', 30000);
-   setInterval('FHoursTwo()', 30000);
+   setInterval('FMinutesOne()', 60000);
+   setInterval('FMinutesTwo()', 600000);
+   setInterval('FHoursOne()', 3600000);
+   setInterval('FHoursTwo()', 3600000);
    
 });</script></body></html>

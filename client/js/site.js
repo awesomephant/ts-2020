@@ -49,8 +49,7 @@ function initAnimation() {
 function MeliWork(){
     var containerMeli = document.querySelector('[data-project="18"]').querySelector(".work-images .section-content");
     var obj = document.createElement('OBJECT');
-   // obj.innerHTML = "Paragraph changed!";
-    obj.setAttribute("data", "Meli.html");
+    obj.setAttribute("data", "/Meli");
     obj.style.width = "900px";
     containerMeli.appendChild(obj);
 }

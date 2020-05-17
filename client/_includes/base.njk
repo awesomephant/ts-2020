@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
-    <title>TS 2020</title>
+    <title>Typographic Singularity 2020</title>
 </head>
 
 <body>
@@ -16,7 +16,11 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/site.js"></script>
     <script>
-        var socket = io();
+        try{
+            var socket = io();
+        } catch {
+            console.log('no socket')
+        }
     </script>
 </body>
 

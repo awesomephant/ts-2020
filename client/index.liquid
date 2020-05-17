@@ -15,11 +15,11 @@ layout: base
     <h1>[[[[[[[[[[Typographic Singularity 2020]]]]]]]]]]</h1>
   </div>
   <nav class="controls">
-    <a href='#1' data-section='title' class="control">{Titles}</a>
-    <a href='#1' data-section='description' class="control">{Texts}</a>
-    <a href='#1' data-section='author' class="control">{People}</a>
-    <a href='#1' data-section='images' class="control">{Images}</a>
-    <a href='#1' data-section='comments' class="control">{Comments}</a>
+    <a href='#1' data-section='title' class="control">{%raw%}{{{Titles}}}{%endraw%}</a>
+    <a href='#1' data-section='description' class="control">[[[Texts]]]</a>
+    <a href='#1' data-section='author' class="control">(((People)))</a>
+    <a href='#1' data-section='images' class="control">{%raw%}{{{Images}}}{%endraw%}</a>
+    <a href='#1' data-section='comments' class="control">[[[Comments]]]</a>
   </nav>
   <nav class="site-auth">
     <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">{Sign in with Google}</a>
@@ -50,15 +50,14 @@ layout: base
         {% assign images = p.images | split: "," %}
         {% for img in images %}
         <figure>
-          <img src="https://ts-2020.s3.eu-west-2.amazonaws.com/{{img}}" alt="n">
+          <img src="https://ts-2020.s3.eu-west-2.amazonaws.com/{{img}}" alt="">
         </figure>
         {% endfor %}
         <figure>
           <img src="https://picsum.photos/500/300" alt="n">
         </figure>
-        {{p.id}}
         {% if p.id == "7" %}
-          <button class="toggleTypeface" data-typeface='quintain'>{Activate Typeface}</button>
+        <button class="toggleTypeface" data-typeface='quintain'>{%raw%}{{{Activate Typeface}}}{%endraw%}</button>
         {% endif %}
       </div>
     </section>
@@ -66,8 +65,8 @@ layout: base
       <div class="test-comments">
         <ul class="comments" id='comment-list'></ul>
         <div class="comment-form" data-project="{{p.id}}">
-          <input type="text" name="" id="comment-input-{{p.id}}" />
-          <button class="comment-submit">Send</button>
+          <span class="input" id="comment-input-{{p.id}}" contenteditable>Say something nice</span>
+          <button class="comment-submit">{%raw%}{{{Send}}}{%endraw%}</button>
         </div>
       </div>
     </section>

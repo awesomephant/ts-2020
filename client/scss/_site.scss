@@ -43,6 +43,9 @@ nav ul li {
 .controls {
     a {
         color: var(--highlight);
+        &:hover, &:focus {
+            text-decoration: line-through;
+        }
     }
     display: inline;
 }

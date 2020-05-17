@@ -4,7 +4,7 @@ let me = {
 }
 let comments = [];
 
-const delay = 5;
+const delay = 1;
 function animateIn(el) {
     if (el) {
         el.textContent = ''
@@ -19,7 +19,7 @@ function animateIn(el) {
             } else {
                 window.clearInterval(timer)
             }
-        }, delay)
+        }, 0)
     }
 }
 function animateOut(el) {
@@ -147,13 +147,11 @@ function shuffleArray(array) {
     }
     return array;
 }
-shuffle();
-
 function initFontToggles() {
     const toggles = document.querySelectorAll('.toggleTypeface')
     toggles.forEach(t => {
         t.addEventListener('click', () => {
-            if (t.classList.contains('active')){
+            if (t.classList.contains('active')) {
                 document.body.style.fontFamily = "";
                 t.classList.remove('active')
             } else {
@@ -258,6 +256,26 @@ function initLightbox() {
     })
 }
 
+function renderComments(comments) {
+    const works = document.querySelectorAll('.work')
+    works.forEach((w) => {
+        const id = w.getAttribute('data-project')
+        const commentContainer = w.querySelector('.comments')
+        let localComments = []
+        // Render existing comments
+        comments.forEach((c) => {
+            if (c.project === id) {
+                localComments.push(c)
+            }
+        })
+
+        let frag = CommentList(localComments);
+        if (frag) {
+            commentContainer.appendChild(frag)
+        }
+    })
+}
+
 function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
@@ -271,23 +289,6 @@ function initWorks() {
 
         w.insertAdjacentElement('beforebegin', openBracket)
         w.insertAdjacentElement('afterend', closeBracket)
-
-        const id = w.getAttribute('data-project')
-        const commentContainer = w.querySelector('.comments')
-        let localComments = []
-        // Render existing comments
-        if (comments) {
-            comments.forEach((c) => {
-                if (c.project === id) {
-                    localComments.push(c)
-                }
-            })
-        }
-
-        let frag = CommentList(localComments);
-        if (frag) {
-            commentContainer.appendChild(frag)
-        }
 
         // Bind comment form 
         const commentSubmit = w.querySelector('.comment-submit')
@@ -332,19 +333,22 @@ function initWorks() {
 }
 
 function handleCommentSubmit(e) {
-    const text = e.target.parentElement.querySelector('input');
+    const text = e.target.parentElement.querySelector('.input');
     const id = e.target.parentElement.getAttribute('data-project');
+    console.log(text.textContent)
     // We have to set the date here so we can send it out
     // to sockets without hitting the database, which will
     // have the canonical date.
     let now = new Date()
-    const data = { project: id, text: text.value, author: me, created: now.toISOString() }
+    const data = { project: id, text: text.textContent, author: me, created: now.toISOString() }
     socket.emit('comment', data)
-    text.value = '';
+    text.innerText = '';
 }
 
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
+    shuffle();
+    initWorks();
     initControls();
     initLightbox();
     initAnimation();
@@ -373,6 +377,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     getData('/api/comments/').then(res => {
         comments = res.data;
-        initWorks();
+        renderComments(comments)
     })
 })

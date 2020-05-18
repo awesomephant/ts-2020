@@ -48,14 +48,13 @@ function initAnimation() {
 
 function MeliWork() {
     var containerMeli = document.querySelector('[data-project="18"]').querySelector(".work-images .section-content");
-    var containerFigure = containerMeli.querySelector("figure")
     var obj = document.createElement('OBJECT');
     obj.setAttribute("data", "/Meli");
     obj.style.height = "auto";
     obj.style.width = "17em";
     obj.style.display = "inline";
     obj.style.backgroundColor = "transparent";
-    containerFigure.appendChild(obj);
+    containerMeli.appendChild(obj);
 }
 
 MeliWork();

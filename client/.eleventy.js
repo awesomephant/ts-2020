@@ -20,10 +20,12 @@ module.exports = function (eleventyConfig) {
         const thumb = url.replace(/\.(jpe?g|png)/gi, '%40100w.webp').trim().replace(' ', '+')
         const large = url.replace(/\.(jpe?g|png)/gi, '%401500w.webp').trim().replace(' ', '+')
         const awsUrl = `https://ts-2020.s3.eu-west-2.amazonaws.com/`
-        return (
-            `<img data-original='${url}' data-large="${awsUrl + large}" loading="lazy" src='${awsUrl + thumb}'/>
-            `
-        );
+        if (url.length > 1) {
+            return (
+                `<img data-original='${url}' data-large="${awsUrl + large}" loading="lazy" src='${awsUrl + thumb}'/>
+                `
+            );
+        }
     });
 
     eleventyConfig.addPassthroughCopy("./js");

@@ -188,7 +188,6 @@ function initControls() {
 
 function toggleSections(section) {
     const targetSections = document.querySelectorAll(`.work-${section}`)
-    console.log(targetSections)
     targetSections.forEach(s => {
         const content = s.querySelector('.animate')
         if (s.classList.contains('open')) {
@@ -311,7 +310,6 @@ function initWorks() {
 
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
-        let description = w.querySelectorAll('.work-description')
         sections.forEach((s) => {
             s.addEventListener('click', e => {
                 const parent = s.closest("section")
@@ -347,7 +345,6 @@ function initWorks() {
 function handleCommentSubmit(e) {
     const text = e.target.parentElement.querySelector('.input');
     const id = e.target.parentElement.getAttribute('data-project');
-    console.log(text.textContent)
     // We have to set the date here so we can send it out
     // to sockets without hitting the database, which will
     // have the canonical date.

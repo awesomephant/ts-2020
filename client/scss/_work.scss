@@ -41,6 +41,10 @@
 
 .work-section {
     display: inline;
+    cursor: pointer;
+    &:hover, &:focus {
+        color: var(--black-hover)
+    }
 }
 
 .work-images, .work-comments {
@@ -60,7 +64,6 @@
 }
 
 .bracket {
-    cursor: pointer;
     appearance: none;
     background: none;
     border: 0;
@@ -69,9 +72,6 @@
     line-height: 1;
     display: inline;
     color: inherit;
-    &:hover, &:focus {
-        color: var(--black-hover)
-    }
 }
 
 .close-bracket {

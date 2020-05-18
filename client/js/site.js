@@ -147,6 +147,26 @@ function shuffleArray(array) {
     }
     return array;
 }
+
+function color(){
+    var background = document.querySelector("body");
+    background.addEventListener('mousemove', function(event) {
+    x = event.clientX;
+    y = event.clientY;
+    w = screen.width;
+    width_split = Math.floor(w / 2);
+
+    if (x <= width_split) {
+    background.style.backgroundColor = "#3ace71";
+    background.style.transition = "all 1s";
+  } else {
+    background.style.backgroundColor = "black";
+    background.style.transition = "all 1s";
+  }
+});
+}
+color();
+
 function initFontToggles() {
     const toggles = document.querySelectorAll('.toggleTypeface')
     toggles.forEach(t => {
@@ -277,13 +297,13 @@ function renderComments(comments) {
 }
 
 function initWorks() {
-    const works = document.querySelectorAll('.work')
+     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
-        let openBracket = document.createElement('button')
+        let openBracket = document.createElement('span')
         openBracket.classList.add('bracket')
         openBracket.innerText = '{'
 
-        let closeBracket = document.createElement('button')
+        let closeBracket = document.createElement('span')
         closeBracket.innerText = '}'
         closeBracket.classList.add('bracket')
         closeBracket.classList.add('close-bracket')
@@ -297,35 +317,33 @@ function initWorks() {
 
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
+        let description = w.querySelectorAll('.work-description')
         sections.forEach((s) => {
-            let openBracket = document.createElement('button')
-            openBracket.classList.add('bracket')
-            openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
-            const content = s.querySelector('.animate')
-            openBracket.addEventListener('click', () => {
-                if (s.classList.contains('open')) {
+             s.addEventListener('click', e => {
+                const parent =  s.closest("section")
+                const nextSibling = parent.nextElementSibling
+                const elementSibling = nextSibling.nextElementSibling
+                const NextElementSibling = elementSibling.nextElementSibling
+                const content = NextElementSibling.querySelector(".animate")
+                if (NextElementSibling.classList.contains('open')) {
                     animateOut(content)
                 } else {
                     animateIn(content)
                 }
-                s.classList.toggle('open')
+                NextElementSibling.classList.toggle('open')
+                console.log(NextElementSibling)
             })
+  
+            let openBracket = document.createElement('span')
+            openBracket.classList.add('bracket')
+           openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
+            
 
-            let closeBracket = document.createElement('button')
+            let closeBracket = document.createElement('span')
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
-            closeBracket.addEventListener('click', () => {
-                if (s.classList.contains('open')) {
-                    animateOut(content)
-                } else {
-                    animateIn(content)
-                }
-                s.classList.toggle('open')
-            })
 
-            s.addEventListener('click', (e) => {
-                s.nextElementSibling.classList.toggle('open')
-            })
+            
 
             s.insertAdjacentElement('beforebegin', openBracket)
             s.insertAdjacentElement('afterend', closeBracket)

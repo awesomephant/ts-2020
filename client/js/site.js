@@ -48,10 +48,14 @@ function initAnimation() {
 
 function MeliWork(){
     var containerMeli = document.querySelector('[data-project="18"]').querySelector(".work-images .section-content");
+    var containerFigure = containerMeli.querySelector("figure")
     var obj = document.createElement('OBJECT');
     obj.setAttribute("data", "/Meli");
-    obj.style.width = "900px";
-    containerMeli.appendChild(obj);
+    obj.style.height = "auto";
+    obj.style.width = "17em";
+    obj.style.display = "inline";
+    obj.style.backgroundColor ="transparent";
+    containerFigure.appendChild(obj);
 }
 
 MeliWork();
@@ -331,7 +335,6 @@ function initWorks() {
                     animateIn(content)
                 }
                 NextElementSibling.classList.toggle('open')
-                console.log(NextElementSibling)
             })
   
             let openBracket = document.createElement('span')

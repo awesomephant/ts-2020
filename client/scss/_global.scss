@@ -11,6 +11,11 @@ body {
     display: grid;
     background: var(--black);
     color: white;
+    transition: 500ms;
+    &.alternateColours {
+        background: white;
+        color: var(--black);
+    }
 }
 
 a {

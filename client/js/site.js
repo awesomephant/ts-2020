@@ -46,7 +46,7 @@ function initAnimation() {
     })
 }
 
-function MeliWork(){
+function MeliWork() {
     var containerMeli = document.querySelector('[data-project="18"]').querySelector(".work-images .section-content");
     var containerFigure = containerMeli.querySelector("figure")
     var obj = document.createElement('OBJECT');
@@ -54,7 +54,7 @@ function MeliWork(){
     obj.style.height = "auto";
     obj.style.width = "17em";
     obj.style.display = "inline";
-    obj.style.backgroundColor ="transparent";
+    obj.style.backgroundColor = "transparent";
     containerFigure.appendChild(obj);
 }
 
@@ -152,24 +152,15 @@ function shuffleArray(array) {
     return array;
 }
 
-function color(){
-    var background = document.querySelector("body");
-    background.addEventListener('mousemove', function(event) {
-    x = event.clientX;
-    y = event.clientY;
-    w = screen.width;
-    width_split = Math.floor(w / 2);
-
-    if (x <= width_split) {
-    background.style.backgroundColor = "#3ace71";
-    background.style.transition = "all 1s";
-  } else {
-    background.style.backgroundColor = "black";
-    background.style.transition = "all 1s";
-  }
-});
+function initBackgroundColor() {
+    window.addEventListener('mousemove', (e) => {
+        if (e.clientX >= window.innerWidth / 2) {
+            document.body.classList.add('alternateColours')
+        } else {
+            document.body.classList.remove('alternateColours')
+        }
+    });
 }
-color();
 
 function initFontToggles() {
     const toggles = document.querySelectorAll('.toggleTypeface')
@@ -301,7 +292,7 @@ function renderComments(comments) {
 }
 
 function initWorks() {
-     const works = document.querySelectorAll('.work')
+    const works = document.querySelectorAll('.work')
     works.forEach((w) => {
         let openBracket = document.createElement('span')
         openBracket.classList.add('bracket')
@@ -323,8 +314,8 @@ function initWorks() {
         let sections = w.querySelectorAll('.work-section')
         let description = w.querySelectorAll('.work-description')
         sections.forEach((s) => {
-             s.addEventListener('click', e => {
-                const parent =  s.closest("section")
+            s.addEventListener('click', e => {
+                const parent = s.closest("section")
                 const nextSibling = parent.nextElementSibling
                 const elementSibling = nextSibling.nextElementSibling
                 const NextElementSibling = elementSibling.nextElementSibling
@@ -336,17 +327,17 @@ function initWorks() {
                 }
                 NextElementSibling.classList.toggle('open')
             })
-  
+
             let openBracket = document.createElement('span')
             openBracket.classList.add('bracket')
-           openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
-            
+            openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
+
 
             let closeBracket = document.createElement('span')
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
 
-            
+
 
             s.insertAdjacentElement('beforebegin', openBracket)
             s.insertAdjacentElement('afterend', closeBracket)
@@ -375,7 +366,10 @@ window.addEventListener('DOMContentLoaded', () => {
     initLightbox();
     initAnimation();
     initFontToggles();
+    initBackgroundColor();
+
     toggleSections('title')
+
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
 

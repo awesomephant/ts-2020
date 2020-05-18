@@ -9,5 +9,7 @@ node_modules/
 documentation/
 .env
 /client/_site/
+/submissions/
+/submission-images/
 # This comes from a google spreadsheet during build
 /client/_data/projects.json

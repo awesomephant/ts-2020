@@ -266,7 +266,7 @@ function handleImageClick(e) {
     const lb = document.querySelector('.lightbox')
     const lbImage = lb.querySelector('img')
     lb.classList.add('active')
-    lbImage.setAttribute('src', e.target.getAttribute('src'))
+    lbImage.setAttribute('src', e.target.getAttribute('data-large'))
 }
 
 function initLightbox() {

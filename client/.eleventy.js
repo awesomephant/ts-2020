@@ -2,7 +2,7 @@ const pluginSass = require("eleventy-plugin-sass");
 const htmlmin = require("html-minifier");
 
 module.exports = function (eleventyConfig) {
-    
+
     eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
         if (outputPath.endsWith(".html")) {
             let minified = htmlmin.minify(content, {
@@ -14,6 +14,16 @@ module.exports = function (eleventyConfig) {
         }
 
         return content;
+    });
+
+    eleventyConfig.addShortcode("fig", function (url) {
+        const thumb = url.replace(/\.(jpe?g|png)/gi, '%40100w.webp').trim().replace(' ', '+')
+        const large = url.replace(/\.(jpe?g|png)/gi, '%401500w.webp').trim().replace(' ', '+')
+        const awsUrl = `https://ts-2020.s3.eu-west-2.amazonaws.com/`
+        return (
+            `<img data-original='${url}' data-large="${awsUrl + large}" loading="lazy" src='${awsUrl + thumb}'/>
+            `
+        );
     });
 
     eleventyConfig.addPassthroughCopy("./js");

@@ -138,18 +138,24 @@ function initControls() {
     const controls = document.querySelectorAll('.controls .control');
     controls.forEach((c) => {
         c.addEventListener('click', e => {
-            e.target.classList.toggle('active');
-            toggleSections(e.target.getAttribute('data-section'));
+            if (e.target.classList.contains('active')) {
+                e.target.classList.remove('active');
+                toggleSections(e.target.getAttribute('data-section'), 'off');
+
+            } else {
+                e.target.classList.add('active');
+                toggleSections(e.target.getAttribute('data-section'), 'on');
+            }
         })
     })
 }
 
-function toggleSections(section) {
+function toggleSections(section, status) {
     const targetSections = document.querySelectorAll(`.work-${section}`)
     targetSections.forEach(s => {
-        if (s.classList.contains('open')) {
+        if (status === 'off') {
             s.classList.remove('open')
-        } else {
+        } else if (status === 'on') {
             s.classList.add('open')
         }
 
@@ -305,7 +311,6 @@ window.addEventListener('DOMContentLoaded', () => {
     initWorks();
     initControls();
     initLightbox();
-    initAnimation();
     initFontToggles();
     initBackgroundColor();
 

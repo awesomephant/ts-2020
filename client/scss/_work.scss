@@ -10,6 +10,7 @@
 .work {
     hyphens: auto;
     display: inline;
+
     object {
         background: white;
     }
@@ -18,7 +19,8 @@
     .section-content,
     p,
     div,
-    figure, nav {
+    figure,
+    nav {
         display: inline;
         cursor: pointer;
     }
@@ -27,13 +29,16 @@
         margin-right: .2em;
         vertical-align: middle;
     }
+
     .toggleTypeface {
         appearance: none;
         background: none;
         border: 0;
         cursor: pointer;
         font-family: inherit;
-        &.active, &:hover {
+
+        &.active,
+        &:hover {
             text-decoration: line-through;
         }
     }
@@ -46,21 +51,27 @@
     &.open {
         display: inline;
     }
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
         color: var(--black-hover)
     }
 }
 
-.work-images, .work-comments {
+.work-images,
+.work-comments {
     display: none;
+
     &.open {
         display: inline;
     }
+
     img {
         height: .8em;
         transition: 200ms;
         border-radius: 100px;
         filter: grayscale(1);
+
         &:hover {
             filter: grayscale(0);
         }

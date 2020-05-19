@@ -257,23 +257,19 @@ function initWorks() {
         let sections = w.querySelectorAll('.work-section')
         sections.forEach((s) => {
             s.addEventListener('click', e => {
-                const parent = s.closest("section")
-                const nextSibling = parent.nextElementSibling
-                const elementSibling = nextSibling.nextElementSibling
-                const NextElementSibling = elementSibling.nextElementSibling
-                NextElementSibling.classList.toggle('open')
+                const parent = s.closest(".work")
+                const c = s.getAttribute('data-controls')
+                const target = parent.querySelector(`.work-${c}`)
+                target.classList.toggle('open')
             })
 
             let openBracket = document.createElement('span')
             openBracket.classList.add('bracket')
             openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
 
-
             let closeBracket = document.createElement('span')
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
-
-
 
             s.insertAdjacentElement('beforebegin', openBracket)
             s.insertAdjacentElement('afterend', closeBracket)
@@ -328,7 +324,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     getData('/api/comments/').then(res => {
         comments = res.data;
-        if (comments){
+        if (comments) {
             renderComments(comments)
         }
     })

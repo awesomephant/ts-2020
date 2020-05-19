@@ -28,22 +28,22 @@ layout: base
   </nav>
   {% for p in projects %}
   <div class="work" data-project="{{p.id}}">
-    <section data-brackets='[]' class="work-section work-title">
+    <section data-controls="description" data-brackets='[]' class="work-section work-title">
       <div class="section-content">
         <h2>{{p.title}}</h2>
       </div>
     </section>
-    <section data-brackets='[]' class="work-section work-description">
+    <section data-controls="author" data-brackets='[]' class="work-section work-description">
       <div class="section-content">
         {{p.description}}
       </div>
     </section>
-    <section data-brackets='[]' class="work-section work-author">
+    <section data-controls="images" data-brackets='[]' class="work-section work-author">
       <div class="section-content">
         <h2>{{p.name}}<a href="{{p.website}}">(Website)</a></h2>
       </div>
     </section>
-    <section data-brackets='[]' class="work-section work-images">
+    <section data-controls="comments" data-brackets='[]' class="work-section work-images">
       <div class="section-content">
         {% assign images = p.images | split: "," %}
         {% for img in images %}

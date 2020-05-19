@@ -4,18 +4,6 @@ let me = {
 }
 let comments = [];
 
-function MeliWork() {
-    var containerMeli = document.querySelector('[data-project="18"]').querySelector(".work-images .section-content");
-    var obj = document.createElement('OBJECT');
-    obj.setAttribute("data", "/Meli");
-    obj.style.height = "auto";
-    obj.style.width = "17em";
-    obj.style.display = "inline";
-    obj.style.backgroundColor = "transparent";
-    containerMeli.appendChild(obj);
-}
-
-MeliWork();
 
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
@@ -251,10 +239,10 @@ function initWorks() {
     works.forEach((w) => {
         let openBracket = document.createElement('span')
         openBracket.classList.add('bracket')
-        openBracket.innerText = '{'
+        openBracket.innerText = '['
 
         let closeBracket = document.createElement('span')
-        closeBracket.innerText = '}'
+        closeBracket.innerText = ']'
         closeBracket.classList.add('bracket')
         closeBracket.classList.add('close-bracket')
 
@@ -340,6 +328,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     getData('/api/comments/').then(res => {
         comments = res.data;
-        renderComments(comments)
+        if (comments){
+            renderComments(comments)
+        }
     })
 })

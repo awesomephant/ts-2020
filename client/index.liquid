@@ -16,10 +16,10 @@ layout: base
   </div>
   <nav class="controls">
     <a href='#1' data-section='title' class="control">{%raw%}{{{Titles}}}{%endraw%}</a>
-    <a href='#1' data-section='description' class="control">[[[Texts]]]</a>
-    <a href='#1' data-section='author' class="control">(((People)))</a>
+    <a href='#1' data-section='description' class="control">{%raw%}{{{Texts}}}{%endraw%}</a>
+    <a href='#1' data-section='author' class="control">{%raw%}{{{People}}}{%endraw%}</a>
     <a href='#1' data-section='images' class="control">{%raw%}{{{Images}}}{%endraw%}</a>
-    <a href='#1' data-section='comments' class="control">[[[Comments]]]</a>
+    <a href='#1' data-section='comments' class="control">{%raw%}{{{Comments}}}{%endraw%}</a>
     <nav class="site-auth">
       <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">{Sign in with Google}</a>
       <span class="auth-user"></span>
@@ -28,7 +28,7 @@ layout: base
   </nav>
   {% for p in projects %}
   <div class="work" data-project="{{p.id}}">
-    <section data-brackets='{}' class="work-section work-title">
+    <section data-brackets='[]' class="work-section work-title">
       <div class="section-content">
         <h2><span class="animate">{{p.title}}</span></h2>
       </div>
@@ -40,22 +40,29 @@ layout: base
         </span>
       </div>
     </section>
-    <section data-brackets='()' class="work-section work-author">
+    <section data-brackets='[]' class="work-section work-author">
       <div class="section-content">
         <h2><span class="animate">{{p.name}}<a href="{{p.website}}">(Website)</a></span></h2>
       </div>
     </section>
-    <section data-brackets='{}' class="work-section work-images">
+    <section data-brackets='[]' class="work-section work-images">
       <div class="section-content">
         {% assign images = p.images | split: "," %}
         {% for img in images %}
-        {% if img %}
-          {% fig img %}
-        {% endif %}
+          {% if img %}
+            {% fig img %}
+          {% endif %}
         {% endfor %}
+        
         {% if p.typeface != "" %}
-        <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{%raw%}{{{Activate Typeface}}}{%endraw%}</button>
+          <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{%raw%}{{{Activate Typeface}}}{%endraw%}</button>
         {% endif %}
+        
+        {% if p.id == "18" %}
+          {% include meli.liquid %}
+        {% endif %}
+
+
       </div>
     </section>
     <section data-brackets='[]' class="work-section work-comments">

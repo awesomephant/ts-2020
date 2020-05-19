@@ -4,48 +4,6 @@ let me = {
 }
 let comments = [];
 
-const delay = 1;
-function animateIn(el) {
-    if (el) {
-        el.textContent = ''
-        const chars = el.getAttribute('data-text').split('');
-        let currentChar = 0;
-        const timer = window.setInterval(function () {
-            if (currentChar < chars.length) {
-                let c = chars[currentChar];
-                if (c === ' ') { c = ' ' }
-                el.textContent += c
-                currentChar++;
-            } else {
-                window.clearInterval(timer)
-            }
-        }, 1)
-    }
-}
-function animateOut(el) {
-    if (el) {
-
-        const chars = el.getAttribute('data-text').split('');
-        let currentChar = chars.length;
-        const timer = window.setInterval(function () {
-            if (currentChar > 0) {
-                el.textContent = el.textContent.substring(0, el.textContent.length - 1)
-                currentChar--;
-            } else {
-                window.clearInterval(timer)
-            }
-        }, delay)
-    }
-}
-
-function initAnimation() {
-    const els = document.querySelectorAll('.animate')
-    els.forEach(el => {
-        el.setAttribute('data-text', el.textContent)
-        el.textContent = '';
-    })
-}
-
 function MeliWork() {
     var containerMeli = document.querySelector('[data-project="18"]').querySelector(".work-images .section-content");
     var obj = document.createElement('OBJECT');
@@ -189,17 +147,10 @@ function initControls() {
 function toggleSections(section) {
     const targetSections = document.querySelectorAll(`.work-${section}`)
     targetSections.forEach(s => {
-        const content = s.querySelector('.animate')
         if (s.classList.contains('open')) {
             s.classList.remove('open')
-            if (content) {
-                animateOut(content)
-            }
         } else {
             s.classList.add('open')
-            if (content) {
-                animateIn(content)
-            }
         }
 
     })
@@ -316,12 +267,6 @@ function initWorks() {
                 const nextSibling = parent.nextElementSibling
                 const elementSibling = nextSibling.nextElementSibling
                 const NextElementSibling = elementSibling.nextElementSibling
-                const content = NextElementSibling.querySelector(".animate")
-                if (NextElementSibling.classList.contains('open')) {
-                    animateOut(content)
-                } else {
-                    animateIn(content)
-                }
                 NextElementSibling.classList.toggle('open')
             })
 

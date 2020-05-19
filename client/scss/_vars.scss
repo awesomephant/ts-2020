@@ -9,6 +9,7 @@
     src: url(/assets/Quintain-Regular.otf) format('opentype');
     font-weight: 100;
 }
+
 @font-face {
     font-family: benton;
     src: url(/assets/BentonSans_carved.otf) format('opentype');
@@ -32,4 +33,14 @@
     --ms-5: calc(var(--ms-4) * var(--ratio));
     --ms-6: calc(var(--ms-5) * var(--ratio));
     --ms-7: calc(var(--ms-6) * var(--ratio));
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

@@ -40,8 +40,12 @@
 }
 
 .work-section {
-    display: inline;
+    display: none;
     cursor: pointer;
+    animation: fade-in 200ms both;
+    &.open {
+        display: inline;
+    }
     &:hover, &:focus {
         color: var(--black-hover)
     }

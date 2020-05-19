@@ -54,8 +54,8 @@
         display: inline;
     }
 
-    &:hover,
-    &:focus {
+    &[data-controls]:hover,
+    &[data-controls]:focus {
         color: var(--black-hover)
     }
 }

@@ -6,15 +6,18 @@
 }
 
 body {
+    --background: var(--black);
+    --text: white;
     padding: 1rem;
     font-family: var(--sans);
     display: grid;
-    background: var(--black);
-    color: white;
+    background: var(--background);
+    color: var(--text);
     transition: 500ms;
+
     &.alternateColours {
-        background: white;
-        color: var(--black);
+        --background: white;
+        --text: var(--black);
     }
 }
 

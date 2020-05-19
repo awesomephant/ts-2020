@@ -30,36 +30,34 @@ layout: base
   <div class="work" data-project="{{p.id}}">
     <section data-brackets='[]' class="work-section work-title">
       <div class="section-content">
-        <h2><span class="animate">{{p.title}}</span></h2>
+        <h2>{{p.title}}</h2>
       </div>
     </section>
     <section data-brackets='[]' class="work-section work-description">
       <div class="section-content">
-        <span class="animate">
-          {{p.description}}
-        </span>
+        {{p.description}}
       </div>
     </section>
     <section data-brackets='[]' class="work-section work-author">
       <div class="section-content">
-        <h2><span class="animate">{{p.name}}<a href="{{p.website}}">(Website)</a></span></h2>
+        <h2>{{p.name}}<a href="{{p.website}}">(Website)</a></h2>
       </div>
     </section>
     <section data-brackets='[]' class="work-section work-images">
       <div class="section-content">
         {% assign images = p.images | split: "," %}
         {% for img in images %}
-          {% if img %}
-            {% fig img %}
-          {% endif %}
-        {% endfor %}
-        
-        {% if p.typeface != "" %}
-          <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{%raw%}{{{Activate Typeface}}}{%endraw%}</button>
+        {% if img %}
+        {% fig img %}
         {% endif %}
-        
+        {% endfor %}
+
+        {% if p.typeface != "" %}
+        <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{%raw%}{{{Activate Typeface}}}{%endraw%}</button>
+        {% endif %}
+
         {% if p.id == "18" %}
-          {% include meli.liquid %}
+        {% include meli.liquid %}
         {% endif %}
 
 

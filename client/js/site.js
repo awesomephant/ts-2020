@@ -302,7 +302,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initFontToggles();
     initBackgroundColor();
 
-    toggleSections('title')
+    toggleSections('description', 'on')
 
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')

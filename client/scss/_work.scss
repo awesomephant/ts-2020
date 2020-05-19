@@ -80,6 +80,20 @@
     }
 }
 
+.work-description {
+    font-family: 'Untitled Sans', sans-serif;
+    max-width: 30em;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1.2;
+    letter-spacing: .02em;
+    vertical-align: top;
+    &.open {
+        display: inline-block;
+    }
+}
+
 .bracket {
     appearance: none;
     background: none;
@@ -89,8 +103,4 @@
     line-height: 1;
     display: inline;
     color: inherit;
-}
-
-.close-bracket {
-// /    margin-right: 4em;
 }

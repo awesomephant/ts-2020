@@ -1,0 +1,24 @@
+{% assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split : "" %}
+
+<style>
+    .letter {
+        display: none;
+    }
+
+    .letter[data-letter='A'],
+    .letter.open {
+        display: inline;
+    }
+</style>
+
+<div class="roland">
+    {% for letter in alphabet %}
+    [<span class="letter" data-letter="{{letter}}">
+        <button class="letter-expand">
+            {{letter}}
+        </button>
+        {% endfor %}
+        {% for letter in alphabet %}
+    </span>]
+    {% endfor %}
+</div>

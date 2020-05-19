@@ -10,9 +10,16 @@
 .work {
     hyphens: auto;
     display: inline;
-
-    object {
-        background: white;
+    button {
+        color: inherit;
+        background: transparent;
+        padding: 0;
+        transform: skewX(-20deg);
+        border: 0;
+        display: inline;
+        appearance: none;
+        cursor: pointer;
+        font-family: var(--sans);
     }
 
     h2,
@@ -50,6 +57,7 @@
     display: none;
     cursor: pointer;
     animation: fade-in 200ms both;
+
     &.open {
         display: inline;
     }
@@ -89,6 +97,7 @@
     line-height: 1.2;
     letter-spacing: .02em;
     vertical-align: top;
+
     &.open {
         display: inline-block;
     }

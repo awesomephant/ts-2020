@@ -289,6 +289,17 @@ function handleCommentSubmit(e) {
     text.innerText = '';
 }
 
+function initRoland() {
+    const expands = document.querySelectorAll('.roland .letter-expand')
+    console.log(expands)
+    expands.forEach(b => {
+        b.addEventListener('click', () => {
+            console.log(b.parentElement)
+            b.parentElement.querySelector('.letter').classList.toggle('open')
+        })
+    })
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
     shuffle();
@@ -297,8 +308,9 @@ window.addEventListener('DOMContentLoaded', () => {
     initLightbox();
     initFontToggles();
     initBackgroundColor();
+    initRoland();
 
-    toggleSections('comments', 'on')
+    toggleSections('images', 'on')
 
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')

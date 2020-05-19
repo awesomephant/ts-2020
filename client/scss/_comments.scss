@@ -20,19 +20,6 @@
         position: relative;
         top: -.1em;
     }
-
-    button {
-        color: inherit;
-        background: transparent;
-        padding: 0;
-        transform: skewX(-20deg);
-        border: 0;
-        display: inline;
-        appearance: none;
-        cursor: pointer;
-        font-family: var(--sans);
-    }
-
 }
 
 .comments {

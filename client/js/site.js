@@ -138,6 +138,29 @@ function initControls() {
     })
 }
 
+function ControlsSmall() {
+    const controls = document.querySelectorAll('.controls .control');
+    const sections = document.querySelectorAll(".work-section")
+    controls.forEach((c) => {
+        c.addEventListener('click', e => {
+            sections.forEach((s) => {
+            if (e.target.classList.contains('active')) {
+                s.classList.add("open")
+            } else{
+                s.classList.remove("open")
+            }    
+        })
+            if (e.target.classList.contains('active')) {
+                e.target.classList.remove('active');
+                toggleSections(e.target.getAttribute('data-section'), 'on');
+            } else {
+                e.target.classList.add('active');
+                toggleSections(e.target.getAttribute('data-section'), 'on');
+            }
+        })
+    })
+}
+
 function toggleSections(section, status) {
     const targetSections = document.querySelectorAll(`.work-${section}`)
     targetSections.forEach(s => {
@@ -148,15 +171,6 @@ function toggleSections(section, status) {
         }
 
     })
-}
-
-function ControlsPhone() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
 }
 
 function UserList(users) {
@@ -295,6 +309,59 @@ function initWorks() {
     })
 }
 
+function InitWorksSmall(){
+    const works = document.querySelectorAll('.work')
+    works.forEach((w) => {
+
+        // Bind comment form 
+        const commentSubmit = w.querySelector('.comment-submit')
+        commentSubmit.addEventListener('click', handleCommentSubmit)
+
+        // Bind section events
+        let sections = w.querySelectorAll('.work-section')
+        const sectiontitle = w.querySelector('.work-title')
+        const sectionimages = w.querySelector('.work-images')
+        sections.forEach((s) => {
+            s.classList.add("open")
+
+            let openBracket = document.createElement('span')
+            openBracket.classList.add('bracket')
+            if (s === sectiontitle){
+                openBracket.innerText = "{"
+            }
+            if (s === sectionimages){
+                openBracket.innerText = "("
+            }
+  
+            let closeBracket = document.createElement('span')
+            closeBracket.classList.add('bracket')
+            if (s === sectiontitle){
+                closeBracket.innerText = "}"
+            }
+            if (s === sectionimages){
+                closeBracket.innerText = ")"
+            }
+
+            s.insertAdjacentElement('beforebegin', openBracket)
+            s.insertAdjacentElement('afterend', closeBracket)
+        })
+    })
+}
+
+function SmallScreen() {
+    if (x.matches) { 
+        InitWorksSmall();
+        ControlsSmall()
+      } else {
+        initWorks();
+        initControls();
+
+      }
+}
+
+var x = window.matchMedia("(max-width: 600px)")
+SmallScreen(x)
+
 function handleCommentSubmit(e) {
     const text = e.target.parentElement.querySelector('.input');
     const id = e.target.parentElement.getAttribute('data-project');
@@ -321,8 +388,8 @@ function initRoland() {
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
     shuffle();
-    initWorks();
-    initControls();
+   // initWorks();
+  //  initControls();
     initLightbox();
     initFontToggles();
     initBackgroundColor();

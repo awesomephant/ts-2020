@@ -114,8 +114,13 @@ function initFontToggles() {
             if (t.classList.contains('active')) {
                 document.body.style.fontFamily = "";
                 t.classList.remove('active')
+                document.body.setAttribute('data-font', '')
             } else {
+                toggles.forEach(to => {
+                    to.classList.remove('active')
+                })
                 t.classList.add('active')
+                document.body.setAttribute('data-font', t.getAttribute('data-typeface'))
                 document.body.style.fontFamily = `${t.getAttribute('data-typeface')}, haas`
             }
         })
@@ -144,12 +149,12 @@ function ControlsSmall() {
     controls.forEach((c) => {
         c.addEventListener('click', e => {
             sections.forEach((s) => {
-            if (e.target.classList.contains('active')) {
-                s.classList.add("open")
-            } else{
-                s.classList.remove("open")
-            }    
-        })
+                if (e.target.classList.contains('active')) {
+                    s.classList.add("open")
+                } else {
+                    s.classList.remove("open")
+                }
+            })
             if (e.target.classList.contains('active')) {
                 e.target.classList.remove('active');
                 toggleSections(e.target.getAttribute('data-section'), 'on');
@@ -281,27 +286,27 @@ function initWorks() {
 
             let openBracket = document.createElement('span')
             openBracket.classList.add('bracket')
-            if (s === sectiontitle){
+            if (s === sectiontitle) {
                 openBracket.innerText = "{"
             }
-            if (s === sectionimages){
+            if (s === sectionimages) {
                 openBracket.innerText = "("
             }
             openBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
-            }) 
+            })
 
             let closeBracket = document.createElement('span')
             closeBracket.classList.add('bracket')
-            if (s === sectiontitle){
+            if (s === sectiontitle) {
                 closeBracket.innerText = "}"
             }
-            if (s === sectionimages){
+            if (s === sectionimages) {
                 closeBracket.innerText = ")"
             }
             closeBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
-            }) 
+            })
 
             s.insertAdjacentElement('beforebegin', openBracket)
             s.insertAdjacentElement('afterend', closeBracket)
@@ -309,7 +314,7 @@ function initWorks() {
     })
 }
 
-function InitWorksSmall(){
+function InitWorksSmall() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
 
@@ -326,19 +331,19 @@ function InitWorksSmall(){
 
             let openBracket = document.createElement('span')
             openBracket.classList.add('bracket')
-            if (s === sectiontitle){
+            if (s === sectiontitle) {
                 openBracket.innerText = "{"
             }
-            if (s === sectionimages){
+            if (s === sectionimages) {
                 openBracket.innerText = "("
             }
-  
+
             let closeBracket = document.createElement('span')
             closeBracket.classList.add('bracket')
-            if (s === sectiontitle){
+            if (s === sectiontitle) {
                 closeBracket.innerText = "}"
             }
-            if (s === sectionimages){
+            if (s === sectionimages) {
                 closeBracket.innerText = ")"
             }
 
@@ -349,14 +354,13 @@ function InitWorksSmall(){
 }
 
 function SmallScreen() {
-    if (x.matches) { 
+    if (x.matches) {
         InitWorksSmall();
         ControlsSmall()
-      } else {
+    } else {
         initWorks();
         initControls();
-
-      }
+    }
 }
 
 var x = window.matchMedia("(max-width: 600px)")
@@ -387,9 +391,7 @@ function initRoland() {
 
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
-    shuffle();
-   // initWorks();
-  //  initControls();
+    //    shuffle();
     initLightbox();
     initFontToggles();
     initBackgroundColor();

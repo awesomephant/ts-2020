@@ -16,8 +16,12 @@ body {
     transition: 500ms;
 
     &.alternateColours {
-        --background: white;
-        --text: var(--black);
+        //--background: white;
+        //--text: var(--black);
+    }
+
+    &[data-font="XronikaGX"] * {
+        text-transform: lowercase;
     }
 }
 

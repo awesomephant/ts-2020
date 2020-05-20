@@ -19,7 +19,7 @@
         display: inline;
         appearance: none;
         cursor: pointer;
-        font-family: var(--sans);
+        font-family: inherit;
     }
 
     h2,
@@ -89,7 +89,10 @@
 }
 
 .work-description {
-    font-family: 'Untitled Sans', sans-serif;
+    font-family: inherit;
+    [data-font=""] & {
+        font-family: sans-serif !important;
+    }
     max-width: 30em;
     font-size: 1.4rem;
     font-weight: 600;

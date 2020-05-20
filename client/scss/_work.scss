@@ -112,4 +112,8 @@
     line-height: 1;
     display: inline;
     color: inherit;
+
+      &:hover {
+        color: var(--black-hover)
+      }
 }

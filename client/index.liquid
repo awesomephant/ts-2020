@@ -56,6 +56,10 @@ layout: base
         <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{%raw%}{{{Activate Typeface}}}{%endraw%}</button>
         {% endif %}
 
+        {% if p.id == "11" %}
+        {% include jose.liquid %}
+        {% endif %}
+
         {% if p.id == "18" %}
         {% include meli.liquid %}
         {% endif %}
@@ -79,3 +83,5 @@ layout: base
 
   {% endfor %}
 </main>
+<div class="jose-container">
+</div>

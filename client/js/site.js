@@ -255,6 +255,8 @@ function initWorks() {
 
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
+        const sectiontitle = w.querySelector('.work-title')
+        const sectionimages = w.querySelector('.work-images')
         sections.forEach((s) => {
             s.addEventListener('click', e => {
                 const parent = s.closest(".work")
@@ -265,11 +267,27 @@ function initWorks() {
 
             let openBracket = document.createElement('span')
             openBracket.classList.add('bracket')
-            openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
+            if (s === sectiontitle){
+                openBracket.innerText = "{"
+            }
+            if (s === sectionimages){
+                openBracket.innerText = "("
+            }
+            openBracket.addEventListener('click', (e) => {
+                s.classList.toggle('open')
+            }) 
 
             let closeBracket = document.createElement('span')
-            closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
+            if (s === sectiontitle){
+                closeBracket.innerText = "}"
+            }
+            if (s === sectionimages){
+                closeBracket.innerText = ")"
+            }
+            closeBracket.addEventListener('click', (e) => {
+                s.classList.toggle('open')
+            }) 
 
             s.insertAdjacentElement('beforebegin', openBracket)
             s.insertAdjacentElement('afterend', closeBracket)

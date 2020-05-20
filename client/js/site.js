@@ -383,7 +383,6 @@ function initRoland() {
     console.log(expands)
     expands.forEach(b => {
         b.addEventListener('click', () => {
-            console.log(b.parentElement)
             b.parentElement.querySelector('.letter').classList.toggle('open')
         })
     })

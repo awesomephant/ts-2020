@@ -53,7 +53,7 @@ layout: base
         {% endfor %}
 
         {% if p.typeface != "" %}
-        <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{%raw%}{{{Activate Typeface}}}{%endraw%}</button>
+        <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{Activate {{p.typeface}}.ttf}</button>
         {% endif %}
 
         {% if p.id == "11" %}

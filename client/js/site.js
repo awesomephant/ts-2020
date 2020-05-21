@@ -230,8 +230,9 @@ function initLightbox() {
     images.forEach(img => {
         const heights = [4, 8, 12]
         const inner = img.querySelector('img')
-        img.style.height = `${heights[gri(0, heights.length - 1)]}em`
-        inner.style.height = `${heights[gri(0, heights.length - 1)]}em`
+        const h = heights[gri(0, heights.length - 1)];
+        img.style.height = `${h}em`
+        inner.style.height = `${h}em`
         const url = img.getAttribute('data-large')
         const toggle = img.querySelector('.figure-expand')
         toggle.addEventListener('click', (e) => {

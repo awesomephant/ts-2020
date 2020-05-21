@@ -4,6 +4,9 @@ let me = {
 }
 let comments = [];
 
+function gri(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
@@ -74,68 +77,6 @@ function signOut() {
         socket.emit('signout', socket.id)
     });
 }
-
-function handleImageClick(e){
-    const container = document.querySelectorAll(".work-images .section-content")
-    container.forEach((c) => {
-        const elements = c.getElementsByTagName("img")
-        var arr = Array.from(elements)
-        const newarr= arr.slice(1);
-
-        const NextImg = e.target.nextElementSibling
-        if (NextImg !== null) {
-        if (NextImg.tagName  === "IMG") {
-            if (NextImg.style.display === "none"){
-                NextImg.style.display = "inline"
-        } 
-    } 
-        } else{
-            if (typeof newarr !== 'undefined' && newarr.length > 0) {
-                for (var i = 0; i < newarr.length; i++) {
-                    (newarr[i]).style.display = "none";
-
-                }
-            }
-        }
-    })
-}
-
-function ImageHeight(){
-    const images = document.querySelectorAll('img')
-    images.forEach(img => {
-        Array.prototype.random = function (length) {
-        return this[Math.floor((Math.random()*length))];
-    }
-    const h = ["3", "4", "6"]
-    const RandomHeight = h.random(h.length) 
-
-        const FinalHeight = RandomHeight + "em";
-        img.style.height = FinalHeight 
-    })
-}
-
-ImageHeight();
-
-function ImageHandle() {
-    const container = document.querySelectorAll(".work-images .section-content")
-    container.forEach((c) => {
-        const elements = c.getElementsByTagName("img")
-        var arr = Array.from(elements)
-        const newarr= arr.slice(1);
-        if (typeof newarr !== 'undefined' && newarr.length > 0) {
-            for (var i = 0; i < newarr.length; i++) {
-                (newarr[i]).style.display = "none";
-            }
-        }
-    })
-    const images = document.querySelectorAll('img')
-    images.forEach(img => {
-        img.addEventListener('click', handleImageClick)
-        img.setAttribute('src', img.getAttribute('data-large'))
-    })
-}
-
-ImageHandle();
 
 function shuffle() {
     var container = document.querySelector(".work");
@@ -287,6 +228,8 @@ function initLightbox() {
     const lb = document.querySelector('.lightbox')
     const images = document.querySelectorAll('.work-figure')
     images.forEach(img => {
+        const heights = [3, 4, 6]
+        img.style.height = `${heights[0, gri(heights.length - 1)]}em`
         const url = img.getAttribute('data-large')
         const toggle = img.querySelector('.figure-expand')
         toggle.addEventListener('click', (e) => {

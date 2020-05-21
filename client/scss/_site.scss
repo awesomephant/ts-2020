@@ -9,6 +9,23 @@
     }
 }
 
+.externalLink-wrapper {
+    margin-right: .2em;
+    a {
+        display: inline-block;
+        margin-left: .1em;
+        &:hover path, &:focus path {
+            fill: var(--black-hover)
+        }
+    }
+    svg {
+        height: .55em;
+    }
+    path {
+        fill: white;
+    }
+}
+
 nav ul {
     list-style: none;
 }

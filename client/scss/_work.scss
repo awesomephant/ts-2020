@@ -29,7 +29,6 @@
     div,
     nav {
         display: inline;
-        cursor: pointer;
     }
 
     .toggleTypeface {
@@ -95,12 +94,15 @@
     transform: skewX(0deg) !important;
     mix-blend-mode: exclusion;
 
-    .work-figure:hover &, .work-figure:focus &{
+    .work-figure:hover &,
+    .work-figure:focus & {
         opacity: 1;
     }
+
     svg {
         display: block;
     }
+
     path {
         fill: white !important;
     }
@@ -130,7 +132,6 @@
 .bracket {
     appearance: none;
     line-break: anywhere;
-
     background: none;
     word-break: break-word;
     border: 0;
@@ -139,5 +140,5 @@
     line-height: 1;
     display: inline;
     color: inherit;
-    color: var(--black-hover)
+    color: var(--black-hover);
 }

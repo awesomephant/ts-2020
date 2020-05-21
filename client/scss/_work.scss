@@ -127,3 +127,9 @@
     display: inline;
     line-height: 1;
 }
+
+@media only screen and (max-width: 600px) {
+    .space{
+    margin-right: 100%;
+    }
+}

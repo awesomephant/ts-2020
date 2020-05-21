@@ -320,6 +320,11 @@ function initWorks() {
 function InitWorksSmall() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
+        let Space = document.createElement('span')
+        Space.classList.add('space')
+
+        w.insertAdjacentElement('beforebegin', Space)
+        w.insertAdjacentElement('afterend', Space)
 
         // Bind comment form 
         const commentSubmit = w.querySelector('.comment-submit')
@@ -328,7 +333,10 @@ function InitWorksSmall() {
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
         const sectiontitle = w.querySelector('.work-title')
+        const sectiondescription = w.querySelector('.work-description')
+        const sectionauthor = w.querySelector('.work-author')
         const sectionimages = w.querySelector('.work-images')
+        const sectioncomments = w.querySelector('.work-comments')
         sections.forEach((s) => {
             s.classList.add("open")
 
@@ -340,6 +348,12 @@ function InitWorksSmall() {
             if (s === sectionimages) {
                 openBracket.innerText = "("
             }
+            if (s === sectiondescription || s === sectionauthor) {
+                openBracket.innerText = "["
+            }
+            if (s === sectioncomments){
+                openBracket.innerText = ""
+            }
 
             let closeBracket = document.createElement('span')
             closeBracket.classList.add('bracket')
@@ -349,9 +363,16 @@ function InitWorksSmall() {
             if (s === sectionimages) {
                 closeBracket.innerText = ")"
             }
+            if (s === sectiondescription || s === sectionauthor ) {
+                closeBracket.innerText = "]"
+            }
+            if (s === sectioncomments){
+                closeBracket.innerText = ""
+            }
 
             s.insertAdjacentElement('beforebegin', openBracket)
             s.insertAdjacentElement('afterend', closeBracket)
+
         })
     })
 }

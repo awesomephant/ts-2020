@@ -256,17 +256,11 @@ function renderComments(comments) {
 function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
-        let openBracket = document.createElement('span')
-        openBracket.classList.add('bracket')
-        openBracket.innerText = '['
+        let Space = document.createElement('span')
+        Space.classList.add('space')
 
-        let closeBracket = document.createElement('span')
-        closeBracket.innerText = ']'
-        closeBracket.classList.add('bracket')
-        closeBracket.classList.add('close-bracket')
-
-        w.insertAdjacentElement('beforebegin', openBracket)
-        w.insertAdjacentElement('afterend', closeBracket)
+        w.insertAdjacentElement('beforebegin', Space)
+        w.insertAdjacentElement('afterend', Space)
 
         // Bind comment form 
         const commentSubmit = w.querySelector('.comment-submit')
@@ -275,7 +269,10 @@ function initWorks() {
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
         const sectiontitle = w.querySelector('.work-title')
+        const sectiondescription = w.querySelector('.work-description')
+        const sectionauthor = w.querySelector('.work-author')
         const sectionimages = w.querySelector('.work-images')
+        const sectioncomments = w.querySelector('.work-comments')
         sections.forEach((s) => {
             s.addEventListener('click', e => {
                 const parent = s.closest(".work")
@@ -292,6 +289,9 @@ function initWorks() {
             if (s === sectionimages) {
                 openBracket.innerText = "("
             }
+            if (s === sectiondescription || s === sectionauthor ||s === sectioncomments ) {
+                openBracket.innerText = "["
+            }
             openBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
             })
@@ -303,6 +303,9 @@ function initWorks() {
             }
             if (s === sectionimages) {
                 closeBracket.innerText = ")"
+            }
+            if (s === sectiondescription || s === sectionauthor ||s === sectioncomments ) {
+                closeBracket.innerText = "]"
             }
             closeBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')

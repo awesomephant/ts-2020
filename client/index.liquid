@@ -12,7 +12,15 @@ layout: base
 <ul class="site-users"></ul>
 <main class="works">
   <div class="site-title">
-    <h1>[[[[[[[[[[Typographic Singularity 2020]]]]]]]]]]</h1>
+    <h1>
+      {% brackets "[", 90%}
+      <span>Typographic Singularity 2020</span>
+      {% brackets "]", 90%} 
+    </h1>
+    <h2>
+      {% brackets "[", 90%} 
+      An annual celebration of the eclectic and experimental use of typography and codes of language within creative practices in the Visual Communication programme at the Royal College of Art</h2>
+      {% brackets "]", 120%}
   </div>
   <br>
   <nav class="controls">
@@ -64,7 +72,7 @@ layout: base
         {% if p.id == "16" %}
         {% include maya.liquid %}
         {% endif %}
-        
+
         {% if p.id == "18" %}
         {% include meli.liquid %}
         {% endif %}

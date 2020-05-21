@@ -29,7 +29,6 @@
     figure,
     nav {
         display: inline;
-        cursor: pointer;
     }
 
     figure {
@@ -77,14 +76,13 @@
     }
 
     img {
-        height: .8em;
-        transition: 200ms;
-        border-radius: 100px;
         filter: grayscale(1);
-
-        &:hover {
-            filter: grayscale(0);
-        }
+        margin: 10px;
+        vertical-align: top;
+        line-height: 1em;
+     &:hover {
+            filter: none;
+          }
     }
 }
 
@@ -121,15 +119,4 @@
       }
 }
 
-.space{
-    margin-right: 5vw;
-    margin-left: 5vw;
-    display: inline;
-    line-height: 1;
-}
 
-@media only screen and (max-width: 600px) {
-    .space{
-    margin-right: 100%;
-    }
-}

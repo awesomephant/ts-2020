@@ -108,15 +108,14 @@
 
 .bracket {
     appearance: none;
+    line-break: anywhere;
+   
     background: none;
+    word-break: break-word;
     border: 0;
     font-family: inherit;
     font-weight: 100;
     line-height: 1;
     display: inline;
     color: inherit;
-
-      &:hover {
-        color: var(--black-hover)
-      }
-}
+    color: var(--black-hover)}

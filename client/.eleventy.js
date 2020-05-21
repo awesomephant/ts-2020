@@ -27,6 +27,14 @@ module.exports = function (eleventyConfig) {
             );
         }
     });
+    eleventyConfig.addShortcode("brackets", function (bracket, count) {
+        let output = ''
+        for (let i = 0; i < count; i++) {
+            output += bracket
+        }
+
+        return `<span class="bracket">${output}</span>`
+    });
 
     eleventyConfig.addPassthroughCopy("./js");
     eleventyConfig.addPassthroughCopy("./*.xml");

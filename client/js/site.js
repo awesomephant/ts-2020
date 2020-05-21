@@ -256,12 +256,6 @@ function renderComments(comments) {
 function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
-        let Space = document.createElement('span')
-        Space.classList.add('space')
-
-        w.insertAdjacentElement('beforebegin', Space)
-        w.insertAdjacentElement('afterend', Space)
-
         // Bind comment form 
         const commentSubmit = w.querySelector('.comment-submit')
         commentSubmit.addEventListener('click', handleCommentSubmit)

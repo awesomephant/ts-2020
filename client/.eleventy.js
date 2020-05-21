@@ -27,6 +27,7 @@ module.exports = function (eleventyConfig) {
             );
         }
     });
+
     eleventyConfig.addShortcode("brackets", function (bracket, count) {
         let output = ''
         for (let i = 0; i < count; i++) {
@@ -34,6 +35,10 @@ module.exports = function (eleventyConfig) {
         }
 
         return `<span class="bracket">${output}</span>`
+    });
+
+    eleventyConfig.addPairedShortcode("link", function (content, url) {
+        return `<span class="externalLink-wrapper">${content}<a href='${url}' class='externalLink'>↗</a></span>`
     });
 
     eleventyConfig.addPassthroughCopy("./js");

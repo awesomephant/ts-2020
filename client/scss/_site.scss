@@ -3,7 +3,8 @@
     word-break: break-word;
     hyphens: auto;
 
-    h1, h2 {
+    h1,
+    h2 {
         display: inline;
     }
 }
@@ -25,33 +26,36 @@ nav ul li {
     display: none;
 }
 
-.auth-signout,
-.user-profile {
-    display: none;
-}
-
-.site-auth {
-    display: inline;
-}
-
-.signed-in .auth-signout,
-.signed-in .user-profile {
-    display: inline;
-}
-
-.signed-in .auth-signin {
-    display: none;
-}
-
 .controls {
+    display: inline;
+
     a {
-        display: inline-flex;
+        display: inline;
         transform: skewX(-20deg);
+
         &:hover {
             color: var(--black-hover);
         }
     }
-    display: inline;
+
+    .auth-signout,
+    .user-profile {
+        display: none;
+    }
+
+    .site-auth {
+        display: inline;
+    }
+
+    .signed-in .auth-signout,
+    .signed-in .user-profile {
+        display: inline;
+    }
+
+    .signed-in .auth-signin {
+        display: none;
+    }
+
 }
 
 .control {

@@ -215,18 +215,23 @@ function CommentList(comments) {
     }
 }
 
-function handleImageClick(e) {
+function expandImage(url) {
     const lb = document.querySelector('.lightbox')
     const lbImage = lb.querySelector('img')
     lb.classList.add('active')
-    lbImage.setAttribute('src', e.target.getAttribute('data-large'))
+    lbImage.setAttribute('src', url)
 }
 
 function initLightbox() {
     const lb = document.querySelector('.lightbox')
-    const images = document.querySelectorAll('img')
+    const images = document.querySelectorAll('.work-figure')
     images.forEach(img => {
-        img.addEventListener('click', handleImageClick)
+        const url = img.getAttribute('data-large')
+        const toggle = img.querySelector('.figure-expand')
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            expandImage(url)
+        })
     })
     lb.addEventListener('click', () => {
         lb.classList.remove('active')
@@ -262,11 +267,6 @@ function initWorks() {
 
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
-        const sectiontitle = w.querySelector('.work-title')
-        const sectiondescription = w.querySelector('.work-description')
-        const sectionauthor = w.querySelector('.work-author')
-        const sectionimages = w.querySelector('.work-images')
-        const sectioncomments = w.querySelector('.work-comments')
         sections.forEach((s) => {
             s.addEventListener('click', e => {
                 const parent = s.closest(".work")
@@ -277,30 +277,15 @@ function initWorks() {
 
             let openBracket = document.createElement('span')
             openBracket.classList.add('bracket')
-            if (s === sectiontitle) {
-                openBracket.innerText = "{"
-            }
-            if (s === sectionimages) {
-                openBracket.innerText = "("
-            }
-            if (s === sectiondescription || s === sectionauthor ||s === sectioncomments ) {
-                openBracket.innerText = "["
-            }
+            openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
             openBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
             })
 
             let closeBracket = document.createElement('span')
+            closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
-            if (s === sectiontitle) {
-                closeBracket.innerText = "}"
-            }
-            if (s === sectionimages) {
-                closeBracket.innerText = ")"
-            }
-            if (s === sectiondescription || s === sectionauthor ||s === sectioncomments ) {
-                closeBracket.innerText = "]"
-            }
+
             closeBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
             })
@@ -345,7 +330,7 @@ function InitWorksSmall() {
             if (s === sectiondescription || s === sectionauthor) {
                 openBracket.innerText = "["
             }
-            if (s === sectioncomments){
+            if (s === sectioncomments) {
                 openBracket.innerText = ""
             }
 
@@ -357,10 +342,10 @@ function InitWorksSmall() {
             if (s === sectionimages) {
                 closeBracket.innerText = ")"
             }
-            if (s === sectiondescription || s === sectionauthor ) {
+            if (s === sectiondescription || s === sectionauthor) {
                 closeBracket.innerText = "]"
             }
-            if (s === sectioncomments){
+            if (s === sectioncomments) {
                 closeBracket.innerText = ""
             }
 
@@ -414,7 +399,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initBackgroundColor();
     initRoland();
 
-    toggleSections('author', 'on')
+    toggleSections('images', 'on')
 
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')

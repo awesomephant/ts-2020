@@ -10,6 +10,7 @@
 .work {
     hyphens: auto;
     display: inline;
+
     button {
         color: inherit;
         background: transparent;
@@ -26,15 +27,9 @@
     .section-content,
     p,
     div,
-    figure,
     nav {
         display: inline;
         cursor: pointer;
-    }
-
-    figure {
-        margin-right: .2em;
-        vertical-align: middle;
     }
 
     .toggleTypeface {
@@ -75,24 +70,50 @@
     &.open {
         display: inline;
     }
+}
+
+.work-figure {
+    height: 4em;
+    padding: .1em;
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
 
     img {
-        height: .8em;
-        transition: 200ms;
-        border-radius: 100px;
-        filter: grayscale(1);
-
-        &:hover {
-            filter: grayscale(0);
-        }
+        height: 4em;
+        max-height: 100%;
     }
+}
+
+.figure-expand {
+    position: absolute;
+    right: 10px;
+    opacity: 0;
+    transition: 200ms;
+    bottom: 10px;
+    display: block !important;
+    transform: skewX(0deg) !important;
+    mix-blend-mode: exclusion;
+
+    .work-figure:hover &, .work-figure:focus &{
+        opacity: 1;
+    }
+    svg {
+        display: block;
+    }
+    path {
+        fill: white !important;
+    }
+
 }
 
 .work-description {
     font-family: inherit;
+
     [data-font=""] & {
         font-family: sans-serif !important;
     }
+
     max-width: 30em;
     font-size: 1.4rem;
     font-weight: 600;
@@ -109,7 +130,7 @@
 .bracket {
     appearance: none;
     line-break: anywhere;
-   
+
     background: none;
     word-break: break-word;
     border: 0;
@@ -118,4 +139,5 @@
     line-height: 1;
     display: inline;
     color: inherit;
-    color: var(--black-hover)}
+    color: var(--black-hover)
+}

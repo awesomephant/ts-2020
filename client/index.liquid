@@ -22,7 +22,6 @@ layout: base
       An annual celebration of the eclectic and experimental use of typography and language in creative practices in the {% link "https://www.rca.ac.uk/schools/school-of-communication/visual_communication/" %}Visual Communication programme{% endlink %} at the {% link "https://www.rca.ac.uk/"%}Royal College of Art{% endlink %}</h2>
       {% brackets "]", 120%}
   </div>
-  <br>
   <nav class="controls">
     <a href='#1' data-section='title' class="control">{% brackets "{", 3 %}Titles{% brackets "}", 3 %}</a>
     <a href='#1' data-section='description' class="control">{% brackets "{", 3 %}Texts{% brackets "}", 3 %}</a>
@@ -35,6 +34,7 @@ layout: base
       <a class='auth-signout' href="#" onclick="signOut();">{Sign out}</a>
     </nav>
   </nav>
+
   {% for p in projects %}
   <div class="work" data-project="{{p.id}}">
     <section data-controls="description" data-brackets='[]' class="work-section work-title">

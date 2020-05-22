@@ -283,7 +283,7 @@ function initWorks() {
             })
 
             let openBracket = document.createElement('span')
-            openBracket.classList.add('bracket')
+            openBracket.classList.add('cursorbracket')
             openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
             openBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
@@ -291,7 +291,7 @@ function initWorks() {
 
             let closeBracket = document.createElement('span')
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
-            closeBracket.classList.add('bracket')
+            closeBracket.classList.add('cursorbracket')
 
             closeBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
@@ -299,6 +299,7 @@ function initWorks() {
 
             s.insertAdjacentElement('beforebegin', openBracket)
             s.insertAdjacentElement('afterend', closeBracket)
+            
         })
     })
 }

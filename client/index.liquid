@@ -15,12 +15,13 @@ layout: base
     <h1>
       {% brackets "[", 10%}
       <span>Typographic Singularity 2020</span>
-      {% brackets "]", 30%} 
+      {% brackets "]", 50%} 
     </h1>
     <h2>
-      {% brackets "[", 90%} 
-      An annual celebration of the eclectic and experimental use of typography and language in creative practices in the {% link "https://www.rca.ac.uk/schools/school-of-communication/visual_communication/" %}Visual Communication programme{% endlink %} at the {% link "https://www.rca.ac.uk/"%}Royal College of Art{% endlink %}</h2>
-      {% brackets "]", 120%}
+      {% brackets "[", 1%} 
+      An annual celebration of the eclectic and experimental use of typography and language in creative practices in the {% link "https://www.rca.ac.uk/schools/school-of-communication/visual_communication/" % Visual Communication programme{% endlink %} at the {% link "https://www.rca.ac.uk/"%}Royal College of Art{% endlink %}
+      {% brackets "]", 50%}
+    </h2>
   </div>
   <nav class="controls">
     <a href='#1' data-section='title' class="control">{% brackets "{", 3 %}Titles{% brackets "}", 3 %}</a>
@@ -29,11 +30,13 @@ layout: base
     <a href='#1' data-section='author' class="control">{% brackets "{", 3 %}People{% brackets "}", 3 %}</a>
     <a href='#1' data-section='comments' class="control">{% brackets "{", 3 %}Comments{% brackets "}", 3 %}</a>
     <nav class="site-auth">
-      <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">{Sign in with Google to Comment}</a>
+      <a id='js-signin' class='auth-signin' href="#" onclick="signOut();"> {% brackets "[", 1%}  to add comments {Sign in with Google}</a>
       <span class="auth-user"></span>
       <a class='auth-signout' href="#" onclick="signOut();">{Sign out}</a>
     </nav>
   </nav>
+
+  <span class="toggleWork">{% brackets "]", 10%}  {explore}</span>
 
   {% for p in projects %}
   <div class="work" data-project="{{p.id}}">

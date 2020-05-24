@@ -129,6 +129,32 @@ function initFontToggles() {
     })
 }
 
+function ToggleWork() {
+    const buttonExplore = document.querySelector(".toggleWork");
+    const WorkSection = document.querySelectorAll(".work")
+    const controls = document.querySelectorAll(".control")
+    const h2 = document.querySelector(".site-title h2")
+
+    controls.forEach((c)=> {
+        c.style.display = 'none';
+    })  
+    WorkSection.forEach((w) => {
+        w.style.display = 'none';
+    })
+
+    buttonExplore.addEventListener("click", function(){
+        h2.style.display = h2.style.display === 'none' ? '' : 'none'; 
+        buttonExplore.style.display = "none"
+        controls.forEach((c)=> {
+            c.style.display = c.style.display === 'none' ? '' : 'none'; 
+        })    
+        WorkSection.forEach((w) => {
+            w.style.display = w.style.display === 'none' ? '' : 'none';
+      })
+    })
+
+}
+
 function initControls() {
     const controls = document.querySelectorAll('.controls .control');
     controls.forEach((c) => {
@@ -228,7 +254,7 @@ function initLightbox() {
     const lb = document.querySelector('.lightbox')
     const images = document.querySelectorAll('.work-figure')
     images.forEach(img => {
-        const heights = [4, 8, 12]
+        const heights = [4, 6, 8]
         const inner = img.querySelector('img')
         const h = heights[gri(0, heights.length - 1)];
         img.style.height = `${h}em`
@@ -401,6 +427,7 @@ function initRoland() {
 
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
+    ToggleWork();
     //    shuffle();
     initLightbox();
     initFontToggles();

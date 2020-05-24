@@ -129,34 +129,6 @@ function initFontToggles() {
     })
 }
 
-function ToggleWork() {
-    const buttonExplore = document.querySelector(".toggleWork");
-    const WorkSection = document.querySelectorAll(".work")
-    const controls = document.querySelectorAll(".control")
-    const h2 = document.querySelector(".site-title h2")
-    const span = document.querySelectorAll(".site-title .bracket")[3];
-
-    controls.forEach((c)=> {
-        c.style.display = 'none';
-    })  
-    WorkSection.forEach((w) => {
-        w.style.display = 'none';
-    })
-
-    buttonExplore.addEventListener("click", function(){
-        span.style.display = "none"
-        h2.style.display = h2.style.display === 'none' ? '' : 'none'; 
-        buttonExplore.style.display = "none"
-        controls.forEach((c)=> {
-            c.style.display = c.style.display === 'none' ? '' : 'none'; 
-        })    
-        WorkSection.forEach((w) => {
-            w.style.display = w.style.display === 'none' ? '' : 'none';
-      })
-    })
-
-}
-
 function initControls() {
     const controls = document.querySelectorAll('.controls .control');
     controls.forEach((c) => {
@@ -173,28 +145,6 @@ function initControls() {
     })
 }
 
-function ControlsSmall() {
-    const controls = document.querySelectorAll('.controls .control');
-    const sections = document.querySelectorAll(".work-section")
-    controls.forEach((c) => {
-        c.addEventListener('click', e => {
-            sections.forEach((s) => {
-                if (e.target.classList.contains('active')) {
-                    s.classList.add("open")
-                } else {
-                    s.classList.remove("open")
-                }
-            })
-            if (e.target.classList.contains('active')) {
-                e.target.classList.remove('active');
-                toggleSections(e.target.getAttribute('data-section'), 'on');
-            } else {
-                e.target.classList.add('active');
-                toggleSections(e.target.getAttribute('data-section'), 'on');
-            }
-        })
-    })
-}
 
 function toggleSections(section, status) {
     const targetSections = document.querySelectorAll(`.work-${section}`)
@@ -332,79 +282,6 @@ function initWorks() {
     })
 }
 
-function InitWorksSmall() {
-    const works = document.querySelectorAll('.work')
-    works.forEach((w) => {
-        let Space = document.createElement('span')
-        Space.classList.add('space')
-
-        w.insertAdjacentElement('beforebegin', Space)
-        w.insertAdjacentElement('afterend', Space)
-
-        // Bind comment form 
-        const commentSubmit = w.querySelector('.comment-submit')
-        commentSubmit.addEventListener('click', handleCommentSubmit)
-
-        // Bind section events
-        let sections = w.querySelectorAll('.work-section')
-        const sectiontitle = w.querySelector('.work-title')
-        const sectiondescription = w.querySelector('.work-description')
-        const sectionauthor = w.querySelector('.work-author')
-        const sectionimages = w.querySelector('.work-images')
-        const sectioncomments = w.querySelector('.work-comments')
-        sections.forEach((s) => {
-            s.classList.add("open")
-
-            let openBracket = document.createElement('span')
-            openBracket.classList.add('bracket')
-            if (s === sectiontitle) {
-                openBracket.innerText = "{"
-            }
-            if (s === sectionimages) {
-                openBracket.innerText = "("
-            }
-            if (s === sectiondescription || s === sectionauthor) {
-                openBracket.innerText = "["
-            }
-            if (s === sectioncomments) {
-                openBracket.innerText = ""
-            }
-
-            let closeBracket = document.createElement('span')
-            closeBracket.classList.add('bracket')
-            if (s === sectiontitle) {
-                closeBracket.innerText = "}"
-            }
-            if (s === sectionimages) {
-                closeBracket.innerText = ")"
-            }
-            if (s === sectiondescription || s === sectionauthor) {
-                closeBracket.innerText = "]"
-            }
-            if (s === sectioncomments) {
-                closeBracket.innerText = ""
-            }
-
-            s.insertAdjacentElement('beforebegin', openBracket)
-            s.insertAdjacentElement('afterend', closeBracket)
-
-        })
-    })
-}
-
-function SmallScreen() {
-    if (x.matches) {
-        InitWorksSmall();
-        ControlsSmall()
-    } else {
-        initWorks();
-        initControls();
-    }
-}
-
-var x = window.matchMedia("(max-width: 600px)")
-SmallScreen(x)
-
 function handleCommentSubmit(e) {
     const text = e.target.parentElement.querySelector('.input');
     const id = e.target.parentElement.getAttribute('data-project');
@@ -429,14 +306,15 @@ function initRoland() {
 
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
-    ToggleWork();
     //    shuffle();
+    initWorks()
+    initControls()
     initLightbox();
     initFontToggles();
     initBackgroundColor();
     initRoland();
 
-    toggleSections('images', 'on')
+    toggleSections('description', 'on')
 
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')

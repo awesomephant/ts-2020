@@ -322,6 +322,7 @@ function initRoland() {
     })
 }
 
+
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
     //    shuffle();

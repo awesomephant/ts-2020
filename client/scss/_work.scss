@@ -12,7 +12,6 @@
     color: inherit;
     background: none;
     border: 0;
-    cursor: pointer;
     font-family: inherit;
 
     &:hover {
@@ -33,7 +32,6 @@
         line-height: 1;
         display: inline;
         appearance: none;
-        cursor: pointer;
         font-family: inherit;
         &.disabled {
             cursor: default;

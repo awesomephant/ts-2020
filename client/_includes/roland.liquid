@@ -13,12 +13,12 @@
 
 <div class="roland">
     {% for letter in alphabet %}
-    [<span class="letter" data-letter="{{letter}}">
+{% brackets "[", 1 %}<span class="letter" data-letter="{{letter}}">
         <button class="letter-expand">
             {{letter}}
         </button>
         {% endfor %}
         {% for letter in alphabet %}
-    </span>]
+    </span>{% brackets "[", 1 %}
     {% endfor %}
 </div>

@@ -7,6 +7,9 @@ let comments = [];
 function gri(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+String.prototype.capitalize = function() {
+    return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+};
 
 async function postData(url = '', data = {}) {
     const response = await fetch(url, {
@@ -62,7 +65,7 @@ function onSignIn(googleUser) {
 
     postData('/api/authenticate/', { token: id_token, socketID: socket.id })
         .then(data => {
-            userProfile.innerText = profile.getName();
+            userProfile.innerText = `Signed in as ${profile.getName()}`;
             me.name = profile.getName()
             document.body.classList.add('signed-in')
         });
@@ -279,13 +282,16 @@ function initWorks() {
             })
 
             let openBracket = document.createElement('span')
+            const sectionTitle = s.getAttribute('data-section')
             openBracket.classList.add('bracket')
+            openBracket.setAttribute('data-cursorText', sectionTitle.capitalize())
             openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
             openBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
             })
-
+            
             let closeBracket = document.createElement('span')
+            closeBracket.setAttribute('data-cursorText', sectionTitle.capitalize())
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
 

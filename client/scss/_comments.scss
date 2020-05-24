@@ -1,11 +1,12 @@
 .toggleCommentForm {
-//    display: none !important;
+    display: none !important;
     animation: fade-in 200ms both;
     transition: 100ms;
 
     .signed-in & {
         display: inline-block !important;
     }
+
     .form-active & {
         transform: rotate(45deg);
     }
@@ -13,16 +14,18 @@
 }
 
 .comment-form {
-    
+
     .input,
     .comment-submit {
         animation: fade-in 200ms both;
         display: none;
     }
 
-    &.form-active .input, &.form-active .comment-submit{
+    &.form-active .input,
+    &.form-active .comment-submit {
         display: inline;
-    }   
+    }
+
     line-height: 1;
 
     .input {

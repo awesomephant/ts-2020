@@ -64,13 +64,13 @@ nav ul li {
         display: inline;
     }
 
-    .signed-in .auth-signout,
-    .signed-in .user-profile {
+    .signed-in & .auth-signout,
+    .signed-in & .user-profile {
         display: inline;
     }
 
-    .signed-in .auth-signin {
-        display: none;
+    .signed-in & .auth-signin {
+        display: none !important;
     }
 
 }

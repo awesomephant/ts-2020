@@ -64,29 +64,24 @@ function initCursor() {
         return this;
     }
 
-    let links = document.querySelectorAll('a');
-    for (let i = 0; i < links.length; i++) {
-        links[i].addEventListener('mouseover', function () {
+    let acitveElements = document.querySelectorAll('[data-cursorText]');
+    acitveElements.forEach(el => {
+        el.addEventListener('mouseover', function () {
             cursor.height.target = 20;
-            let href = this.getAttribute('href');
-            if (href.includes('instagram')) {
-                cursor.text = 'Instagram'
-            } else {
-                cursor.text = href.replace(/(https?:\/\/|www\.|\/$)/g, '')
-            }
+            cursor.text = el.getAttribute('data-cursorText')
             cursor.width.target = cursorCtx.measureText(cursor.text).width + 10;
             window.setTimeout(function () {
                 cursor.textOpacity.target = 1;
             }, 70)
 
         })
-        links[i].addEventListener('mouseout', function () {
+        el.addEventListener('mouseout', function () {
             cursor.width.target = cursor.default.r;
             cursor.height.target = cursor.default.r;
             cursor.textOpacity.target = 0;
             cursor.text = ''
         })
-    }
+    })
 }
 
 window.addEventListener('DOMContentLoaded', () => {

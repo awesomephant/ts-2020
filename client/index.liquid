@@ -94,7 +94,7 @@ layout: base
     <section data-brackets='[]' class="work-section work-comments">
       <ul class="comments" id='comment-list'></ul>
       <div class="comment-form" data-project="{{p.id}}">
-        {% brackets "{", 1 %}<button class="toggleCommentForm">+</button><span class="input" id="comment-input-{{p.id}}" contenteditable></span><button class="comment-submit">{% brackets "{", 1 %}Send{% brackets "}", 1 %}</button>{% brackets "}", 1 %}
+        {% brackets "{", 1 %}<button class="toggleCommentForm">+</button><span class="input" id="comment-input-{{p.id}}" contenteditable></span><button class="comment-submit disabled">{% brackets "{", 1 %}Send{% brackets "}", 1 %}</button>{% brackets "}", 1 %}
       </div>
     </section>
   </div>

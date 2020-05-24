@@ -23,15 +23,6 @@
     &.form-active .input, &.form-active .comment-submit{
         display: inline;
     }   
-
-    .comment-submit {
-        color: var(--black-hover);
-        transition: 100ms;
-        &.active {
-            color: white;
-        }
-    }
-
     line-height: 1;
 
     .input {

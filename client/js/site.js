@@ -262,9 +262,9 @@ function initWorks() {
         })
         commentInput.addEventListener('input', () => {
             if (commentInput.textContent.length > 5) {
-                commentSubmit.classList.add('active')
+                commentSubmit.classList.remove('disabled')
             } else {
-                commentSubmit.classList.remove('active')
+                commentSubmit.classList.add('disabled')
             }
         })
 

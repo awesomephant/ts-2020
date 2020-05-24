@@ -134,6 +134,7 @@ function ToggleWork() {
     const WorkSection = document.querySelectorAll(".work")
     const controls = document.querySelectorAll(".control")
     const h2 = document.querySelector(".site-title h2")
+    const span = document.querySelectorAll(".site-title .bracket")[3];
 
     controls.forEach((c)=> {
         c.style.display = 'none';
@@ -143,6 +144,7 @@ function ToggleWork() {
     })
 
     buttonExplore.addEventListener("click", function(){
+        span.style.display = "none"
         h2.style.display = h2.style.display === 'none' ? '' : 'none'; 
         buttonExplore.style.display = "none"
         controls.forEach((c)=> {

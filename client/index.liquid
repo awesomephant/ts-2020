@@ -5,7 +5,6 @@ layout: base
 <div class="lightbox">
   <figure>
     <img src="https://i.picsum.photos/id/365/500/300.jpg" alt="" class="lightbox-image">
-    <figcaption>Image caption goes here</figcaption>
   </figure>
 </div>
 
@@ -15,11 +14,13 @@ layout: base
     <h1>
       {% brackets "[", 10%}
       <span>Typographic Singularity 2020</span>
-      {% brackets "]", 50%} 
+      {% brackets "]", 50%}
     </h1>
     <h2>
-      {% brackets "[", 1%} 
-      An annual celebration of the eclectic and experimental use of typography and language in creative practices in the {% link "https://www.rca.ac.uk/schools/school-of-communication/visual_communication/" %} Visual Communication programme{% endlink %} at the {% link "https://www.rca.ac.uk/"%}Royal College of Art{% endlink %}
+      {% brackets "[", 1%}
+      An annual celebration of the eclectic and experimental use of typography and language in creative practices in the
+      {% link "https://www.rca.ac.uk/schools/school-of-communication/visual_communication/" %} Visual Communication
+      programme{% endlink %} at the {% link "https://www.rca.ac.uk/"%}Royal College of Art{% endlink %}
       {% brackets "]", 50%}
     </h2>
   </div>
@@ -30,7 +31,8 @@ layout: base
     <a href='#1' data-section='author' class="control">{% brackets "{", 3 %}People{% brackets "}", 3 %}</a>
     <a href='#1' data-section='comments' class="control">{% brackets "{", 3 %}Comments{% brackets "}", 3 %}</a>
     <nav class="site-auth">
-      <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">{% brackets "{", 3 %}Sign in with Google to comment{% brackets "}", 3 %}</a>
+      <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">{% brackets "{", 3 %}Sign in with Google to
+        comment{% brackets "}", 3 %}</a>
       <span class="auth-user"></span>
       <a class='auth-signout' href="#" onclick="signOut();">{% brackets "{", 3 %}Sign out{% brackets "}", 3 %}</a>
     </nav>
@@ -48,39 +50,37 @@ layout: base
       <div class="section-content">
         {% assign images = p.images | split: "," %}
         {% for img in images %}
-          {% if img %}
-            {% fig img %}
-          {% endif %}
+        {% if img %}
+        {% fig img %}
+        {% endif %}
         {% endfor %}
 
-        {% if p.images == "" %}
-          Images go here
-        {% endif %}
         {% if p.typeface != "" %}
-        <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{Activate {{p.typeface}}.ttf}</button>
+        <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{% brackets "{", 3 %}Activate
+          {{p.typeface}}.ttf{% brackets "}", 3 %}</button>
         {% endif %}
 
-        {% if p.id == "11" %}
-        {% include jose.liquid %}
-        {% endif %}
-
-        {% if p.id == "16" %}
+        {% if p.id == "15" %}
         {% include maya.liquid %}
         {% endif %}
 
-        {% if p.id == "18" %}
+        {% if p.id == "17" %}
         {% include meli.liquid %}
+        {% endif %}
+
+        {% if p.id == "20" %}
+        {% include roland.liquid %}
         {% endif %}
 
       </div>
     </section>
-  
+
     <section data-controls="author" data-brackets='[]' class="work-section work-description">
       {% capture desc %}{{p.description | newline_to_br | strip_newlines}}{% endcapture %}
       {%assign paragraphs = desc | split: '<br />'  %}
       <div class="section-content">
         {%for graph in paragraphs %}
-          <p>{{graph}}</p>
+        <p>{{graph}}</p>
         {% endfor %}
       </div>
     </section>
@@ -92,12 +92,9 @@ layout: base
     </section>
 
     <section data-brackets='[]' class="work-section work-comments">
-      <div class="test-comments">
-        <ul class="comments" id='comment-list'></ul>
-        <div class="comment-form" data-project="{{p.id}}">
-          <span class="input" id="comment-input-{{p.id}}" contenteditable>Write a comment</span>
-          <button class="comment-submit">{%raw%}{{{Send}}}{%endraw%}</button>
-        </div>
+      <ul class="comments" id='comment-list'></ul>
+      <div class="comment-form" data-project="{{p.id}}">
+        {% brackets "{", 1 %}<button class="toggleCommentForm">+</button><span class="input" id="comment-input-{{p.id}}" contenteditable></span><button class="comment-submit">{% brackets "{", 1 %}Send{% brackets "}", 1 %}</button>{% brackets "}", 1 %}
       </div>
     </section>
   </div>

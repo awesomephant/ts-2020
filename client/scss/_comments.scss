@@ -1,24 +1,43 @@
-.comment-form {
-    //display: none;
-    display: inline;
+.toggleCommentForm {
+//    display: none !important;
+    animation: fade-in 200ms both;
+    transition: 100ms;
 
     .signed-in & {
-        display: inline;
+        display: inline-block !important;
     }
+    .form-active & {
+        transform: rotate(45deg);
+    }
+
+}
+
+.comment-form {
+    
+    .input,
+    .comment-submit {
+        animation: fade-in 200ms both;
+        display: none;
+    }
+
+    &.form-active .input, &.form-active .comment-submit{
+        display: inline;
+    }   
+
+    .comment-submit {
+        color: var(--black-hover);
+        transition: 100ms;
+        &.active {
+            color: white;
+        }
+    }
+
+    line-height: 1;
 
     .input {
         cursor: text;
-        border: 1px solid var(--text);
-        font-size: .8em;
-        display: inline-block;
-        letter-spacing: .08em;
-        vertical-align: middle;
-        border-radius: 5px;
-        padding: .1em .3em;
         margin-right: .2em;
         margin-left: .2em;
-        position: relative;
-        top: -.1em;
     }
 }
 
@@ -29,15 +48,19 @@
 .comment {
     list-style: none;
     display: inline;
-    margin-right: .5em;
-}
 
-.comment:before {
-    content: "[";
-}
+    &:before,
+    &:after {
+        color: var(--black-hover);
+    }
 
-.comment:after {
-    content: "]";
+    &:before {
+        content: "(";
+    }
+
+    &:after {
+        content: ")";
+    }
 }
 
 .comment-meta {

@@ -247,8 +247,26 @@ function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
         // Bind comment form 
+        const commentSection = w.querySelector('.comment-form')
         const commentSubmit = w.querySelector('.comment-submit')
-        commentSubmit.addEventListener('click', handleCommentSubmit)
+        const commentInput = w.querySelector('.comment-form .input')
+        commentSubmit.addEventListener('click', (e) => {
+            handleCommentSubmit(e, commentSection.getAttribute('data-project'), commentInput.textContent)
+        })
+
+        const toggleCommentForm = w.querySelector('.toggleCommentForm');
+        toggleCommentForm.addEventListener('click', (e) => {
+            e.stopPropagation()
+            commentSection.classList.toggle('form-active')
+            commentInput.focus();
+        })
+        commentInput.addEventListener('input', () => {
+            if (commentInput.textContent.length > 5) {
+                commentSubmit.classList.add('active')
+            } else {
+                commentSubmit.classList.remove('active')
+            }
+        })
 
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
@@ -261,7 +279,7 @@ function initWorks() {
             })
 
             let openBracket = document.createElement('span')
-            openBracket.classList.add('cursorbracket')
+            openBracket.classList.add('bracket')
             openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
             openBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
@@ -269,7 +287,7 @@ function initWorks() {
 
             let closeBracket = document.createElement('span')
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
-            closeBracket.classList.add('cursorbracket')
+            closeBracket.classList.add('bracket')
 
             closeBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
@@ -277,28 +295,28 @@ function initWorks() {
 
             s.insertAdjacentElement('beforebegin', openBracket)
             s.insertAdjacentElement('afterend', closeBracket)
-            
+
         })
     })
 }
 
-function handleCommentSubmit(e) {
-    const text = e.target.parentElement.querySelector('.input');
-    const id = e.target.parentElement.getAttribute('data-project');
+function handleCommentSubmit(e, id, text) {
+    e.stopPropagation();
+    console.log(id)
+    console.log(text)
     // We have to set the date here so we can send it out
     // to sockets without hitting the database, which will
     // have the canonical date.
     let now = new Date()
-    const data = { project: id, text: text.textContent, author: me, created: now.toISOString() }
+    const data = { project: id, text: text, author: me, created: now.toISOString() }
     socket.emit('comment', data)
-    text.innerText = '';
 }
 
 function initRoland() {
     const expands = document.querySelectorAll('.roland .letter-expand')
-    console.log(expands)
     expands.forEach(b => {
-        b.addEventListener('click', () => {
+        b.addEventListener('click', (e) => {
+            e.stopPropagation();
             b.parentElement.querySelector('.letter').classList.toggle('open')
         })
     })
@@ -314,7 +332,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initBackgroundColor();
     initRoland();
 
-    toggleSections('description', 'on')
+    toggleSections('comments', 'on')
 
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
@@ -330,10 +348,14 @@ window.addEventListener('DOMContentLoaded', () => {
             userList.innerHTML = ''
             userList.appendChild(lis)
         });
+        socket.on('error', (err) => {
+            console.error(err)
+        });
 
         socket.on('comment', (comment) => {
             const li = CommentList([comment]);
             const commentContainer = document.querySelector(`[data-project="${comment.project}"] .comments`)
+            console.log(commentContainer)
             commentContainer.insertAdjacentElement('afterbegin', li)
         });
     }

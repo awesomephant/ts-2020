@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
         if (global.users[comment.author.id].auth === true && comment.text.length > 2) {
             // emit event (for real time)
             io.emit('comment', comment)
-
+            
             // write to database
             const q = "INSERT INTO comments(text, author, project) VALUES($1, $2, $3)"
             db.query(q, [comment.text, comment.author, parseInt(comment.project)], (err, res) => {
@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
                 console.log('Saved comment.')
             })
         } else {
-            return false;
+            io.emit('error', "Couldn't save comment: User is not authenticated.")
         };
     })
 

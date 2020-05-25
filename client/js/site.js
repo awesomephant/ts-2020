@@ -7,8 +7,8 @@ let comments = [];
 function gri(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-String.prototype.capitalize = function() {
-    return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+String.prototype.capitalize = function () {
+    return this.replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
 };
 
 async function postData(url = '', data = {}) {
@@ -201,8 +201,18 @@ function CommentList(comments) {
 function expandImage(url) {
     const lb = document.querySelector('.lightbox')
     const lbImage = lb.querySelector('img')
+    const lbVideo = lb.querySelector('.lightbox-video')
+    lb.classList.remove('image')
+    lb.classList.remove('video')
+    
+    if (url.includes('.webp')) {
+        lbImage.setAttribute('src', url)
+        lb.classList.add('image')
+    } else if (url.includes('.mp4')) {
+        lbVideo.setAttribute('src', url)
+        lb.classList.add('video')
+    }
     lb.classList.add('active')
-    lbImage.setAttribute('src', url)
 }
 
 function initLightbox() {
@@ -284,7 +294,7 @@ function initWorks() {
             openBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
             })
-            
+
             let closeBracket = document.createElement('span')
             closeBracket.setAttribute('data-cursorText', sectionTitle.capitalize())
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
@@ -334,7 +344,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initBackgroundColor();
     initRoland();
 
-    toggleSections('title', 'on')
+    toggleSections('images', 'on')
 
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')

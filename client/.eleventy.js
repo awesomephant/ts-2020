@@ -23,10 +23,17 @@ module.exports = function (eleventyConfig) {
         if (url.includes('_L')) { height = 6 }
         const large = url.replace(/\.(jpe?g|png)/gi, '%401500w.webp').trim().replace(' ', '+')
         const awsUrl = `https://ts-2020.s3.eu-west-2.amazonaws.com/`
+
+        let content = ''
+        if (large.includes('.webp')) {
+            content = `<img style='height: ${height}em' loading="lazy" src="${awsUrl + large}"/>`
+        } else if (large.includes('.mp4')) {
+            content = `<video autoplay muted loop style='height: ${height}em' src="${awsUrl + large}"></video>`
+        }
         if (url.length > 1) {
             return (
                 `<figure style='height: ${height}em' data-original='${url}' data-large="${awsUrl + large}" class='work-figure'>
-                    <img style='height: ${height}em' loading="lazy" src="${awsUrl + large}"/>
+                    ${content}
                     <button data-cursorText="Expand" class='figure-expand'>
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                     <path d="M5,5H10V7H7V10H5V5M14,5H19V10H17V7H14V5M17,14H19V19H14V17H17V14M10,17V19H5V14H7V17H10Z" />

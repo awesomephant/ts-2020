@@ -1,0 +1,31 @@
+.cursor-container {
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    z-index: 6000;
+    pointer-events: none;
+    background-color: rgb(207, 147, 255);
+    transition: width 200ms;
+    width: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0 .7em;
+    height: 1.5rem;
+    line-height: 1;
+    align-items: center;
+}
+
+.cursor-text {
+    color: white;
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 1.2;
+    word-spacing: .02em;
+    letter-spacing: .07em;
+    z-index: 7000;
+    font-weight: 500;
+//    text-transform: uppercase;
+    transition: 190ms opacity;
+    position: relative;
+}

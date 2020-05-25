@@ -4,28 +4,4 @@
 @import "work";
 @import "comments";
 @import "lightbox";
-
-@media only screen and (max-width: 600px) {
-    .icon {
-        display: block;
-        right: 1rem;
-        position: fixed;
-    }
-
-    .controls #myLinks {
-        display: none;
-    }
-
-    .site-auth {
-        display: none;
-    }
-
-    .controls {
-        overflow: hidden;
-        position: relative;
-    }
-
-    nav ul li {
-        display: block;
-    }
-}
+@import "cursor";

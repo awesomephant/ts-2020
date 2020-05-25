@@ -18,9 +18,9 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addShortcode("fig", function (url) {
         let height = 0
-        if (url.includes('_S')){height = 4 }
-        if (url.includes('_M')){height = 4 }
-        if (url.includes('_L')){height = 6 }
+        if (url.includes('_S')) { height = 4 }
+        if (url.includes('_M')) { height = 4 }
+        if (url.includes('_L')) { height = 6 }
         const large = url.replace(/\.(jpe?g|png)/gi, '%401500w.webp').trim().replace(' ', '+')
         const awsUrl = `https://ts-2020.s3.eu-west-2.amazonaws.com/`
         if (url.length > 1) {
@@ -48,7 +48,9 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addPairedShortcode("link", function (content, url) {
-        return `<span class="externalLink-wrapper">${content}<a href='${url}' data-cursorText="${url}" class='externalLink'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="cls-1" d="M23.8457.3068V22.21L22.248,23.6545V12.3607c0-3.3842,0-6.5781.0387-9.43L1.2581,23.6932.1543,22.5151,21.1829,1.7512c-2.8517.0387-6.0456.0387-9.3911.0387H.1543L1.5616.3068Z"/></svg></a></span>`
+        const prettyURL = url.replace(/(https?:\/\/)|(\/$)/gi, '');
+
+        return `<span class="externalLink-wrapper">${content}<a href='${url}' data-cursorText="${prettyURL}" class='externalLink'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="cls-1" d="M23.8457.3068V22.21L22.248,23.6545V12.3607c0-3.3842,0-6.5781.0387-9.43L1.2581,23.6932.1543,22.5151,21.1829,1.7512c-2.8517.0387-6.0456.0387-9.3911.0387H.1543L1.5616.3068Z"/></svg></a></span>`
     });
 
     eleventyConfig.addPassthroughCopy("./js");

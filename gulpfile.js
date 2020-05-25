@@ -3,8 +3,8 @@ const srcset = require("gulp-srcset").default;
 const using = require('gulp-using');
 const flatten = require('gulp-flatten');
 
-const imageDest = './submission-images/'
-const sizes = [100, 1500]
+const imageDest = './submissions_dest/'
+const sizes = [1500]
 
 gulp.task('images', () =>
     gulp.src('./submissions/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}')

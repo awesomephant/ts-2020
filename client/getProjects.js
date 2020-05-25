@@ -7,7 +7,9 @@ fetch(sheetURL)
     .then(res => res.text())
     .then(body => {
         parse(body, {columns: true}, function (err, data) {
-            console.log(data)
-            fs.writeFileSync('./_data/projects.json', JSON.stringify(data))
+            data.forEach(row => {
+                row.images = row.images.replace(/\n/g, ';')
+            })
+            fs.writeFileSync('./_data/projects.json', JSON.stringify(data, null, '  '))
         })
     });

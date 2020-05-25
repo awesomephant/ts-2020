@@ -209,11 +209,6 @@ function initLightbox() {
     const lb = document.querySelector('.lightbox')
     const images = document.querySelectorAll('.work-figure')
     images.forEach(img => {
-        const heights = [4, 6, 8]
-        const inner = img.querySelector('img')
-        const h = heights[gri(0, heights.length - 1)];
-        img.style.height = `${h}em`
-        inner.style.height = `${h}em`
         const url = img.getAttribute('data-large')
         const toggle = img.querySelector('.figure-expand')
         toggle.addEventListener('click', (e) => {
@@ -339,7 +334,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initBackgroundColor();
     initRoland();
 
-    toggleSections('comments', 'on')
+    toggleSections('images', 'on')
 
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')
@@ -361,8 +356,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         socket.on('comment', (comment) => {
             const li = CommentList([comment]);
+            li.classList.add('new')
             const commentContainer = document.querySelector(`[data-project="${comment.project}"] .comments`)
-            console.log(commentContainer)
             commentContainer.insertAdjacentElement('afterbegin', li)
         });
     }

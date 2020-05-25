@@ -12,12 +12,16 @@
     opacity: 0;
     transition: 200ms;
     z-index: 2000;
+    transform-origin: center;
+    transform: scale(.95);
     img {
         max-width: 100vw;
         max-height: 100vh;
+        box-shadow: 0 0 100px 20px black;
     } 
     &.active {
         pointer-events: all;
+        transform: scale(1);
         opacity: 1;
     }
 }

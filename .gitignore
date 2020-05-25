@@ -11,4 +11,6 @@ documentation/
 /client/_site/
 /submissions/
 /submission-images/
+/submissions_dest/
+*.zip
 # This comes from a google spreadsheet during build

@@ -11,9 +11,10 @@
     border-radius: 20px;
     overflow: hidden;
     padding: 0 .7em;
-    height: 1.5rem;
+    height: 1.5em;
     line-height: 1;
     align-items: center;
+    font-size: var(--ms-0);
 }
 
 .cursor-text {
@@ -28,4 +29,5 @@
 //    text-transform: uppercase;
     transition: 190ms opacity;
     position: relative;
+    top: 1px
 }

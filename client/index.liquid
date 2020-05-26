@@ -51,7 +51,7 @@ layout: base
   {% brackets "{", 1%}<div class="work" data-project="{{p.id}}">
     <section data-controls="images" data-brackets='[]' data-section='title' class="work-section work-title">
       <div class="section-content">
-        <h2>{{p.title}}</h2>
+        <h2>{{p.title | escape}}</h2>
       </div>
     </section>
     <section data-controls="description" data-section='work' data-brackets='[]' class="work-section work-images">
@@ -84,7 +84,7 @@ layout: base
     </section>
 
     <section data-controls="author" data-section='description' data-brackets='[]' class="work-section work-description">
-      {% capture desc %}{{p.description | newline_to_br | strip_newlines}}{% endcapture %}
+      {% capture desc %}{{p.description | escape | newline_to_br | strip_newlines}}{% endcapture %}
       {%assign paragraphs = desc | split: '<br />'  %}
       <div class="section-content">
         {%for graph in paragraphs %}
@@ -95,7 +95,7 @@ layout: base
 
     <section data-controls="comments" data-section='author' data-brackets='[]' class="work-section work-author">
       <div class="section-content">
-        <h2>{% link p.website %}{{p.name}}{% endlink %}</h2>
+        <h2>{% link p.website %}{{p.name | escape }}{% endlink %}</h2>
       </div>
     </section>
 

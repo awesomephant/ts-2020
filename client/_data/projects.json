@@ -33,8 +33,8 @@
     "id": "4",
     "name": "Bakhtawer Haider",
     "title": "NASTA‘LĪQ",
-    "description": "If you were to travel through the streets of Lahore, you would see an abundance of rikshahs, shops and buildings covered with labels and signs. You will find that those labels tend to be either in Urdu or in English. Whilst the Latin scripted signs display an expected cacophony of typographic choices, arrangements and visual styles the corresponding Urdu signs seem to often be hand-painted and use just the one typographic style.\nThis style is called Nasta‘līq — a Perso-Arabic script, described as delicate and ornate and always sloping slightly downwards. In the past, Monotype and Linotype have created multiple typefaces for the Urdu market, however only to find themselves getting rejected. Publishers would persist on handwriting their publications and then lithographically reprinting them. A legion of calligraphers would handwrite every story and every written piece on every page, which would be composed into one standard print that would be lithographed over and over again.\nNasta‘līq demands beautification that requires patience, artistic integrity and a certain mastery. However, printing this script in movable type requires heavy simplification of this aesthetic tradition into a representation of the script that loses its rhythm, fluidity and hence artistic quality. And it is this argument that brings us back to the disapproval towards appropriating and adapting the Nasta‘līq script into a simplified and homogenised type system. The Nasta‘līq  style of calligraphy is a tremendous  challenge for Latin-centric technology, even up until this day.\nIt is easy to see why there is a belief that that the Nasta‘līq script will always be unsuited for modern digital and printing technology and why an abridged version almost always get disapproved. The reality is that modern technology amongst the hegemony of the Western alphabet as well as its overbearing Arabic cousin has never wholeheartedly attempted to be fit for the Nasta‘līq script.  For Typographic Singularity, I draw inspiration from Nasta‘līq and its ’aesthetic qualities in an ode to  calligraphers who continue to work their magic, striving to keep the tradition of the script alive with the purpose of its preservation in a modern digital age",
-    "website": "example.com",
+    "description": "Nasta‘līq — is a Perso-Arabic script, described as delicate and ornate and always sloping slightly downwards. Nasta‘līq demands beautification that requires patience and calligraphic integrity. However, printing this script in movable type requires heavy simplification of this aesthetic tradition.\nIt tends to lose its rhythm, fluidity and hence artistic quality within a homogenised type system. For Typographic Singularity, I draw inspiration from Nasta‘līq and its ’aesthetic qualities in an ode to  calligraphers who continue to work their magic, striving to keep the tradition of the script alive with the purpose of its preservation in a modern digital age. ",
+    "website": "https://www.instagram.com/bakhtawer_haider/",
     "images": "BakiH_M_1.png;BakiH_M_2.png;BakiH_M_3.png;BakiH_M_4.png;BakiH_M_5.png;BakiH_M_6.png",
     "typeface": "",
     "notes": "Needs to cut down description"
@@ -257,24 +257,24 @@
     "website": "example.com",
     "images": "",
     "typeface": "",
-    "notes": "interative"
+    "notes": "interactive"
   },
   {
     "id": "25",
     "name": "Emily Schofield",
-    "title": "Title goes here",
-    "description": "Description goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsum",
-    "website": "example.com",
-    "images": "",
+    "title": "Index to Image",
+    "description": "Over the course of 18 months at the RCA I designed 12 posters advertising various events. With our time at the RCA having come to a sudden and unceremonious end they are now a bittersweet reminder both of what was and what was still to come. As with any poster past its event, they are no longer a signifier – dates and locations are nothing but empty type. I printed layers of each poster on top of each other on my printer, creating nonsensical posters whose previously indexical type has become nothing but image. The result is a shell of an experience, somewhere between taunting and comforting.",
+    "website": "www.emilyschofield.de",
+    "images": "EmilyS_L_01.gif",
     "typeface": "",
-    "notes": ""
+    "notes": "Would prefer gif but also sent an mp4 just incase"
   },
   {
     "id": "26",
     "name": "Daniel Johns",
-    "title": "Title goes here",
-    "description": "Description goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsum",
-    "website": "example.com",
+    "title": "Grotes\\<",
+    "description": "There is arguably no need for any new typefaces and perhaps more excitement is gained from hacking and rearranging existing ones. I rearranged the glyphs of an existing typeface, using kerning and baseline shift, then recreating from the original glyphs file,  to create alternative lower case letters. Using Neue Haas Grotesk allowed for a really interesting contrast between the original letter forms and the angular, sharp, off-kilter ones created from the glyphs.  ",
+    "website": "https://www.instagram.com/doingadan/",
     "images": "",
     "typeface": "",
     "notes": ""

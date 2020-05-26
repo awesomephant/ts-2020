@@ -39,7 +39,8 @@ function initCursor() {
 
     let acitveElements = document.querySelectorAll('[data-cursorText]');
     acitveElements.forEach(el => {
-        el.addEventListener('mouseover', function () {
+        el.addEventListener('mouseover', (e) => {
+            e.stopPropagation();
             cursor.text = el.getAttribute('data-cursorText')
             cursor.textEl.textContent = el.getAttribute('data-cursorText')
             cursor.width.target = cursor.textEl.scrollWidth;
@@ -49,6 +50,7 @@ function initCursor() {
             
         })
         el.addEventListener('mouseout', function () {
+            e.stopPropagation();
             cursor.width.target = cursor.width.default;
             cursor.height.target = cursor.height.default;
             cursor.textOpacity.current = 0;

@@ -50,7 +50,6 @@ function initCursor() {
             
         })
         el.addEventListener('mouseout', function () {
-            e.stopPropagation();
             cursor.width.target = cursor.width.default;
             cursor.height.target = cursor.height.default;
             cursor.textOpacity.current = 0;

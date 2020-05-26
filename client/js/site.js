@@ -204,7 +204,7 @@ function expandImage(url) {
     const lbVideo = lb.querySelector('.lightbox-video')
     lb.classList.remove('image')
     lb.classList.remove('video')
-    
+
     if (url.includes('.webp')) {
         lbImage.setAttribute('src', url)
         lb.classList.add('image')
@@ -215,10 +215,24 @@ function expandImage(url) {
     lb.classList.add('active')
 }
 
-function initLightbox() {
-    const lb = document.querySelector('.lightbox')
-    const images = document.querySelectorAll('.work-figure')
-    images.forEach(img => {
+function initImages(container) {
+    const images = container.querySelectorAll('.work-figure')
+    images.forEach((img, i) => {
+        if (i === 0) {
+            img.classList.add('active')
+        }
+
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (i <= images.length - 2) {
+                images[i + 1].classList.toggle('active')
+            } else if (i === images.length - 1){
+                const c = container.querySelector(".work-images").getAttribute('data-controls')
+                const nextSection = container.querySelector(`.work-${c}`)
+                nextSection.classList.toggle('open')
+            }
+        })
+
         const url = img.getAttribute('data-large')
         const toggle = img.querySelector('.figure-expand')
         toggle.addEventListener('click', (e) => {
@@ -226,6 +240,10 @@ function initLightbox() {
             expandImage(url)
         })
     })
+}
+
+function initLightbox() {
+    const lb = document.querySelector('.lightbox')
     lb.addEventListener('click', () => {
         lb.classList.remove('active')
     })
@@ -254,6 +272,9 @@ function renderComments(comments) {
 function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
+
+        initImages(w)
+
         // Bind comment form 
         const commentSection = w.querySelector('.comment-form')
         const commentSubmit = w.querySelector('.comment-submit')

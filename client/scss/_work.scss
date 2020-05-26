@@ -97,7 +97,11 @@
     padding: .1em;
     vertical-align: top;
     position: relative;
-    display: inline-block;
+    display: none;
+    animation: fade-in 200ms both;
+    &.active {
+        display: inline-block;
+    }
 
     img {
         height: 4em;

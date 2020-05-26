@@ -83,7 +83,7 @@ layout: base
       </div>
     </section>
 
-    <section data-controls="author" data-section='text' data-brackets='[]' class="work-section work-description">
+    <section data-controls="author" data-section='description' data-brackets='[]' class="work-section work-description">
       {% capture desc %}{{p.description | newline_to_br | strip_newlines}}{% endcapture %}
       {%assign paragraphs = desc | split: '<br />'  %}
       <div class="section-content">

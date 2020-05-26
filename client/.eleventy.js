@@ -32,7 +32,7 @@ module.exports = function (eleventyConfig) {
         }
         if (url.length > 1) {
             return (
-                `<figure style='height: ${height}em' data-original='${url}' data-large="${awsUrl + large}" class='work-figure'>
+                `<figure data-cursorText="→" style='height: ${height}em' data-original='${url}' data-large="${awsUrl + large}" class='work-figure'>
                     ${content}
                     <button data-cursorText="Expand" class='figure-expand'>
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">

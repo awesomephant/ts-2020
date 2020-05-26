@@ -1,6 +1,6 @@
 let userProfile;
 let me = {
-    name: ''
+    name: '',
 }
 let comments = [];
 
@@ -68,6 +68,10 @@ function onSignIn(googleUser) {
             userProfile.innerText = `Signed in as ${profile.getName()}`;
             me.name = profile.getName()
             document.body.classList.add('signed-in')
+            const commentToggles = document.querySelectorAll('.toggleCommentForm')
+            commentToggles.forEach(c => {
+                c.setAttribute('data-cursorText', 'Add Response')
+            })
         });
 
 }
@@ -78,6 +82,10 @@ function signOut() {
         document.body.classList.remove('signed-in')
         userProfile.innerText = ''
         socket.emit('signout', socket.id)
+        const commentToggles = document.querySelectorAll('.toggleCommentForm')
+        commentToggles.forEach(c => {
+            c.setAttribute('data-cursorText', 'Sign in to respond')
+        })
     });
 }
 
@@ -225,12 +233,17 @@ function initImages(container) {
         img.addEventListener('click', (e) => {
             e.stopPropagation();
             if (i <= images.length - 2) {
-                images[i + 1].classList.toggle('active')
-            } else if (i === images.length - 1){
+                if (images[i + 1].classList.contains('active')) {
+                    images[i + 1].classList.remove('active')
+                } else {
+                    images[i + 1].classList.add('active')
+                }
+            } else if (i === images.length - 1) {
                 const c = container.querySelector(".work-images").getAttribute('data-controls')
                 const nextSection = container.querySelector(`.work-${c}`)
                 nextSection.classList.toggle('open')
             }
+
         })
 
         const url = img.getAttribute('data-large')
@@ -286,8 +299,22 @@ function initWorks() {
         const toggleCommentForm = w.querySelector('.toggleCommentForm');
         toggleCommentForm.addEventListener('click', (e) => {
             e.stopPropagation()
-            commentSection.classList.toggle('form-active')
-            commentInput.focus();
+
+            if (document.body.classList.contains('signed-in')){
+                if (commentSection.classList.contains('form-active')){
+                    commentSection.classList.remove('form-active')
+                    toggleCommentForm.setAttribute('data-cursorText', 'Add Response')
+                    toggleCommentForm.dispatchEvent(new Event('mouseover'))
+                } else {
+                    toggleCommentForm.setAttribute('data-cursorText', 'Cancel')
+                    commentSection.classList.add('form-active')
+                    commentInput.focus();
+                    toggleCommentForm.dispatchEvent(new Event('mouseover'))
+                }
+            } else {
+                const signInEl = document.querySelector('#js-signin')
+                signInEl.click()
+            }
         })
         commentInput.addEventListener('input', () => {
             if (commentInput.textContent.length > 5) {

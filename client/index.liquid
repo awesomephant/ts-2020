@@ -27,15 +27,15 @@ layout: base
   </div>
   <nav class="controls">
     <a href='#1' data-cursorText="Show Titles" data-section='title'
-      class="control">{% brackets "{", 3 %}Titles{% brackets "}", 3 %}</a>
+      class="control active">{% brackets "{", 3 %}Titles{% brackets "}", 3 %}</a>
     <a href='#1' data-cursorText="Show Work" data-section='images'
       class="control">{% brackets "{", 3 %}Work{% brackets "}", 3 %}</a>
     <a href='#1' data-cursorText="Show Texts" data-section='description'
       class="control">{% brackets "{", 3 %}Texts{% brackets "}", 3 %}</a>
-    <a href='#1' data-cursorText="Show Authors" data-section='author'
+    <a href='#1' data-cursorText="Show People" data-section='author'
       class="control">{% brackets "{", 3 %}People{% brackets "}", 3 %}</a>
-    <a href='#1' data-cursorText="Show Comments" data-section='comments'
-      class="control">{% brackets "{", 3 %}Comments{% brackets "}", 3 %}</a>
+    <a href='#1' data-cursorText="Show Responses" data-section='comments'
+      class="control">{% brackets "{", 3 %}Responses{% brackets "}", 3 %}</a>
     <nav class="site-auth">
       {% brackets "{", 3 %}
       <a id='js-signin' class='auth-signin' href="#" onclick="signOut();">Sign in with Google to
@@ -49,12 +49,12 @@ layout: base
 
   {% for p in projects %}
   {% brackets "{", 1%}<div class="work" data-project="{{p.id}}">
-    <section data-controls="images" data-brackets='[]' data-section='title' class="work-section work-title">
+    <section data-cursorText="arrowRight" data-controls="images" data-brackets='[]' data-section='title' class="work-section work-title">
       <div class="section-content">
         <h2>{{p.title | escape}}</h2>
       </div>
     </section>
-    <section data-controls="description" data-section='work' data-brackets='[]' class="work-section work-images">
+    <section data-controls="description" data-cursorText="arrowRight" data-section='work' data-brackets='[]' class="work-section work-images">
       <div class="section-content">
         {% assign images = p.images | split: ";" %}
         {% for img in images %}
@@ -83,7 +83,7 @@ layout: base
       </div>
     </section>
 
-    <section data-controls="author" data-section='description' data-brackets='[]' class="work-section work-description">
+    <section data-cursorText="arrowRight" data-controls="author" data-section='description' data-brackets='[]' class="work-section work-description">
       {% capture desc %}{{p.description | escape | newline_to_br | strip_newlines}}{% endcapture %}
       {%assign paragraphs = desc | split: '<br />'  %}
       <div class="section-content">
@@ -93,7 +93,7 @@ layout: base
       </div>
     </section>
 
-    <section data-controls="comments" data-section='author' data-brackets='[]' class="work-section work-author">
+    <section data-cursorText="arrowRight" data-controls="comments" data-section='people' data-brackets='[]' class="work-section work-author">
       <div class="section-content">
         <h2>{% link p.website %}{{p.name | escape }}{% endlink %}</h2>
       </div>
@@ -102,7 +102,7 @@ layout: base
     <section data-brackets='[]' data-section='comments' class="work-section work-comments">
       <ul class="comments" id='comment-list'></ul>
       <div class="comment-form" data-project="{{p.id}}">
-        {% brackets "{", 1 %}<button class="toggleCommentForm">+</button><span class="input" id="comment-input-{{p.id}}"
+        {% brackets "{", 1 %}<button data-cursorText="Sign in to respond" class="toggleCommentForm">+</button><span class="input" id="comment-input-{{p.id}}"
           contenteditable></span><button
           class="comment-submit disabled">{% brackets "{", 1 %}Send{% brackets "}", 1 %}</button>{% brackets "}", 1 %}
       </div>

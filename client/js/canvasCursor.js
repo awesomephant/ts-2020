@@ -8,8 +8,8 @@ let cursor = {
     el: null,
     textEl: null,
     width: {
-        target: 20,
-        default: 10,
+        target:  2,
+        default: 2,
     },
     height: {
         target: 20,
@@ -19,6 +19,9 @@ let cursor = {
         current: 0
     }
 }
+
+const arrowRight = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 201.7072 197.5391"><path d="M201.7072,98.77l-74.9131,98.77H107.3768l34.6778-45.7815,34.1243-44.6631H0v-16.65H176.1789L142.0546,45.77,107.3768,0h19.4173Z"/></svg>`
+const arrowLeft = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 201.7072 197.5391"><path d="M0,98.77,74.913,0H94.33L59.6525,45.7814,25.5283,90.4446H201.7072v16.65H25.5283l34.1242,44.6744,34.6778,45.77H74.913Z"/></svg>`
 
 function animate() {
     requestAnimationFrame(animate);
@@ -41,12 +44,16 @@ function initCursor() {
     acitveElements.forEach(el => {
         el.addEventListener('mouseover', (e) => {
             e.stopPropagation();
-            cursor.text = el.getAttribute('data-cursorText')
-            cursor.textEl.textContent = el.getAttribute('data-cursorText')
+            const newText = el.getAttribute('data-cursorText')
+            if (newText === 'arrowRight'){
+                cursor.textEl.innerHTML = arrowRight;
+            } else if (newText === 'arrowLeft'){
+                cursor.textEl.innerHTML = arrowLeft;
+            } else {
+                cursor.textEl.textContent = newText
+            }
             cursor.width.target = cursor.textEl.scrollWidth;
-            window.setTimeout(function () {
-                cursor.textOpacity.current = 1;
-            }, 70)
+            cursor.textOpacity.current = 1;
             
         })
         el.addEventListener('mouseout', function () {

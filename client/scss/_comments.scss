@@ -1,12 +1,7 @@
 .toggleCommentForm {
-    display: none !important;
+    display: inline-block;
     animation: fade-in 200ms both;
     transition: 100ms;
-
-    .signed-in & {
-        display: inline-block !important;
-    }
-
     .form-active & {
         transform: rotate(45deg);
     }

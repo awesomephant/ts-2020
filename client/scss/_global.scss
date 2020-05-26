@@ -4,6 +4,9 @@
     font-size: 100%;
     font-weight: inherit;
     cursor: none;
+    &:focus {
+        outline: 0;
+    }
 }
 
 body {

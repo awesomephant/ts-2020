@@ -122,10 +122,20 @@ function initBackgroundColor() {
 
 function initFontToggles() {
     const toggles = document.querySelectorAll('.toggleTypeface')
+    const overlay = document.querySelector('.typeface-overlay')
+
+    overlay.addEventListener('click', () => {
+        overlay.classList.remove('active')
+        document.body.setAttribute('data-font', '')
+        toggles.forEach(to => {
+            to.classList.remove('active')
+        })
+    })
+
     toggles.forEach(t => {
-        t.addEventListener('click', () => {
+        t.addEventListener('click', e => {
+            e.stopPropagation();
             if (t.classList.contains('active')) {
-                document.body.style.fontFamily = "";
                 t.classList.remove('active')
                 document.body.setAttribute('data-font', '')
             } else {
@@ -134,7 +144,7 @@ function initFontToggles() {
                 })
                 t.classList.add('active')
                 document.body.setAttribute('data-font', t.getAttribute('data-typeface'))
-                document.body.style.fontFamily = `${t.getAttribute('data-typeface')}, haas`
+                overlay.classList.add('active')
             }
         })
     })
@@ -300,8 +310,8 @@ function initWorks() {
         toggleCommentForm.addEventListener('click', (e) => {
             e.stopPropagation()
 
-            if (document.body.classList.contains('signed-in')){
-                if (commentSection.classList.contains('form-active')){
+            if (document.body.classList.contains('signed-in')) {
+                if (commentSection.classList.contains('form-active')) {
                     commentSection.classList.remove('form-active')
                     toggleCommentForm.setAttribute('data-cursorText', 'Add Response')
                     toggleCommentForm.dispatchEvent(new Event('mouseover'))

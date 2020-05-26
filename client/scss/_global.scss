@@ -25,8 +25,18 @@ body {
         //--text: var(--black);
     }
 
+    &[data-font="BentonSans_carved.otf"] * {
+        font-family: benton;
+    }
     &[data-font="XronikaGX"] * {
+        font-family: XronikaGX;
         text-transform: lowercase;
+    }
+    &[data-font="Shiznit-Smooth.otf"] * {
+        font-family: "shiznit";
+    }
+    &[data-font="Shiznit-SmoothItalic.otf"] * {
+        font-family: "shiznit-it";
     }
 }
 

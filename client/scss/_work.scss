@@ -7,7 +7,7 @@
     line-height: .96;
 }
 
-.toggleWork{
+.toggleWork {
     appearance: none;
     color: inherit;
     background: none;
@@ -15,7 +15,7 @@
     font-family: inherit;
 
     &:hover {
-    color: var(--black-hover)
+        color: var(--black-hover)
     }
 }
 
@@ -33,10 +33,10 @@
         display: inline;
         appearance: none;
         font-family: inherit;
+        cursor: none;
+
+        &:hover,
         &.disabled {
-            cursor: default;
-        }
-        &:hover, &.disabled {
             color: var(--black-hover)
         }
     }
@@ -54,7 +54,6 @@
         color: inherit;
         background: none;
         border: 0;
-        cursor: pointer;
         font-family: inherit;
 
         &.active,
@@ -99,6 +98,7 @@
     position: relative;
     display: none;
     animation: fade-in 200ms both;
+
     &.active {
         display: inline-block;
     }
@@ -148,7 +148,8 @@
     p {
         display: inline-block;
     }
-    p + p {
+
+    p+p {
         text-indent: 2em;
     }
 

@@ -80,3 +80,15 @@ nav ul li {
         color: var(--black-hover);
     }
 }
+
+.typeface-overlay {
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    &.active {
+        pointer-events: all;
+    }
+}

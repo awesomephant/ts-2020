@@ -9,6 +9,7 @@ fetch(sheetURL)
         parse(body, {columns: true}, function (err, data) {
             data.forEach(row => {
                 row.images = row.images.replace(/\n/g, ';')
+                row.typeface = row.typeface.replace(/\n/g, ';')
             })
             fs.writeFileSync('./_data/projects.json', JSON.stringify(data, null, '  '))
         })

@@ -62,11 +62,11 @@ layout: base
         {% fig img %}
         {% endif %}
         {% endfor %}
-
-        {% if p.typeface != "" %}
-        <button class="toggleTypeface" data-typeface='{{p.typeface}}'>{% brackets "{", 3 %}Activate
-          {{p.typeface}}.ttf{% brackets "}", 3 %}</button>
-        {% endif %}
+        
+        {% assign fonts = p.typeface | split: ";" %}
+        {% for font in fonts %}
+        <button data-cursorText="Activate" class="toggleTypeface" data-typeface='{{font}}'>{% brackets "{", 1 %}{{font}}{% brackets "}", 1 %}</button>
+        {% endfor %}
 
         {% if p.id == "15" %}
         {% include maya.liquid %}
@@ -121,3 +121,5 @@ layout: base
 <div id="cursor" class='cursor-container'>
   <span class="cursor-text"></span>
 </div>
+
+<div class="typeface-overlay" data-cursorText="Exit"></div>

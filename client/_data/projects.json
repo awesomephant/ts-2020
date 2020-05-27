@@ -19,7 +19,7 @@
     "images": "AdrianS_01_L.jpeg",
     "typeface": "",
     "Online": "Yes",
-    "notes": "Do we need to upload all teh videos to vimeo?"
+    "notes": ""
   },
   {
     "id": "3",
@@ -41,7 +41,7 @@
     "images": "BakiH_M_1.png;BakiH_M_2.png;BakiH_M_3.png;BakiH_M_4.png;BakiH_M_5.png;BakiH_M_6.png",
     "typeface": "",
     "Online": "Yes",
-    "notes": "Needs to cut down description"
+    "notes": ""
   },
   {
     "id": "5",
@@ -194,7 +194,7 @@
     "website": "http://melissaberney.co.uk/html.html",
     "images": "Meli_0_M.jpg;Meli_1_M.jpg;Meli_2_M.jpg;Meli_3_M.jpg;Meli_4_M.jpg",
     "typeface": "",
-    "Online": "No",
+    "Online": "Yes",
     "notes": "embedded code. Not sure about needing the aditional images if the code version works"
   },
   {
@@ -203,7 +203,7 @@
     "title": "Stack",
     "description": "Stack is a modular typeface which can be combined by a user. Pressing keyboard buttons from A to Z allows each of the modular strokes to be stacked as a full letter. Each stroke has its unique geometric pattern, and users can combine strokes to create personal characters. Each stroke can be adjusted in weight and shape by the user. It can be adjusted separately by stroke or the entire letter at once to create individual typeface. ",
     "website": "minkim.info ",
-    "images": "MinjeongK_02_L.mov;MinjeongK_01_L.mov",
+    "images": "MinjeongK_02_L.mp4;MinjeongK_01_L.mp4",
     "typeface": "",
     "Online": "No",
     "notes": "Can we see cool variable fotn animation"

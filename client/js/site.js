@@ -400,7 +400,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initBackgroundColor();
     initRoland();
 
-    toggleSections('images', 'on')
+    toggleSections('title', 'on')
 
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')

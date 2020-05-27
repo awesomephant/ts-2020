@@ -57,9 +57,11 @@ layout: base
     <section data-controls="description" data-cursorText="arrowRight" data-section='work' data-brackets='[]' class="work-section work-images">
       <div class="section-content">
         {% assign images = p.images | split: ";" %}
+        {% if p.id != "20" %}
         {% for img in images %}
         {% fig img %}
         {% endfor %}
+        {% endif %}
         
         {% if p.typeface != "" %}
         {% assign fonts = p.typeface | split: ";" %}

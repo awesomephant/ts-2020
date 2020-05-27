@@ -384,7 +384,8 @@ function initRoland() {
     expands.forEach(b => {
         b.addEventListener('click', (e) => {
             e.stopPropagation();
-            b.parentElement.querySelector('.letter').classList.toggle('open')
+            b.parentElement.classList.toggle('open')
+            b.parentElement.querySelector('.letter').classList.toggle('active')
         })
     })
 }

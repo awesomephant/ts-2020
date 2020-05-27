@@ -25,6 +25,9 @@ body {
         //--text: var(--black);
     }
 
+    &[data-font="Quintain.ttf"] * {
+        font-family: quintain;
+    }
     &[data-font="BentonSans_carved.otf"] * {
         font-family: benton;
     }

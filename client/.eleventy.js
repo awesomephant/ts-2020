@@ -26,11 +26,11 @@ module.exports = function (eleventyConfig) {
 
         let content = ''
         if (large.includes('.webp')) {
-            content = `<img style='height: ${height}em' loading="lazy" src="${awsUrl + large}"/>`
+            content = `<img style='height: ${height}em' src="${awsUrl + large}"/>`
         } else if (large.includes('.mp4')) {
             content = `<video autoplay muted loop style='height: ${height}em' src="${awsUrl + large}"></video>`
         } else {
-            content = `<img style='height: ${height}em' loading="lazy" src="${awsUrl + large}"/>`
+            content = `<img style='height: ${height}em' src="${awsUrl + large}"/>`
         }
         if (url.length > 1) {
             return (

@@ -24,7 +24,7 @@
     "name": "Anastasia Arjalies",
     "title": "Happysad",
     "description": "Happysad was originally designed because I was looking for an original typeface to use on my website but none seemed appropriate to me. So I decided to design my own personal typeface by using my 'happysad' doodles to create an abstract shape which would end up in each of the letters. The idea was to create a playful typeface by using contrast between positive and negative spaces: the outside of each letter is made with very simple shapes but inside, the abstract shape is here to bring some more fun to the typeface. We can even find smilies in some letters but they are simply suggested.",
-    "website": "example.com",
+    "website": "No link",
     "images": "AnastasiaA_S_01.png;AnastasiaA_S_02.png;AnastasiaA_S_03.png;AnastasiaA_S_04.png;AnastasiaA_S_05.png;AnastasiaA_S_06.png;AnastasiaA_S_07.png",
     "typeface": "",
     "notes": ""
@@ -45,7 +45,7 @@
     "title": "Carv Yo Font",
     "description": "Carv Yo Font is a speculative program/website that can turn your everyday fonts into more «sustainable» ones. The principle of \"Sustainable fonts\" is to use (in this case 33%) less ink with no visible difference to the original when printed in 12pts. The first font I experimented with is BentonSans Regular the RCA body text font. Through this subversion, I wanted to make a comment on the institution current lack of actions regarding sustainability. This method was inspired by Ryman Eco and the Ecofon and remains a theoretical project for now but will hopefully exist soon. ",
     "website": "instagram.com/bettybrunfaut",
-    "images": "BettyB_V_01.png;BettyB_L_02.png",
+    "images": "BettyB_L_01.mp4;BettyB_L_02.png;",
     "typeface": "BentonSans_carved.otf",
     "notes": ""
   },
@@ -125,7 +125,7 @@
     "title": "Notation Symbols",
     "description": "I got interested in the idea of trying to print my visual sign language, that comes from my way of taking notes. I thought that it would be interesting to separate text with symbols and examine them individually. This process inspired me to start thinking of language as a material. Thus, I experimented with laser-cut, using MDF board as my primary material. Observing the \"gesture\" of the two different writing processes (the physical and the technological), I noted a dialogue between them. A symbiosis, where one brings in life the ideas and the other one transforms them into 3D objects.",
     "website": "https://www.instagram.com/kona_be/",
-    "images": "KonstantinaB_03_L.jpg;KonstantinaB_02_L.jpg;KonstantinaB_01_M.mp4",
+    "images": "KonstantinaB_03_L.jpg;KonstantinaB_02_L.jpg;KonstantinaB_01_M_1.mp4",
     "typeface": "",
     "notes": ""
   },
@@ -153,7 +153,7 @@
     "id": "15",
     "name": "Maya Gulieva",
     "title": "Xchronica 2020",
-    "description": "Description goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsum",
+    "description": "Variable font Xronika was born with its tongue out, but since has learnt to tuck it away, depending on who controls the lever. Whilst absurd by nature, it moonlights for more sensible crowds too.",
     "website": "example.com",
     "images": "MayaG_09_S.png;MayaG_01_M.gif;MayaG_02_M.jpg;MayaG_03_M.jpg;MayaG_04_M.jpg;MayaG_05_M.jpg;MayaG_06_M.jpg;MayaG_07_M.jpg;MayaG_08_S.png",
     "typeface": "XronikaGX",
@@ -163,9 +163,9 @@
     "id": "16",
     "name": "Maya Gulieva",
     "title": "Neue Venera",
-    "description": "Description goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsumDescription goes here lorem ipsum",
+    "description": "Neue Venera is a high contrast, round serif typeface, inspired by ITC Tiffany (1974) (basis of Tarantino’s “Jackie Brown”) and ITC Grouch (1970). In essence, it borrows the 70s groove and converts it to contemporary sass. In the way that “Jackie Brown” was a nod to “Foxy Brown”, Neue Venera is a wink to all women.",
     "website": "example.com",
-    "images": "A-C3.jpg;A-C4.jpg;A-C5.jpg;A-C6.jpg;A-C7.jpg;A-C8.jpg",
+    "images": "MayaG_NV_01_L.jpg;MayaG_NV_02_M.jpg;MayaG_NV_03_M.jpg;MayaG_NV_04_L.jpg;MayaG_NV_05_L.jpg;MayaG_NV_06_S.jpg;MayaG_NV_07_M.jpg;MayaG_NV_08_L.jpg;MayaG_NV_09_S.jpg",
     "typeface": "",
     "notes": ""
   },
@@ -182,9 +182,9 @@
   {
     "id": "18",
     "name": "Minjeong Kim",
-    "title": "Frankenstein Unit",
-    "description": "In Shelley's novel, Dr Frankenstein collects bones from charnel houses to make a human lookalike creature. My project has begun with this methodology of Dr Frankenstein to create a new creature which looks like a human but not a perfect human.\nI have been working on the subject Frankenstein, inspired by Dr Frankenstein’s methodology on making an entirely new human look-alike creature by combining dead bodies collected from charnel houses. I found it interesting with the character of Frankenstein’s creature as an incomplete entity made by broken pieces of completeness. Frankenstein’s creature is not a natural creation of life, but a creation that did not turn out as expected. Dr Frankenstein thought that he had attached the whole human body to create complete life, and though\nhe (the creature) actually had a body that could think and even excels like a human being, Frankenstein’s creature regarded himself as an incomplete and miserable one.\nFrom this idea of complete incompleteness of Frankenstein’s creature, I have been made a few Frankenstein inspired typeface series for few years, which is made by collecting and combining free fonts over the website, with all the different typefaces in every single stroke with the methodology of Dr Frankenstein. As a continuing project of the Frankenstein series, I am experimenting to create a variable font, which can be partially divided and adjustable for each stroke.With 27 buttons of English keyboard, I made 27 units for the combinable, stackable stroke structure to build up complete one letter(or any kind of symbol).\nAs shape and weight are adjustable for each unit, the whole sentence can be animated separately like it’s alive or it can be adjusted all together for a more refined look for display.",
-    "website": "example.com",
+    "title": "Stack",
+    "description": "Stack is a modular typeface which can be combined by a user. Pressing keyboard buttons from A to Z allows each of the modular strokes to be stacked as a full letter. Each stroke has its unique geometric pattern, and users can combine strokes to create personal characters. Each stroke can be adjusted in weight and shape by the user. It can be adjusted separately by stroke or the entire letter at once to create individual typeface. ",
+    "website": "minkim.info ",
     "images": "MinjeongK_02_L.mov;MinjeongK_01_L.mov",
     "typeface": "",
     "notes": "Can we see cool variable fotn animation"
@@ -215,9 +215,9 @@
     "title": "Landscape",
     "description": "Description goes here lorem ipsumDescription goes here lorem ipsum",
     "website": "example.com",
-    "images": "",
+    "images": "SeanS_02_L.mov;SeanS_01_L.svg",
     "typeface": "",
-    "notes": "video"
+    "notes": "it's a MASSIVE svg. might be very hectic loading"
   },
   {
     "id": "",
@@ -250,7 +250,7 @@
     "notes": ""
   },
   {
-    "id": "24",
+    "id": "23",
     "name": "Yehonatan Cohen",
     "title": "Results Confidence",
     "description": "With the growth rate of voice-user interfaces, I was intrigued by how confidence in personalities like Alexa or Siri was expressed.That's why I decided to use Google's voice recognition technology to create a web page that presents the level of confidence of a \"software\".When the user speaks up, if the \"software\" is fully confident that it has understood his words, it will write it in the yellow color. If it is not sure, it will write it in the blue color, so that eventually a color distribution of the software confidence level is obtained.",
@@ -260,7 +260,7 @@
     "notes": "interactive"
   },
   {
-    "id": "25",
+    "id": "24",
     "name": "Emily Schofield",
     "title": "Index to Image",
     "description": "Over the course of 18 months at the RCA I designed 12 posters advertising various events. With our time at the RCA having come to a sudden and unceremonious end they are now a bittersweet reminder both of what was and what was still to come. As with any poster past its event, they are no longer a signifier – dates and locations are nothing but empty type. I printed layers of each poster on top of each other on my printer, creating nonsensical posters whose previously indexical type has become nothing but image. The result is a shell of an experience, somewhere between taunting and comforting.",
@@ -270,12 +270,12 @@
     "notes": "Would prefer gif but also sent an mp4 just incase"
   },
   {
-    "id": "26",
+    "id": "25",
     "name": "Daniel Johns",
     "title": "Grotes\\<",
     "description": "There is arguably no need for any new typefaces and perhaps more excitement is gained from hacking and rearranging existing ones. I rearranged the glyphs of an existing typeface, using kerning and baseline shift, then recreating from the original glyphs file,  to create alternative lower case letters. Using Neue Haas Grotesk allowed for a really interesting contrast between the original letter forms and the angular, sharp, off-kilter ones created from the glyphs.  ",
     "website": "https://www.instagram.com/doingadan/",
-    "images": "",
+    "images": "DanielJ_03_M.png;DanielJ_02_M.png;DanielJ_01_L.gif",
     "typeface": "",
     "notes": ""
   }

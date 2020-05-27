@@ -371,8 +371,6 @@ function initWorks() {
 
 function handleCommentSubmit(e, id, text) {
     e.stopPropagation();
-    console.log(id)
-    console.log(text)
     // We have to set the date here so we can send it out
     // to sockets without hitting the database, which will
     // have the canonical date.
@@ -402,7 +400,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initBackgroundColor();
     initRoland();
 
-    toggleSections('title', 'on')
+    toggleSections('images', 'on')
 
     userProfile = document.querySelector('.auth-user')
     let userList = document.querySelector('.site-users')

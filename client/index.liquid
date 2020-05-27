@@ -58,15 +58,15 @@ layout: base
       <div class="section-content">
         {% assign images = p.images | split: ";" %}
         {% for img in images %}
-        {% if img %}
         {% fig img %}
-        {% endif %}
         {% endfor %}
         
+        {% if p.typeface != "" %}
         {% assign fonts = p.typeface | split: ";" %}
         {% for font in fonts %}
         <button data-cursorText="Activate" class="toggleTypeface" data-typeface='{{font}}'>{% brackets "{", 1 %}{{font}}{% brackets "}", 1 %}</button>
         {% endfor %}
+        {% endif %}
 
         {% if p.id == "15" %}
         {% include maya.liquid %}

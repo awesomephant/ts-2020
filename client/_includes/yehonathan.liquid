@@ -1,17 +1,55 @@
 <style>
+    .speech-results {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: 200ms;
+        pointer-events: none;
+        z-index: 10000;
+    }
 
+    .speech-result {
+        display: block;
+        position: absolute;
+        animation: fade-in 200ms both;
+        font-family: hadassah;
+        font-size: 150px;
+    }
+
+    .speech-results.active {
+        pointer-events: all;
+        opacity: 1;
+    }
+    .speech-instruction {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        font-size: var(--ms-5);
+        background: var(--highlight);
+        color: var(--black);
+        padding: .2em .5em;
+        border-radius: 100px;
+        font-weight: 500;
+        box-shadow: 0 0 100px 20px black;
+        transform: translateX(-50%) translateY(-50%);
+    }
 </style>
 <div class="speech">
-    <button class="start-speech">Launch</button>
+    <button class="start-speech">{% brackets "{", 1 %}Launch{% brackets "}", 1 %}</button>
 </div>
-<div class="speech-results"></div>
+<div class="speech-results" data-cursorText="Exit">
+    <h2 class="speech-instruction">Say Something</h2>
+</div>
 
 <script>
-    let speechContainer;
-    let speechStartEl;
     let speechResults;
+    const speechContainer = document.querySelector('.speech');
+    const speechStartEl = speechContainer.querySelector('.start-speech')
 
-    function showResult(text, confidence) {
+    function renderResult(text, confidence) {
         const x = gra(0, window.innerWidth);
         const y = gra(0, window.innerHeight);
         const resultEl = document.createElement('span')
@@ -27,14 +65,23 @@
         }
         speechResults.appendChild(resultEl)
     }
+    
 
     function initSpeech() {
-        speechContainer = document.querySelector('.speech');
-        speechStartEl = speechContainer.querySelector('.start-speech')
         speechResults = document.querySelector('.speech-results')
+
+        speechResults.addEventListener('click', () => {
+            recognizer.stop();
+            speechResults.classList.remove('active')
+            const results = speechResults.querySelectorAll('.speech-result')
+            results.forEach(result => {
+                speechResults.removeChild(result)
+            })
+        })
 
         speechStartEl.addEventListener('click', (e) => {
             e.stopPropagation()
+            speechResults.classList.add('active')
             recognizer.start();
         })
         var recognizer = new window.SpeechRecognition();
@@ -46,9 +93,7 @@
 
         // Start recognising
         recognizer.onresult = function (event) {
-            console.log(event)
-            showResult(event.results[event.resultIndex][0].transcript, event.results[0][0].confidence)
-            console.log(event.results[event.resultIndex][0].transcript)
+            renderResult(event.results[event.resultIndex][0].transcript, event.results[0][0].confidence)
         };
 
         // Listen for errors
@@ -57,15 +102,15 @@
         };
         recognizer.onend = function (e) {
             console.log('restarting')
-
         };
     }
 
 
     window.SpeechRecognition = window.SpeechRecognition ||
         window.webkitSpeechRecognition || null;
-        
+
     if (window.SpeechRecognition === null) {
+        speechStartEl.setAttribute('data-cursorText', 'Google Chrome Required')
     } else {
         initSpeech()
     }

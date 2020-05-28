@@ -72,7 +72,7 @@
     "description": "Quintain is a high-contrast serif typeface, mostly inspired from the work of Aldo Novarese and Jean Jannon. It’s initial intention was to be displayed in larger point sizes but in the process the lowercase was adapted for legibility on smaller body copy. It’s features lend themselves to a classical tone, but the interplay in contrasts and sharpness places it in multiple contexts.",
     "website": "coskal.com",
     "images": "Costas_K_02_L.png;Costas_K_01_L.png",
-    "typeface": "Quintain.ttf",
+    "typeface": "",
     "Online": "Yes",
     "notes": ""
   },
@@ -86,17 +86,6 @@
     "typeface": "",
     "Online": "Yes",
     "notes": ""
-  },
-  {
-    "id": "9",
-    "name": "Jin-Hoo Park",
-    "title": "ShinShin Women",
-    "description": "In Type Family, I developed my previous typeface design project named ‘ShinShin Women.’ ‘ShinShin Women’ is on the theme of ‘different evaluation on the same phenomenon’ with the material of ‘new women (shin-yeo-seong).’ I had designed a Korean typeface based on a Chinese typeface used in the cover of Shinyeoseong, a women’s magazine published in the\n1920s and 1930s.",
-    "website": "",
-    "images": "",
-    "typeface": "",
-    "Online": "No",
-    "notes": "images missing"
   },
   {
     "id": "10",
@@ -117,7 +106,7 @@
     "website": "www.publicfoundry.ai",
     "images": "JoshT_01_L.jpg;JoshT_02_L.jpg;JoshT_03_L.jpg;JoshT_04_L.jpg;JoshT_05_L.jpg;JoshT_06_L.jpg;",
     "typeface": "",
-    "Online": "No",
+    "Online": "Yes",
     "notes": ""
   },
   {
@@ -203,7 +192,7 @@
     "title": "Pocari Sweat",
     "description": "One of the nice things about Tokyo is that there are vending machines on almost every corner. This is especially useful if you visit the city in the summer as I did in 2016. As a foreigner you have to somehow make a choice of which of these unfamiliar brands will best quench your thirst. Maybe you can’t read the characters of the language so you need to make the decision based on different criteria than you would at home.\nI found making this decision pretty easy. When looking at the available choices there was a drink called Pocari Sweat. The name sounds quite unappealing, but intriguing, a sweaty drink. Its packaging instantly stood out amongst the others. The can was a single shade of blue with a white swoosh, with the name vertically set in modern type. It seemed very clear. This is Pocari Sweat. The other drinks had decorations and illustrations that wanted to tell me something about their ingredients or tastes. I had no idea what Pocari Sweat was or how it would it taste. I choose the sweaty drink each time I used a vending machine during for the rest of the trip, this becoming an important part of my visit to Japan.\nMuch later I discovered that German designer Helmut Schmidt was responsible for the brand identity. I was pretty excited by this having been a fan of his work for a while. I think this says something about how design and typography communicate. Being spoken to by Schmidt across time and space in a completely different context to how I had previously experienced his work in history of design books.",
     "website": "",
-    "images": "",
+    "images": "RichardB_TEMP_L.mp4",
     "typeface": "",
     "Online": "No",
     "notes": "Needs twitch stream. Wants to be live for the PV, then can be live at another time during the show. "
@@ -249,7 +238,7 @@
     "website": "",
     "images": "",
     "typeface": "",
-    "Online": "No",
+    "Online": "Yes",
     "notes": "interactive"
   },
   {

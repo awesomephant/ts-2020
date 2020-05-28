@@ -48,7 +48,8 @@ layout: base
   {% brackets "]", 10%}
 
   {% for p in projects %}
-  {% brackets "{", 1%}<div class="work" data-project="{{p.id}}">
+  <div class="work" data-project="{{p.id}}">
+    {% brackets "{", 1%}
     <section data-cursorText="arrowRight" data-controls="images" data-brackets='[]' data-section='title' class="work-section work-title">
       <div class="section-content">
         <h2>{{p.title | escape}}</h2>
@@ -121,7 +122,8 @@ layout: base
           class="comment-submit disabled">{% brackets "{", 1 %}Send{% brackets "}", 1 %}</button>{% brackets "}", 1 %}
       </div>
     </section>
-  </div>{% brackets "}", 1%}
+    {% brackets "}", 1%}
+  </div>
   {% endfor %}
 </main>
 <div class="max-container" data-cursorText="Exit"></div>

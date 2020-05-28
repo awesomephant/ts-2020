@@ -5,9 +5,9 @@ let me = {
 let comments = [];
 let mouse = {
     x: 0,
-    y:0
+    y: 0
 }
-const gra = function(min, max) {
+const gra = function (min, max) {
     return Math.random() * (max - min) + min;
 }
 function gri(min, max) {
@@ -97,14 +97,16 @@ function signOut() {
 
 function shuffle() {
     var container = document.querySelector(".works");
-    var elementsArray = Array.prototype.slice.call(container.querySelectorAll('.work'));
-    elementsArray.forEach(function (element) {
-        container.removeChild(element);
-    })
-    shuffleArray(elementsArray);
-    elementsArray.forEach(function (element) {
-        container.appendChild(element);
-    })
+    if (container) {
+        var elementsArray = Array.prototype.slice.call(container.querySelectorAll('.work'));
+        elementsArray.forEach(function (element) {
+            container.removeChild(element);
+        })
+        shuffleArray(elementsArray);
+        elementsArray.forEach(function (element) {
+            container.appendChild(element);
+        })
+    }
 }
 
 function shuffleArray(array) {
@@ -264,9 +266,11 @@ function initImages(container) {
 
 function initLightbox() {
     const lb = document.querySelector('.lightbox')
-    lb.addEventListener('click', () => {
-        lb.classList.remove('active')
-    })
+    if (lb) {
+        lb.addEventListener('click', () => {
+            lb.classList.remove('active')
+        })
+    }
 }
 
 function renderComments(comments) {
@@ -390,7 +394,7 @@ function initRoland() {
 
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
-    shuffle();
+//    shuffle();
     initWorks()
     initControls()
     initLightbox();
@@ -400,7 +404,7 @@ window.addEventListener('DOMContentLoaded', () => {
     toggleSections('title', 'on')
 
     userProfile = document.querySelector('.auth-user')
-    let userList = document.querySelector('.site-users')
+//    let userList = document.querySelector('.site-users')
 
     if (socket) {
         socket.on('connect', () => {
@@ -410,8 +414,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         socket.on('users', (users) => {
             const lis = UserList(users);
-            userList.innerHTML = ''
-            userList.appendChild(lis)
+          //  userList.innerHTML = ''
+           // userList.appendChild(lis)
         });
         socket.on('error', (err) => {
             console.error(err)

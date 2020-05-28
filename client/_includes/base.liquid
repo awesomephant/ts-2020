@@ -6,16 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Typographic Singularity 2020" />
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
     <title>Typographic Singularity 2020</title>
 </head>
 
 <body data-font="">
+    <div id="cursor" class='cursor-container'>
+        <span class="cursor-text"></span>
+      </div>
+      <div class="typeface-overlay" data-cursorText="Exit"></div>
     {{ content | safe }}
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/site.js"></script>
     <script src="/js/canvasCursor.js"></script>
+    <script src="/js/max/dist/max.js"></script>
     <script>
         try{
             var socket = io();

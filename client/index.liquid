@@ -56,6 +56,10 @@ layout: base
     </section>
     <section data-controls="description" data-cursorText="arrowRight" data-section='work' data-brackets='[]' class="work-section work-images">
       <div class="section-content">
+        {% if p.id == "14" %}
+        {% include max.liquid %}
+        {% endif %}
+       
         {% if p.id == "17" %}
         {% include meli.liquid %}
         {% endif %}
@@ -120,12 +124,4 @@ layout: base
   </div>{% brackets "}", 1%}
   {% endfor %}
 </main>
-
-<div class="jose-container">
-</div>
-
-<div id="cursor" class='cursor-container'>
-  <span class="cursor-text"></span>
-</div>
-
-<div class="typeface-overlay" data-cursorText="Exit"></div>
+<div class="max-container" data-cursorText="Exit"></div>

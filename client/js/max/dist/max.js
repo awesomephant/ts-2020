@@ -391,13 +391,14 @@ var App = function (_React$Component7) {
             var baseY = this.state.height / 2 - gridHeight / 2;
 
             var glyphs = letters.map(function (g, i) {
-                currentX = baseX + gridWidth * i;
-                return React.createElement(Glyph, { key: "glyph-" + i, settings: _this8.state.settings, g: g, y: baseY, x: currentX });
+                if (design.grids[_this8.state.settings.gridID].letters[g]) {
+                    currentX = baseX + gridWidth * i;
+                    return React.createElement(Glyph, { key: "glyph-" + i, settings: _this8.state.settings, g: g, y: baseY, x: currentX });
+                }
             });
 
             var containerWidth = (this.state.settings.gridColumns - 1) * this.state.settings.cellWidth + Math.abs(this.state.settings.gridSkew) + defaultSize * this.state.settings.elementScaleX * 4;
             var containerHeight = this.state.settings.gridRows * this.state.settings.cellHeight + defaultSize * this.state.settings.elementScaleY * 2;
-
             return React.createElement(
                 "div",
                 null,

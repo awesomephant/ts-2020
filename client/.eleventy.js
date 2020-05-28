@@ -21,12 +21,13 @@ module.exports = function (eleventyConfig) {
         if (url.includes('_S')) { height = 4 }
         if (url.includes('_M')) { height = 6 }
         if (url.includes('_L')) { height = 10 }
+        const small = url.replace(/\.(jpe?g|png)/gi, '%40700w.webp').trim().replace(' ', '+')
         const large = url.replace(/\.(jpe?g|png)/gi, '%401500w.webp').trim().replace(' ', '+')
         const awsUrl = `https://ts-2020.s3.eu-west-2.amazonaws.com/`
 
         let content = ''
         if (large.includes('.webp')) {
-            content = `<img loading="lazy" style='height: ${height}em' src="${awsUrl + large}"/>`
+            content = `<img loading="lazy" style='height: ${height}em' src="${awsUrl + small}"/>`
         } else if (large.includes('.mp4')) {
             content = `<video loading="lazy" autoplay muted loop style='height: ${height}em' src="${awsUrl + large}"></video>`
         } else {

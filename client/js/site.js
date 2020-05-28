@@ -3,7 +3,13 @@ let me = {
     name: '',
 }
 let comments = [];
-
+let mouse = {
+    x: 0,
+    y:0
+}
+const gra = function(min, max) {
+    return Math.random() * (max - min) + min;
+}
 function gri(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -108,16 +114,6 @@ function shuffleArray(array) {
         array[j] = temp;
     }
     return array;
-}
-
-function initBackgroundColor() {
-    window.addEventListener('mousemove', (e) => {
-        if (e.clientX >= window.innerWidth / 2) {
-            document.body.classList.add('alternateColours')
-        } else {
-            document.body.classList.remove('alternateColours')
-        }
-    });
 }
 
 function initFontToggles() {
@@ -398,7 +394,6 @@ window.addEventListener('DOMContentLoaded', () => {
     initControls()
     initLightbox();
     initFontToggles();
-    initBackgroundColor();
     initRoland();
 
     toggleSections('title', 'on')

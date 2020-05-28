@@ -1,0 +1,72 @@
+<style>
+
+</style>
+<div class="speech">
+    <button class="start-speech">Launch</button>
+</div>
+<div class="speech-results"></div>
+
+<script>
+    let speechContainer;
+    let speechStartEl;
+    let speechResults;
+
+    function showResult(text, confidence) {
+        const x = gra(0, window.innerWidth);
+        const y = gra(0, window.innerHeight);
+        const resultEl = document.createElement('span')
+        resultEl.classList.add('speech-result')
+        resultEl.style.left = `${x}px`;
+        resultEl.style.top = `${y}px`;
+        resultEl.textContent = text;
+
+        if (confidence > .8) {
+            resultEl.style.color = "rgb(255, 215, 10)";
+        } else {
+            resultEl.style.color = "blue";
+        }
+        speechResults.appendChild(resultEl)
+    }
+
+    function initSpeech() {
+        speechContainer = document.querySelector('.speech');
+        speechStartEl = speechContainer.querySelector('.start-speech')
+        speechResults = document.querySelector('.speech-results')
+
+        speechStartEl.addEventListener('click', (e) => {
+            e.stopPropagation()
+            recognizer.start();
+        })
+        var recognizer = new window.SpeechRecognition();
+
+
+        // Recogniser doesn't stop listening even if the user pauses
+        recognizer.continuous = true;
+        recognizer.interimResults = true;
+
+        // Start recognising
+        recognizer.onresult = function (event) {
+            console.log(event)
+            showResult(event.results[event.resultIndex][0].transcript, event.results[0][0].confidence)
+            console.log(event.results[event.resultIndex][0].transcript)
+        };
+
+        // Listen for errors
+        recognizer.onerror = function (e) {
+            console.log(e.message)
+        };
+        recognizer.onend = function (e) {
+            console.log('restarting')
+
+        };
+    }
+
+
+    window.SpeechRecognition = window.SpeechRecognition ||
+        window.webkitSpeechRecognition || null;
+        
+    if (window.SpeechRecognition === null) {
+    } else {
+        initSpeech()
+    }
+</script>

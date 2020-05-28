@@ -31,6 +31,10 @@ function animate() {
 function drawCursor(mouse) {
     let x = mouse.x;
     let y = mouse.y;
+    
+    const ratio = (mouse.x / window.innerWidth);
+    document.body.style.fontVariationSettings = `'tong' ${100 + (ratio * 100)}`
+
     cursor.el.style.transform = `translateX(calc(${x}px - 50%)) translateY(${y}px)`;
     cursor.el.style.width = `${cursor.width.target}px`;
     cursor.textEl.style.opacity = cursor.textOpacity.current;

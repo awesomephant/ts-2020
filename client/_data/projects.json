@@ -118,7 +118,7 @@
     "images": "JoshT_01_L.jpg;JoshT_02_L.jpg;JoshT_03_L.jpg;JoshT_04_L.jpg;JoshT_05_L.jpg;JoshT_06_L.jpg;",
     "typeface": "",
     "Online": "No",
-    "notes": "images missing"
+    "notes": ""
   },
   {
     "id": "12",
@@ -223,23 +223,12 @@
     "id": "21",
     "name": "Sean Steed ",
     "title": "Cartographic Typography ",
-    "description": "Typography is traditionally read as two-dimensional forms inscribed on a flat plane. Cartography is the two-dimensional representation of three-dimensional landscapes on a flat plane. By using techniques inspired by cartographic ways of working such as line weight hierarchy, contour lines, density, patterns and halftone effects, this body of work aims to challenge the viewer to interpret this new typographic landscape as a two-dimensional representation of space. This landscape suggests layers and also shows depth through the positive and negative spaces. \n\nBy using Glyphs as the tool for production, each letter holds its own “data”. Once glyphs are combined side by side, we see overlaps and inversions happening between combinations. This quality adds to the abstract quality of this work, making the written content completely illegible. ",
+    "description": "Typography is traditionally read as two-dimensional forms inscribed on a flat plane. Cartography is the two-dimensional representation of three-dimensional landscapes on a flat plane. By using techniques inspired by cartographic ways of working such as line weight hierarchy, contour lines, density, patterns and halftone effects, this body of work aims to challenge the viewer to interpret this new typographic landscape as a two-dimensional representation of space. This landscape suggests layers and also shows depth through the positive and negative spaces. \nBy using Glyphs as the tool for production, each letter holds its own “data”. Once glyphs are combined side by side, we see overlaps and inversions happening between combinations. This quality adds to the abstract quality of this work, making the written content completely illegible. ",
     "website": "instagram.com/jurema.xyz",
     "images": "SeanS_01_L.png;SeanS_02_L.mp4",
     "typeface": "",
     "Online": "Yes",
     "notes": "it's a MASSIVE svg. might be very hectic loading"
-  },
-  {
-    "id": "",
-    "name": "Siddhi Gupta",
-    "title": "We cannot do art",
-    "description": "This was an experiment with non art educators in India, who were convinced they couldn’t draw. But when presented with dots that were labelled with the english alphabet, numbers and Hindi alphabet (all subjects they taught) they all joined them and before they realised themselves - they were drawing.\nI propose to use this joining the dot process to create a worksheet of the entire Hindi alphabet. Where, you join the dots labelled with the english alphabet but end up writing Hindi.",
-    "website": "",
-    "images": "",
-    "typeface": "",
-    "Online": "No",
-    "notes": ""
   },
   {
     "id": "22",
@@ -250,17 +239,6 @@
     "images": "WilliamJ_07_M.png;WilliamJ_01_L.png;WilliamJ_02_M.png;WilliamJ_03_L.png;WilliamJ_04_M.png;WilliamJ_05_M.png;WilliamJ_06_M.png",
     "typeface": "Shiznit-Smooth.otf;Shiznit-SmoothItalic.otf",
     "Online": "Yes",
-    "notes": ""
-  },
-  {
-    "id": "23",
-    "name": "Yangyang Zhang",
-    "title": "Ritual",
-    "description": "In this workshop, I not only design a typeface but also a unique language. My inspiration comes from the Chinese symbols, and Symbols usually employed in religious events. In areas of rural China, it is customary for families to invite a witch to hold an exorcism if memebers are suffering from illness.\nAs such, these symbols have special meaning that can only be understood and recognised by the initiated. I researched the visual structure and systems of these symbols and attempted to make my own in response.",
-    "website": "",
-    "images": "",
-    "typeface": "",
-    "Online": "No",
     "notes": ""
   },
   {

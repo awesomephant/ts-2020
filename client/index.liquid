@@ -59,6 +59,10 @@ layout: base
         {% if p.id == "17" %}
         {% include meli.liquid %}
         {% endif %}
+        
+        {% if p.id == "23" %}
+        {% include yehonathan.liquid %}
+        {% endif %}
 
         {% assign images = p.images | split: ";" %}
         {% if p.id != "20" %}

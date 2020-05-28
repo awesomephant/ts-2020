@@ -18,7 +18,6 @@ body {
     display: grid;
     background: var(--background);
     color: var(--text);
-    transition: 500ms;
     cursor: none;
     padding-bottom: 10rem;
     &.alternateColours {

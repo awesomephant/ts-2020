@@ -13,4 +13,5 @@ documentation/
 /submission-images/
 /submissions_dest/
 *.zip
+todo.txt
 # This comes from a google spreadsheet during build

@@ -7,8 +7,8 @@
     "website": "",
     "images": "AakritiK_01_L.png",
     "typeface": "",
-    "Online": "No",
-    "notes": "Need description and images as individual files"
+    "Online": "Yes",
+    "notes": ""
   },
   {
     "id": "2",
@@ -82,21 +82,10 @@
     "title": "Will Font",
     "description": "My first font was created by adapting the natural curves and weights of calligraphy to a more systematic, modulable system of simple shapes.",
     "website": "https://www.inesiragui.com/",
-    "images": "InesI_01_M.jpg;InesI_02_M.jpg;InesI_03_M.jpg;InesI_04_M.jpg;InesI_05_M.jpg;InesI_06_M.jpg;InesI_07_M.jpg;InesI_08_M.jpg;InesI_09_M.jpg",
+    "images": "InesI_01_L.jpg;InesI_02_L.jpg;InesI_03_L.jpg;InesI_04_L.jpg;InesI_05_L.jpg;InesI_06_L.jpg;InesI_07_L.jpg;InesI_08_L.jpg;InesI_09_L.jpg",
     "typeface": "",
     "Online": "Yes",
-    "notes": "maybe could do with being larger. but let's see how they flow in the site"
-  },
-  {
-    "id": "9",
-    "name": "Inès Iragui",
-    "title": "Morse code symbols",
-    "description": "CONCRETE = CEMENT + AGREGATE",
-    "website": "",
-    "images": "",
-    "typeface": "",
-    "Online": "No",
-    "notes": "images missing"
+    "notes": ""
   },
   {
     "id": "9",

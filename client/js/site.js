@@ -394,7 +394,7 @@ function initRoland() {
 
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
-//    shuffle();
+    shuffle();
     initWorks()
     initControls()
     initLightbox();

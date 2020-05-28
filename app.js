@@ -1,4 +1,5 @@
 const express = require('express');
+const enforce = require('express-sslify');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -18,6 +19,12 @@ async function verify(token) {
 }
 
 var app = express();
+
+console.log(app.get("env"))
+if (app.get("env") === "production") {
+    app.use(enforce.HTTPS({ trustProtoHeader: true }))
+}
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

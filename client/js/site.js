@@ -96,7 +96,7 @@ function signOut() {
 }
 
 function shuffle() {
-    var container = document.querySelector(".work");
+    var container = document.querySelector(".works");
     var elementsArray = Array.prototype.slice.call(container.querySelectorAll('.work'));
     elementsArray.forEach(function (element) {
         container.removeChild(element);
@@ -106,6 +106,7 @@ function shuffle() {
         container.appendChild(element);
     })
 }
+
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -389,7 +390,7 @@ function initRoland() {
 
 window.addEventListener('DOMContentLoaded', () => {
     initAuth();
-    //    shuffle();
+    shuffle();
     initWorks()
     initControls()
     initLightbox();

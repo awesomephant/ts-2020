@@ -97,7 +97,11 @@ layout: base
 
     <section data-cursorText="arrowRight" data-controls="comments" data-section='people' data-brackets='[]' class="work-section work-author">
       <div class="section-content">
+        {% if p.website != "" %}
         <h2>{% link p.website %}{{p.name | escape }}{% endlink %}</h2>
+        {% else %}
+        <h2>{{p.name | escape }}</h2>
+        {% endif %}
       </div>
     </section>
 

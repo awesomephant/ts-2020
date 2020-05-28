@@ -49,6 +49,11 @@
         display: inline;
     }
 
+    object {
+        pointer-events: none;
+        height: 4em;
+    }
+
     .toggleTypeface {
         appearance: none;
         color: inherit;

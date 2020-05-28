@@ -56,6 +56,10 @@ layout: base
     </section>
     <section data-controls="description" data-cursorText="arrowRight" data-section='work' data-brackets='[]' class="work-section work-images">
       <div class="section-content">
+        {% if p.id == "17" %}
+        {% include meli.liquid %}
+        {% endif %}
+
         {% assign images = p.images | split: ";" %}
         {% if p.id != "20" %}
         {% for img in images %}
@@ -72,10 +76,6 @@ layout: base
 
         {% if p.id == "15" %}
         {% include maya.liquid %}
-        {% endif %}
-
-        {% if p.id == "17" %}
-        {% include meli.liquid %}
         {% endif %}
 
         {% if p.id == "20" %}

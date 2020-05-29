@@ -311,7 +311,8 @@ var Settings = function (_React$Component6) {
                 React.createElement(Slider, { updateSetting: this.props.updateSetting, value: this.props.settings.elementRotation, title: "Element Rotation", id: "elementRotation", min: "0", max: "360", step: ".1" }),
                 React.createElement(Slider, { updateSetting: this.props.updateSetting, value: this.props.settings.gridSkew, title: "Grid Skew", id: "gridSkew", min: "-350", max: "350", step: ".001" }),
                 React.createElement(Slider, { updateSetting: this.props.updateSetting, value: this.props.settings.cellHeight, title: "Cell Height", id: "cellHeight", min: "5", max: "150", step: ".001" }),
-                React.createElement(Slider, { updateSetting: this.props.updateSetting, value: this.props.settings.cellWidth, title: "Cell Width", id: "cellWidth", min: "5", max: "150", step: ".001" })
+                React.createElement(Slider, { updateSetting: this.props.updateSetting, value: this.props.settings.cellWidth, title: "Cell Width", id: "cellWidth", min: "5", max: "150", step: ".001" }),
+                React.createElement(Slider, { updateSetting: this.props.updateSetting, value: this.props.settings.spacing, title: "Spacing", id: "spacing", min: "-150", max: "150", step: ".001" })
             );
         }
     }]);
@@ -345,9 +346,9 @@ var App = function (_React$Component7) {
                 elementRotation: 20,
                 elementShape: 'circle',
                 smoothing: 20,
-                cellWidth: 60,
-                cellHeight: 60
-            }, _defineProperty(_settings, "smoothing", 10), _defineProperty(_settings, "text", "yz"), _settings)
+                cellWidth: 30,
+                cellHeight: 40
+            }, _defineProperty(_settings, "smoothing", 10), _defineProperty(_settings, "spacing", 17), _defineProperty(_settings, "text", "Space"), _settings)
 
         };
         _this7.updateSetting = _this7.updateSetting.bind(_this7);
@@ -385,7 +386,7 @@ var App = function (_React$Component7) {
             var _this8 = this;
 
             var letters = this.state.settings.text.toLowerCase().split('');
-            var gridWidth = this.state.settings.gridColumns * this.state.settings.cellWidth + defaultSize * this.state.settings.elementScaleX;
+            var gridWidth = this.state.settings.gridColumns * this.state.settings.cellWidth + defaultSize * this.state.settings.elementScaleX + this.state.settings.spacing;
             var gridHeight = this.state.settings.gridRows * this.state.settings.cellHeight;
             var baseX = this.state.width / 2 - gridWidth / 2 * letters.length;
             var baseY = this.state.height / 2 - gridHeight / 2;
@@ -426,6 +427,9 @@ maxStartEl.addEventListener("click", function (e) {
     maxContainer.classList.add('active');
 });
 initMax();
+
 maxContainer.addEventListener('click', function (e) {
-    maxContainer.classList.remove('active');
+    if (e.clientX > window.innerWidth / 2) {
+        maxContainer.classList.remove('active');
+    }
 });

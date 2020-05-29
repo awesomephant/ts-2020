@@ -204,6 +204,7 @@ class Settings extends React.Component {
 
                 <Slider updateSetting={this.props.updateSetting} value={this.props.settings.cellHeight} title='Cell Height' id='cellHeight' min='5' max='150' step='.001'></Slider>
                 <Slider updateSetting={this.props.updateSetting} value={this.props.settings.cellWidth} title='Cell Width' id='cellWidth' min='5' max='150' step='.001'></Slider>
+                <Slider updateSetting={this.props.updateSetting} value={this.props.settings.spacing} title='Spacing' id='spacing' min='-150' max='150' step='.001'></Slider>
             </div>
         )
     }
@@ -228,10 +229,11 @@ class App extends React.Component {
                 elementRotation: 20,
                 elementShape: 'circle',
                 smoothing: 20,
-                cellWidth: 60,
-                cellHeight: 60,
+                cellWidth: 30,
+                cellHeight: 40,
                 smoothing: 10,
-                text: "yz"
+                spacing: 17,
+                text: "Space"
             }
 
         }
@@ -262,7 +264,7 @@ class App extends React.Component {
 
     render() {
         const letters = this.state.settings.text.toLowerCase().split('');
-        const gridWidth = this.state.settings.gridColumns * this.state.settings.cellWidth + defaultSize * this.state.settings.elementScaleX;
+        const gridWidth = this.state.settings.gridColumns * this.state.settings.cellWidth + defaultSize * this.state.settings.elementScaleX + this.state.settings.spacing;
         const gridHeight = this.state.settings.gridRows * this.state.settings.cellHeight;
         let baseX = (this.state.width / 2) - ((gridWidth / 2) * letters.length);
         let baseY = (this.state.height / 2) - (gridHeight / 2)
@@ -299,6 +301,9 @@ maxStartEl.addEventListener("click", (e) => {
     maxContainer.classList.add('active')
 })
 initMax()
+
 maxContainer.addEventListener('click', (e) => {
-    maxContainer.classList.remove('active')
+    if (e.clientX > window.innerWidth / 2){
+        maxContainer.classList.remove('active')
+    }
 })

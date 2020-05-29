@@ -222,12 +222,12 @@ function expandImage(url) {
     lb.classList.remove('image')
     lb.classList.remove('video')
 
-    if (url.includes('.webp')) {
-        lbImage.setAttribute('src', url)
-        lb.classList.add('image')
-    } else if (url.includes('.mp4')) {
+    if (url.includes('.mp4')) {
         lbVideo.setAttribute('src', url)
         lb.classList.add('video')
+    } else {
+        lbImage.setAttribute('src', url)
+        lb.classList.add('image')
     }
     lb.classList.add('active')
 }
@@ -406,7 +406,7 @@ window.addEventListener('DOMContentLoaded', () => {
     toggleSections('title', 'on')
 
     userProfile = document.querySelector('.auth-user')
-//    let userList = document.querySelector('.site-users')
+    //    let userList = document.querySelector('.site-users')
 
     if (socket) {
         socket.on('connect', () => {
@@ -416,8 +416,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         socket.on('users', (users) => {
             const lis = UserList(users);
-          //  userList.innerHTML = ''
-           // userList.appendChild(lis)
+            //  userList.innerHTML = ''
+            // userList.appendChild(lis)
         });
         socket.on('error', (err) => {
             console.error(err)

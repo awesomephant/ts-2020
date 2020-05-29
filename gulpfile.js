@@ -10,7 +10,7 @@ gulp.task('images', () =>
     gulp.src('./submissions/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}')
         .pipe(srcset([
             {
-                format: ['webp'],
+                format: ['webp', 'jpg'],
                 width: sizes,
             }
         ]))

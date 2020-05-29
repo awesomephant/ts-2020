@@ -14,11 +14,7 @@
     src: url(/assets/BentonSans_carved.otf) format('opentype');
     font-weight: 100;
 }
-@font-face {
-    font-family: hadassah;
-    src: url(/assets/HadassahFriedlaender-Regular.ttf) format('truetype');
-    font-weight: 100;
-}
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
 @font-face {
     font-family: XronikaGX;

@@ -305,6 +305,8 @@ function initWorks() {
         const commentInput = w.querySelector('.comment-form .input')
         commentSubmit.addEventListener('click', (e) => {
             handleCommentSubmit(e, commentSection.getAttribute('data-project'), commentInput.textContent)
+            commentInput.textContent = "";
+            commentInput.focus()
         })
 
         const toggleCommentForm = w.querySelector('.toggleCommentForm');

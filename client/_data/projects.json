@@ -137,9 +137,9 @@
     "title": "Grid System",
     "description": "A speculative font editor/design tool for modular letterforms. Letterforms are created by placing markers on a predefined grid. The system then replaces these markers with geometric shapes to make up the letterform, and exposes controls to transform the shapes and the underlying grid. This was done as part of and ongoing personal project experimenting with home-made design tools.",
     "website": "maxkoehler.com",
-    "images": "Capture.PNG;Capture3.PNG;Capture4.PNG",
+    "images": "max-0_L.png;max-1_M.png;max-2_M.png;max-3_M.png",
     "typeface": "",
-    "Online": "No",
+    "Online": "Yes",
     "notes": "interactive, should this be interactive rather than screenshots?"
   },
   {
@@ -194,7 +194,7 @@
     "website": "",
     "images": "RichardB_TEMP_L.mp4",
     "typeface": "",
-    "Online": "No",
+    "Online": "Yes",
     "notes": "Needs twitch stream. Wants to be live for the PV, then can be live at another time during the show. "
   },
   {

@@ -5,7 +5,7 @@
     display: flex;
     z-index: 6000;
     pointer-events: none;
-    background-color: rgb(207, 147, 255);
+    background-color: var(--purple);
     transition: width 200ms;
     width: 10px;
     border-radius: 20px;

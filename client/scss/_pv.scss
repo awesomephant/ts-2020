@@ -1,0 +1,14 @@
+.pv {
+    display: inline;
+    * {
+        color: var(--yellow);
+    }
+}
+
+.pv-stream {
+    background-color: var(--yellow);
+    width: 10em;
+    height: 6em;
+    display: inline-block;
+    vertical-align: top;
+}

@@ -200,10 +200,10 @@ function CommentList(comments) {
         const content = document.createElement('span')
         meta.innerHTML = `<span class='comment-author'>${c.author.name} – ${c.created}</span>`
         li.classList.add('comment')
+        content.setAttribute('data-cursorText', c.author.name)
         content.classList.add('comment-content')
         content.innerText = c.text;
 
-        li.appendChild(meta)
         li.appendChild(content)
 
         fragment.appendChild(li)

@@ -293,50 +293,66 @@ function renderComments(comments) {
     })
 }
 
+function initArtistResponse(w) {
+    const toggle = w.querySelector('.toggleArtistResponse')
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            w.classList.toggle('open')
+        })
+    }
+}
+
 function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
 
         initImages(w)
+        initArtistResponse(w)
 
         // Bind comment form 
         const commentSection = w.querySelector('.comment-form')
         const commentSubmit = w.querySelector('.comment-submit')
         const commentInput = w.querySelector('.comment-form .input')
-        commentSubmit.addEventListener('click', (e) => {
-            handleCommentSubmit(e, commentSection.getAttribute('data-project'), commentInput.textContent)
-            commentInput.textContent = "";
-            commentInput.focus()
-        })
+        if (commentSubmit) {
+            commentSubmit.addEventListener('click', (e) => {
+                handleCommentSubmit(e, commentSection.getAttribute('data-project'), commentInput.textContent)
+                commentInput.textContent = "";
+                commentInput.focus()
+            })
+        }
+
+        if (commentInput) {
+            commentInput.addEventListener('input', () => {
+                if (commentInput.textContent.length > 5) {
+                    commentSubmit.classList.remove('disabled')
+                } else {
+                    commentSubmit.classList.add('disabled')
+                }
+            })
+        }
 
         const toggleCommentForm = w.querySelector('.toggleCommentForm');
-        toggleCommentForm.addEventListener('click', (e) => {
-            e.stopPropagation()
+        if (toggleCommentForm) {
+            toggleCommentForm.addEventListener('click', (e) => {
+                e.stopPropagation()
 
-            if (document.body.classList.contains('signed-in')) {
-                if (commentSection.classList.contains('form-active')) {
-                    commentSection.classList.remove('form-active')
-                    toggleCommentForm.setAttribute('data-cursorText', 'Add Response')
-                    toggleCommentForm.dispatchEvent(new Event('mouseover'))
+                if (document.body.classList.contains('signed-in')) {
+                    if (commentSection.classList.contains('form-active')) {
+                        commentSection.classList.remove('form-active')
+                        toggleCommentForm.setAttribute('data-cursorText', 'Add Response')
+                        toggleCommentForm.dispatchEvent(new Event('mouseover'))
+                    } else {
+                        toggleCommentForm.setAttribute('data-cursorText', 'Cancel')
+                        commentSection.classList.add('form-active')
+                        commentInput.focus();
+                        toggleCommentForm.dispatchEvent(new Event('mouseover'))
+                    }
                 } else {
-                    toggleCommentForm.setAttribute('data-cursorText', 'Cancel')
-                    commentSection.classList.add('form-active')
-                    commentInput.focus();
-                    toggleCommentForm.dispatchEvent(new Event('mouseover'))
+                    const signInEl = document.querySelector('#js-signin')
+                    signInEl.click()
                 }
-            } else {
-                const signInEl = document.querySelector('#js-signin')
-                signInEl.click()
-            }
-        })
-        commentInput.addEventListener('input', () => {
-            if (commentInput.textContent.length > 5) {
-                commentSubmit.classList.remove('disabled')
-            } else {
-                commentSubmit.classList.add('disabled')
-            }
-        })
-
+            })
+        }
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
         sections.forEach((s) => {

@@ -3,9 +3,26 @@ let me = {
     name: '',
 }
 let comments = [];
-let mouse = {
+let mousePos = {
     x: 0,
     y: 0
+}
+
+let cursor = {
+    text: '',
+    el: null,
+    textEl: null,
+    width: {
+        target: 2,
+        default: 2,
+    },
+    height: {
+        target: 20,
+        default: 10
+    },
+    textOpacity: {
+        current: 0
+    }
 }
 const gra = function (min, max) {
     return Math.random() * (max - min) + min;
@@ -435,6 +452,7 @@ window.addEventListener('DOMContentLoaded', () => {
         comments = res.data;
         if (comments) {
             renderComments(comments)
+            initCursor();
         }
     })
 })

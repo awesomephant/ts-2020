@@ -186,12 +186,23 @@ function initControls() {
 function toggleSections(section, status) {
     const targetSections = document.querySelectorAll(`.work-${section}`)
     targetSections.forEach(s => {
+        loadVideos(s);
         if (status === 'off') {
             s.classList.remove('open')
         } else if (status === 'on') {
             s.classList.add('open')
         }
 
+    })
+}
+
+function loadVideos(container) {
+    const videoEls = container.querySelectorAll('video')
+    videoEls.forEach(v => {
+        if (!v.getAttribute('src')){
+            v.setAttribute('src', v.getAttribute('data-src'))
+            console.log(`Setting src ${v.getAttribute('data-src')}`)
+        }
     })
 }
 
@@ -362,6 +373,7 @@ function initWorks() {
                 const c = s.getAttribute('data-controls')
                 const target = parent.querySelector(`.work-${c}`)
                 target.classList.toggle('open')
+                loadVideos(target)
             })
 
             let openBracket = document.createElement('span')
@@ -371,15 +383,17 @@ function initWorks() {
             openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
             openBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
+                loadVideos(s)
             })
-
+            
             let closeBracket = document.createElement('span')
             closeBracket.setAttribute('data-cursorText', sectionTitle.capitalize())
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
-
+            
             closeBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
+                loadVideos(s)
             })
 
             s.insertAdjacentElement('beforebegin', openBracket)

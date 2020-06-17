@@ -1,10 +1,12 @@
 {% for r in responses %}
 <section class="work pv pv-response">
-    <button data-cursorText="Show Guest Response"
-    class='toggleArtistResponse'>{+}</button>
+    <button data-cursorText="Show Guest Response" class='toggleArtistResponse'>{+}</button>
     <section data-section='Images' data-controls="description" data-cursorText="arrowRight" data-brackets='[]'
         class="work-section work-images">
-        {{r.images}}
+        {% assign images = r.images | split: ";" %}
+        {% for img in images %}
+            {% fig img %}
+        {% endfor %}
     </section>
 
     <section data-section='Text' data-controls="author" data-cursorText="arrowRight" data-brackets='[]'

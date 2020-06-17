@@ -17,7 +17,7 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addShortcode("fig", function (url) {
-        let height = 0
+        let height = 6
         if (url.includes('_S')) { height = 4 }
         if (url.includes('_M')) { height = 6 }
         if (url.includes('_L')) { height = 10 }

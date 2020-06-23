@@ -199,6 +199,7 @@ function toggleSections(section, status) {
 function loadVideos(container) {
     const videoEls = container.querySelectorAll('video')
     videoEls.forEach(v => {
+
         if (!v.getAttribute('src')) {
             v.setAttribute('src', v.getAttribute('data-src'))
             console.log(`Setting src ${v.getAttribute('data-src')}`)
@@ -390,12 +391,12 @@ function initWorks() {
                 s.classList.toggle('open')
                 loadVideos(s)
             })
-
+            
             let closeBracket = document.createElement('span')
             closeBracket.setAttribute('data-cursorText', sectionTitle.capitalize())
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
-
+            
             closeBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
                 loadVideos(s)

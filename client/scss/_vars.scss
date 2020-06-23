@@ -65,7 +65,7 @@
     --purple: rgb(207, 147, 255);
     --yellow: rgb(240, 225, 26);
     --ratio: 1.25; //Major 3
-    --ms-0: .75rem;
+    --ms-0: .6rem;
     --ms--1: calc(var(--ms-0) / var(--ratio));
     --ms-1: calc(var(--ms-0) * var(--ratio));
     --ms-2: calc(var(--ms-1) * var(--ratio));
@@ -75,6 +75,9 @@
     --ms-6: calc(var(--ms-5) * var(--ratio));
     --ms-7: calc(var(--ms-6) * var(--ratio));
     
+    @include bp(s){
+        --ms-0: .75rem;
+    }
     @include bp(m){
         --ms-0: .9rem;
     }
@@ -82,7 +85,7 @@
         --ms-0: 1.1rem;
     }
     @include bp(xl){
-        --ms-0: 1.28rem;
+        --ms-0: 1.15rem;
     }
 }
     

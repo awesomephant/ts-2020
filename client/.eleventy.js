@@ -36,7 +36,7 @@ module.exports = function (eleventyConfig) {
             </picture>
             `
         } else if (large.includes('.mp4')) {
-            content = `<video loading="lazy" autoplay muted loop style='height: ${height}em' src="${awsUrl + large}"></video>`
+            content = `<video loading="lazy" autoplay muted loop style='height: ${height}em' data-src="${awsUrl + large}"></video>`
         } else {
             content = `<img loading="lazy" style='height: ${height}em' src="${awsUrl + large}"/>`
         }

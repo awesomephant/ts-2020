@@ -7,7 +7,7 @@ const imageDest = './submissions_dest/'
 const sizes = [700, 1500]
 
 gulp.task('images', () =>
-    gulp.src('./submissions/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}')
+    gulp.src('./submissions/responses/*.{jpg,jpeg,JPG,JPEG,png,PNG}')
         .pipe(srcset([
             {
                 format: ['webp', 'jpg'],

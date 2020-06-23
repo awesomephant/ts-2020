@@ -199,7 +199,7 @@ function toggleSections(section, status) {
 function loadVideos(container) {
     const videoEls = container.querySelectorAll('video')
     videoEls.forEach(v => {
-        if (!v.getAttribute('src')){
+        if (!v.getAttribute('src')) {
             v.setAttribute('src', v.getAttribute('data-src'))
             console.log(`Setting src ${v.getAttribute('data-src')}`)
         }
@@ -326,44 +326,49 @@ function initWorks() {
     works.forEach((w) => {
 
         initImages(w)
+        initArtistResponse(w);
 
         // Bind comment form 
         const commentSection = w.querySelector('.comment-form')
         const commentSubmit = w.querySelector('.comment-submit')
         const commentInput = w.querySelector('.comment-form .input')
-        commentSubmit.addEventListener('click', (e) => {
-            handleCommentSubmit(e, commentSection.getAttribute('data-project'), commentInput.textContent)
-            commentInput.textContent = "";
-            commentInput.focus()
-        })
+        if (commentSubmit) {
 
-        const toggleCommentForm = w.querySelector('.toggleCommentForm');
-        toggleCommentForm.addEventListener('click', (e) => {
-            e.stopPropagation()
+            commentSubmit.addEventListener('click', (e) => {
+                handleCommentSubmit(e, commentSection.getAttribute('data-project'), commentInput.textContent)
+                commentInput.textContent = "";
+                commentInput.focus()
+            })
 
-            if (document.body.classList.contains('signed-in')) {
-                if (commentSection.classList.contains('form-active')) {
-                    commentSection.classList.remove('form-active')
-                    toggleCommentForm.setAttribute('data-cursorText', 'Add Response')
-                    toggleCommentForm.dispatchEvent(new Event('mouseover'))
+
+            const toggleCommentForm = w.querySelector('.toggleCommentForm');
+            toggleCommentForm.addEventListener('click', (e) => {
+                e.stopPropagation()
+
+                if (document.body.classList.contains('signed-in')) {
+                    if (commentSection.classList.contains('form-active')) {
+                        commentSection.classList.remove('form-active')
+                        toggleCommentForm.setAttribute('data-cursorText', 'Add Response')
+                        toggleCommentForm.dispatchEvent(new Event('mouseover'))
+                    } else {
+                        toggleCommentForm.setAttribute('data-cursorText', 'Cancel')
+                        commentSection.classList.add('form-active')
+                        commentInput.focus();
+                        toggleCommentForm.dispatchEvent(new Event('mouseover'))
+                    }
                 } else {
-                    toggleCommentForm.setAttribute('data-cursorText', 'Cancel')
-                    commentSection.classList.add('form-active')
-                    commentInput.focus();
-                    toggleCommentForm.dispatchEvent(new Event('mouseover'))
+                    const signInEl = document.querySelector('#js-signin')
+                    signInEl.click()
                 }
-            } else {
-                const signInEl = document.querySelector('#js-signin')
-                signInEl.click()
-            }
-        })
-        commentInput.addEventListener('input', () => {
-            if (commentInput.textContent.length > 5) {
-                commentSubmit.classList.remove('disabled')
-            } else {
-                commentSubmit.classList.add('disabled')
-            }
-        })
+            })
+            commentInput.addEventListener('input', () => {
+                if (commentInput.textContent.length > 5) {
+                    commentSubmit.classList.remove('disabled')
+                } else {
+                    commentSubmit.classList.add('disabled')
+                }
+            })
+        }
 
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
@@ -385,12 +390,12 @@ function initWorks() {
                 s.classList.toggle('open')
                 loadVideos(s)
             })
-            
+
             let closeBracket = document.createElement('span')
             closeBracket.setAttribute('data-cursorText', sectionTitle.capitalize())
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
-            
+
             closeBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
                 loadVideos(s)
@@ -411,6 +416,15 @@ function handleCommentSubmit(e, id, text) {
     let now = new Date()
     const data = { project: id, text: text, author: me, created: now.toISOString() }
     socket.emit('comment', data)
+}
+
+function initArtistResponse(w) {
+    const toggle = w.querySelector('.toggleArtistResponse')
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            w.classList.toggle('open')
+        })
+    }
 }
 
 function initRoland() {

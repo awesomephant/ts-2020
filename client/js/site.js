@@ -3,9 +3,26 @@ let me = {
     name: '',
 }
 let comments = [];
-let mouse = {
+let mousePos = {
     x: 0,
     y: 0
+}
+
+let cursor = {
+    text: '',
+    el: null,
+    textEl: null,
+    width: {
+        target: 2,
+        default: 2,
+    },
+    height: {
+        target: 20,
+        default: 10
+    },
+    textOpacity: {
+        current: 0
+    }
 }
 const gra = function (min, max) {
     return Math.random() * (max - min) + min;
@@ -169,12 +186,23 @@ function initControls() {
 function toggleSections(section, status) {
     const targetSections = document.querySelectorAll(`.work-${section}`)
     targetSections.forEach(s => {
+        loadVideos(s);
         if (status === 'off') {
             s.classList.remove('open')
         } else if (status === 'on') {
             s.classList.add('open')
         }
 
+    })
+}
+
+function loadVideos(container) {
+    const videoEls = container.querySelectorAll('video')
+    videoEls.forEach(v => {
+        if (!v.getAttribute('src')){
+            v.setAttribute('src', v.getAttribute('data-src'))
+            console.log(`Setting src ${v.getAttribute('data-src')}`)
+        }
     })
 }
 
@@ -200,10 +228,10 @@ function CommentList(comments) {
         const content = document.createElement('span')
         meta.innerHTML = `<span class='comment-author'>${c.author.name} – ${c.created}</span>`
         li.classList.add('comment')
+        content.setAttribute('data-cursorText', c.author.name)
         content.classList.add('comment-content')
         content.innerText = c.text;
 
-        li.appendChild(meta)
         li.appendChild(content)
 
         fragment.appendChild(li)
@@ -293,66 +321,50 @@ function renderComments(comments) {
     })
 }
 
-function initArtistResponse(w) {
-    const toggle = w.querySelector('.toggleArtistResponse')
-    if (toggle) {
-        toggle.addEventListener('click', () => {
-            w.classList.toggle('open')
-        })
-    }
-}
-
 function initWorks() {
     const works = document.querySelectorAll('.work')
     works.forEach((w) => {
 
         initImages(w)
-        initArtistResponse(w)
 
         // Bind comment form 
         const commentSection = w.querySelector('.comment-form')
         const commentSubmit = w.querySelector('.comment-submit')
         const commentInput = w.querySelector('.comment-form .input')
-        if (commentSubmit) {
-            commentSubmit.addEventListener('click', (e) => {
-                handleCommentSubmit(e, commentSection.getAttribute('data-project'), commentInput.textContent)
-                commentInput.textContent = "";
-                commentInput.focus()
-            })
-        }
-
-        if (commentInput) {
-            commentInput.addEventListener('input', () => {
-                if (commentInput.textContent.length > 5) {
-                    commentSubmit.classList.remove('disabled')
-                } else {
-                    commentSubmit.classList.add('disabled')
-                }
-            })
-        }
+        commentSubmit.addEventListener('click', (e) => {
+            handleCommentSubmit(e, commentSection.getAttribute('data-project'), commentInput.textContent)
+            commentInput.textContent = "";
+            commentInput.focus()
+        })
 
         const toggleCommentForm = w.querySelector('.toggleCommentForm');
-        if (toggleCommentForm) {
-            toggleCommentForm.addEventListener('click', (e) => {
-                e.stopPropagation()
+        toggleCommentForm.addEventListener('click', (e) => {
+            e.stopPropagation()
 
-                if (document.body.classList.contains('signed-in')) {
-                    if (commentSection.classList.contains('form-active')) {
-                        commentSection.classList.remove('form-active')
-                        toggleCommentForm.setAttribute('data-cursorText', 'Add Response')
-                        toggleCommentForm.dispatchEvent(new Event('mouseover'))
-                    } else {
-                        toggleCommentForm.setAttribute('data-cursorText', 'Cancel')
-                        commentSection.classList.add('form-active')
-                        commentInput.focus();
-                        toggleCommentForm.dispatchEvent(new Event('mouseover'))
-                    }
+            if (document.body.classList.contains('signed-in')) {
+                if (commentSection.classList.contains('form-active')) {
+                    commentSection.classList.remove('form-active')
+                    toggleCommentForm.setAttribute('data-cursorText', 'Add Response')
+                    toggleCommentForm.dispatchEvent(new Event('mouseover'))
                 } else {
-                    const signInEl = document.querySelector('#js-signin')
-                    signInEl.click()
+                    toggleCommentForm.setAttribute('data-cursorText', 'Cancel')
+                    commentSection.classList.add('form-active')
+                    commentInput.focus();
+                    toggleCommentForm.dispatchEvent(new Event('mouseover'))
                 }
-            })
-        }
+            } else {
+                const signInEl = document.querySelector('#js-signin')
+                signInEl.click()
+            }
+        })
+        commentInput.addEventListener('input', () => {
+            if (commentInput.textContent.length > 5) {
+                commentSubmit.classList.remove('disabled')
+            } else {
+                commentSubmit.classList.add('disabled')
+            }
+        })
+
         // Bind section events
         let sections = w.querySelectorAll('.work-section')
         sections.forEach((s) => {
@@ -361,6 +373,7 @@ function initWorks() {
                 const c = s.getAttribute('data-controls')
                 const target = parent.querySelector(`.work-${c}`)
                 target.classList.toggle('open')
+                loadVideos(target)
             })
 
             let openBracket = document.createElement('span')
@@ -370,15 +383,17 @@ function initWorks() {
             openBracket.innerText = s.getAttribute('data-brackets').split('')[0]
             openBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
+                loadVideos(s)
             })
-
+            
             let closeBracket = document.createElement('span')
             closeBracket.setAttribute('data-cursorText', sectionTitle.capitalize())
             closeBracket.innerText = s.getAttribute('data-brackets').split('')[1]
             closeBracket.classList.add('bracket')
-
+            
             closeBracket.addEventListener('click', (e) => {
                 s.classList.toggle('open')
+                loadVideos(s)
             })
 
             s.insertAdjacentElement('beforebegin', openBracket)
@@ -451,6 +466,7 @@ window.addEventListener('DOMContentLoaded', () => {
         comments = res.data;
         if (comments) {
             renderComments(comments)
+            initCursor();
         }
     })
 })

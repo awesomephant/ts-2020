@@ -1,6 +1,6 @@
 {% for r in responses %}
 <section class="work pv pv-response">
-    <button data-cursorText="Guest Response: {{r.name}}" class='toggleArtistResponse'>{+}</button>
+    <button data-cursorText="Guest Response" class='toggleArtistResponse'>{+}</button>
     
     <section data-section='Images' {% if r.text != "" %}data-controls="description"{% else %}data-controls="author"{%endif%} data-cursorText="arrowRight" data-brackets='[]'
         class="work-section work-images">
